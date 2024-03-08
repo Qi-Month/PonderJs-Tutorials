@@ -21,3 +21,43 @@ onEvent("ponder.registry", (e) => {});
 ```js
 Ponder.registry((e) => {});
 ```
+
+## 所需要的工具
+
+- 七根木棍(梯子)
+- ProbeJs
+- 那么**一丢丢**的 KubeJS 基础
+
+# 开始
+
+### 脚本目录位于.minecraft/kubejs/client_scripts 在此文件内的任意地方都可以,但是更建议在 client_scripts 内创建一个"Ponder"文件夹,将你的 Ponder 脚本丢进去,而 Ponder 文件夹内还可以套文件夹用于进一步的整理与分类,养成分类的好习惯,会让你的编写更加方便
+
+## 和其他的 KubeJS 脚本一样,开头都应该先声明事件,所有的编写都在{}内进行
+
+```js
+Ponder.registry((e) => {});
+```
+
+## 第一种(读取.nbt 文件进行编写)
+
+## (文件存储在.minecraft/kubejs/assets/kubejs/ponder)
+
+## 可以用"Create"Mod 的蓝图与笔或者原版的结构方块进行 nbt 结构的获取(这俩自己学习用法,本教程并不会教)
+
+## 在获取一个完整的 nbt 结构文件时,最好把地板也一起搭建并打包好
+可以打开Ponder的开发者模式,用于显示坐标(限制存档,新存档需要再次开启)
+## <image src="/assets/images/config.gif">
+
+## 在脚本中写入这些完成准备阶段
+
+```js
+Ponder.registry((e) => {
+  e.create("immersiveengineering:alloy_smelter") // 选择需要添加Ponder的Item
+    .scene(
+      "immersiveengineering:alloy_smelter", // Ponder ID
+      "高炉", // 侧边的文字显示
+      "kubejs:ie_2", // 读取的nbt文件
+      (scene, utils) => {}
+    );
+});
+```
