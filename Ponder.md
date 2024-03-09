@@ -52,7 +52,7 @@ Ponder.registry((e) => {});
 
 ```js
 Ponder.registry((e) => {
-  e.create("immersiveengineering:alloy_smelter") // 选择需要添加Ponder的Item
+  e.create("immersiveengineering:alloy_smelter") // 选择需要添加Ponder的Item, 相同Ponder添加复数Item的场合,用 [ ] 将所有Item包裹
     .scene(
       "immersiveengineering:alloy_smelter", // Ponder ID
       "高炉", // 侧边的文字显示
@@ -61,3 +61,18 @@ Ponder.registry((e) => {
     );
 });
 ```
+
+## 搭建第一个场景
+
+```js
+Ponder.registry((e) => {
+  e.create("immersiveengineering:alloy_smelter")
+    .scene("immersiveengineering:alloy_smelter", "高炉", "kubejs:ie_2", (scene, utils) => {
+
+        scene.showBasePlate();  // 显示读取的nbt文件的底板, 你也可以使用 `scene.showStructure()` 来显示读取的整个nbt文件。
+
+        scene.idle(n); // 等待 n ticks(20 ticks 为1秒), 你也可以使用 `scene.idleSeconds(n)` 来等待 n 秒。
+    });
+});
+```
+
