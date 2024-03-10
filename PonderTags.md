@@ -33,6 +33,16 @@ Ponder.tags(e => {
 });
 ```
 
+## P.S: 建立Ponder时一并设置其PonderTag
+
+```js
+Ponder.registry((e) => {
+  e.create('minecraft:iron_block')
+    .tag("kubejs:Iron_Golem")    // 只能添加已有的PonderTag, 添加复数PonderTag时无须 [ ],  用逗号隔开PonderTag即可
+    .scene("minecraft:Iron_Golem", "铁傀儡", "kubejs:ie_2", (scene, utils) => {});
+});
+```
+
 ## 第三种: 删除PonderTag内的的关联物品
 
 ```js
@@ -43,7 +53,6 @@ Ponder.tags(e => {
     );
 });
 ```
-
 
 ## 第四种: 删除已有的PonderTag
 
