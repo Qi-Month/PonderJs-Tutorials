@@ -45,8 +45,14 @@ Ponder.registry((e) => {});
 ## 可以用"Create"Mod 的蓝图与笔或者原版的结构方块进行 nbt 结构的获取(这俩自己学习用法,本教程并不会教)
 
 ## 在获取一个完整的 nbt 结构文件时,最好把地板也一起搭建并打包好
-可以打开Ponder的开发者模式,用于显示坐标(限制存档,新存档需要再次开启)
-## <image src="/assets/images/config.gif">
+
+可以打开 Ponder 的开发者模式,用于显示坐标(限制存档,新存档需要再次开启)
+
+## <image src="assets/images/config.gif">
+
+开启开发者模式后便可查看各个方块的坐标
+
+## <image src="assets/images/坐标.gif">
 
 ## 在脚本中写入这些完成准备阶段
 
@@ -61,3 +67,7 @@ Ponder.registry((e) => {
     );
 });
 ```
+
+## 根据我们自己搭建的结构,以及 Ponder 场景中的地板坐标,大致推算出各个方块的位置
+
+## <image src="assets/images/结构展示.png">
