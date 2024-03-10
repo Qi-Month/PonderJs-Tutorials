@@ -36,7 +36,7 @@ Ponder.registry((e) => {});
 
 # 开始
 
-### 脚本目录位于.minecraft/kubejs/client_scripts 在此文件内的任意地方都可以,但是更建议在 client_scripts 内创建一个"Ponder"文件夹,将你的 Ponder 脚本丢进去,而 Ponder 文件夹内还可以套文件夹用于进一步的整理与分类,养成分类的好习惯,会让你的编写更加方便
+### 脚本目录位于 客户端/kubejs/client_scripts 在此文件内的任意地方都可以,但是更建议在 client_scripts 内创建一个"Ponder"文件夹,将你的 Ponder 脚本丢进去,而 Ponder 文件夹内还可以套文件夹用于进一步的整理与分类,养成分类的好习惯,会让你的编写更加方便
 
 ## 和其他的 KubeJS 脚本一样,开头都应该先声明事件,所有的编写都在{}内进行
 
@@ -46,7 +46,7 @@ Ponder.registry((e) => {});
 
 # 第一种(读取.nbt 文件进行编写)
 
-## (nbt 文件存储在.minecraft/kubejs/assets/kubejs/ponder)
+## (nbt 文件存储在 客户端/kubejs/assets/kubejs/ponder)
 
 ## 可以用"Create"Mod 的蓝图与笔或者原版的结构方块进行 nbt 结构的获取(这俩自己学习用法,本教程并不会教)
 
