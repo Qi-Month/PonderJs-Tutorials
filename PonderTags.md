@@ -1,9 +1,3 @@
-# 使用 mod
-
-ponderjs-1.20.1-1.3.1
-
-kubejs-forge-2001.6.4-build.120
-
 # 前言
 
 > 什么是 PonderTag ?
