@@ -17,7 +17,7 @@ PonderJS魔改-概览
 
 - 条目和关联词条:一个条目内可以包含若干物品(即"关联词条").
   
-  相关内容请见[PonderTags.md]()。
+  相关内容请见[PonderTags.md](https://github.com/Qi-Month/PonderJs-Tutorials/blob/main/PonderTags.md)。
 
 - 思索场景
 
@@ -35,16 +35,20 @@ PonderJS魔改-概览
     
     这是思索的主要内容.在思索场景内,可以配合其他的各种元素来对思索主题进行讲解.
 
+  - 动力学属性
+    
+    通过修改部分方块的动力学属性,我们可以让思索场景中的应力网络真正旋转起来.
+
   - 连接线,外框
 
     连接线和外框可以用来突出显示某些方块,强调连接的二者的关系等.
 
-  相关内容请见[Ponder.md]().
+  相关内容请见[Ponder.md](https://github.com/Qi-Month/PonderJs-Tutorials/blob/main/Ponder.md).
 
 - 基本概念和实用工具
   您可能需要了解一些基础知识和基本概念来愉快的编写PonderJS,同时您也可能需要一些实用工具来加速思索场景的构建一类.
   
-  相关内容请见[Utils.md]().
+  相关内容请见[Utils.md](https://github.com/Qi-Month/PonderJs-Tutorials/blob/main/Utils.md).
 
 - 语言文件
   
@@ -52,7 +56,7 @@ PonderJS魔改-概览
   
   这有助于国际化翻译，和集中检查错误.
 
-  相关内容请见[PonderLang.md]().
+  相关内容请见[PonderLang.md](https://github.com/Qi-Month/PonderJs-Tutorials/blob/main/PonderLang.md).
 
 
 *最后,魔改愉快!*
