@@ -26,5 +26,6 @@ Ponder.registry((e) => {});
 ## 所需要的工具
 
 - 七根木棍(梯子)
+- PonderJS (低于 1.18.2),Ponder for KubeJS (高于等于 1.18.2)以及它们的前置
 - ProbeJs
-- 那么 **一丢丢** 的 KubeJs 基础
+- 那么 **一丢丢** 🌌🤏的 KubeJs 基础
