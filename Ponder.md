@@ -1,6 +1,4 @@
-# Ponder
-
-## 开始
+# 开始
 
 > 脚本目录位于 客户端 `/kubejs/client_scripts`
 >
@@ -13,7 +11,7 @@
 Ponder.registry((e) => {});
 ```
 
-## 准备阶段
+# 准备阶段
 
 首先, 你需要一个.nbt文件
 
@@ -118,7 +116,7 @@ scene.world.setBlocks([2, 1, 1], "create:encased_fan");
 scene.world.setBlocks([2, 1, 1], false, "create:encased_fan");
 ```
 
-## 显示方块
+# 显示方块
 仅仅放置方块并不够, 你还需要显示他
 
 ```js
@@ -135,6 +133,6 @@ scene.world.showSection([3, 1, 1, 1, 1, 3], Direction.down);
 
 > 实际上, showBasePlate 便是以 showSection 显示地板的简便写法
 
-## 关于放置与显示
+# 关于放置与显示
 若是某格方块是`***已显示状态***`, 此时在该格放置方块时, 该方块会直接显示出来, 不必再显示一次
 例如: 使用 showStructure(n) 时, y=0~n 的个格子全部变为`***已显示状态***`, 即使是空气方块
