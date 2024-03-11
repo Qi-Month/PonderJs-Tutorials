@@ -5,6 +5,7 @@
 > 脚本目录位于 客户端 `/kubejs/client_scripts`
 >
 > 在此文件内的任意地方都可以,但是更建议在 `client_scripts` 内创建一个 `Ponder` 文件夹,将你的 Ponder 脚本丢进去,而 Ponder 文件夹内还可以套文件夹用于进一步的整理与分类,养成分类的好习惯,会让你的编写更加方便
+> ![图片](kubejs/assets/images/文件夹.png)
 
 和其他的 KubeJS 脚本一样,开头都应该先声明事件,所有的编写都在 `{}` 内进行,毕竟都是 Js 的扩展
 
@@ -22,25 +23,23 @@ Ponder.registry((e) => {});
 
 可以打开 Ponder 的开发者模式,用于显示坐标(限制存档,新存档需要再次开启)
 
-![图片](assets/images/config.gif)
+![图片](kubejs/assets/images/config.gif)
 
 开启开发者模式后便可查看各个方块的坐标
 
-![图片](assets/images/坐标.gif)
-
-
+![图片](kubejs/assets/images/坐标.gif)
 
 ## 准备阶段
 
-在脚步中插入以下内容:
+在脚本中插入以下内容:
 
 ```js
 Ponder.registry((e) => {
-  e.create("immersiveengineering:alloy_smelter") // 选择需要添加Ponder的Item
+  e.create("kubejs:submarine_core") //
     .scene(
-      "immersiveengineering:alloy_smelter", // Ponder ID
-      "高炉", // 侧边的文字显示
-      "kubejs:ie_2", // 读取的nbt文件
+      "kubejs:submarine", // Ponder ID
+      "潜水艇 ", // 侧边显示的标题
+      "kubejs:submarine", // 读取的结构文件名称
       (scene, utils) => {}
     );
 });
@@ -48,11 +47,11 @@ Ponder.registry((e) => {
 
 根据我们自己搭建的结构,以及 Ponder 场景中的地板坐标,大致推算出各个方块的位置(别在意我这个铜块生锈,忘记用涂蜡的铜块了 QwQ)
 
-![图片](assets/images/结构展示.png)
+![图片](kubejs/assets/images/结构展示.png)
 
 注意:
 
-* 你地板的坐标 Y 轴是 0,所以要从 1 开始算
+- 你地板的坐标 Y 轴是 0,所以要从 1 开始算
 
 先让方块显示出来,我们在得先让地板显示出来,在 `{}` 内输入
 
@@ -65,7 +64,7 @@ scene.idle(20);
 
 该停顿的地方就换行的地方就换行,该缩进的地方就缩进,不要为了贪图快捷而把该有的东西给漏了,要记住你做出来的东西是给人看的,以后痛苦的是自己,一定要养成好习惯!
 
-> Erhai_lake温馨提示:
+> Erhai_lake 温馨提示:
 >
 > 代码如诗行千里路,规范编程点滴成风华.
 > 技术路漫漫修行难,规范编码莫欠债.
@@ -73,7 +72,7 @@ scene.idle(20);
 > 不把规范当玩笑,造福接手的程序员.
 >
 > 清晰注释似流水,变量命名如春风.
-> 逻辑严密如古琴,Bug修复似绣花.
+> 逻辑严密如古琴,Bug 修复似绣花.
 > 代码洁净如明镜,函数单一如画框.
 > 重构不停如江水,测试全面如明镜.
 >
@@ -87,13 +86,13 @@ scene.idle(20);
 
 ```js
 Ponder.registry((e) => {
-  e.create("immersiveengineering:alloy_smelter")
+  e.create("kubejs:submarine_core") //
     .scene(
-      "immersiveengineering:alloy_smelter", // Ponder ID
-      "高炉", // 侧边的文字显示
-      "kubejs:ie_2", // 读取的nbt文件
+      "kubejs:submarine", // Ponder ID
+      "潜水艇 ", // 侧边显示的标题
+      "kubejs:submarine", // 读取的结构文件名称
       (scene, utils) => {
-        // 显示底盘,同时停顿1秒钟
+        // 显示底盘
         scene.showBasePlate();
         scene.idle(20);
       }
@@ -117,4 +116,4 @@ scene.world.showSection([2, 1, 1], Direction.down);
 scene.world.showSection([3, 1, 1, 1, 1, 3], Direction.down);
 ```
 
-这样从 `[3,1,1]` 到 `[1,1,3]` 这一区域内的方块全部都会以下落的方式展现出来
+这样从 `[3,1,1]` 到 `[1,1,3]` 这一区域内的方块`(矩形)`全部都会以下落的方式展现出来
