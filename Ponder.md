@@ -82,8 +82,10 @@ Ponder.registry((e) => {
 > 在最开始, 我们需要显示部分的结构(例如地板), 你有一些选择, 在 `{ }` 内输入
 
 ```js
-scene.showBasePlate(); // 显示读取的nbt文件中, y=0 的部分
-scene.showStructure(n); // 显示读取的nbt文件中, y=0~n 的部分, 也可不填参数, 那个场合将整个nbt文件的结构显示
+// 显示读取的nbt文件中, y = 0 的部分
+scene.showBasePlate();
+// 显示读取的nbt文件中, y = 0 ~ n 的部分, 也可不填参数, 那个场合将整个nbt文件的结构显示
+scene.showStructure(n);
 ```
 
 > showBasePlate() 和 showStructure(0) 完全相等
@@ -93,13 +95,13 @@ scene.showStructure(n); // 显示读取的nbt文件中, y=0~n 的部分, 也可�
 > 显示完底盘直接开始动画你可能会觉得稍显快速, 此时你可以使用
 
 ```js
-scene.idle(20); // 等待 20 Tick
-scene.idleSeconds(1); // 等待 1 秒
+// 等待 20 Tick
+scene.idle(20);
+// 等待 1 秒
+scene.idleSeconds(1);
 ```
 
-> 20 Tick = 1 秒, 关于 Tick 更多信息可以到 [Minecraft 中文 wiki](https://zh.minecraft.wiki) 进行查看,这里不做过多的赘述
-
-这里提一嘴: 在 Ponder 中 `scene.idle(20);` 的作用是停顿,例如显示完底盘等 1s 再继续显示,就写上这个,时间单位是`Tick` ,在 Minecraft 中 1Tick = 0.05s,因此停顿一秒就是 20Tick,关于 Tick 的更多信息可以到 [Minecraft Wiki](https://zh.minecraft.wiki/w/%E5%88%BB) 进行查看,这里不做过多的赘述
+> 20 Tick = 1 秒, 关于 Tick 更多信息可以到 [Minecraft 中文 wiki](https://zh.minecraft.wiki) 进行查看, 这里不做过多的赘述
 
 `该停顿的地方就停顿,该换行的地方就换行,该缩进的地方就缩进,不要为了贪图快捷而把该有的东西给漏了,要记住你做出来的东西是给人看的,以后痛苦的是自己,一定要养成好习惯!`
 
@@ -140,10 +142,10 @@ Ponder.registry((e) => {
 
 # 放置方块
 
-> 下一步, 我们想要把鼓风机显示出来, 根据上图的结构我们得知右边的鼓风机的位置在`[2, 1, 1]`, 那我们接着写
+> 下一步, 我们想要把鼓风机显示出来, 根据上图的结构我们得知右边的鼓风机的位置在 `[2, 1, 1]`, 那我们接着写
 
 ```js
-// 在[2, 1, 2]放置鼓风机方块, 若该位置原本有方块, 则破坏该原本方块
+// 在 [2, 1, 1] 放置鼓风机方块, 若该位置原本有方块, 则破坏该原本方块
 scene.world.setBlocks([2, 1, 1], "create:encased_fan");
 
 // 同上, 但是不显示破坏方块时的粒子效果
@@ -155,7 +157,7 @@ scene.world.setBlocks([2, 1, 1], false, "create:encased_fan");
 仅仅放置方块并不够, 你还需要显示他
 
 ```js
-// 以从上面下落到坐标 [2,1,1] 的动画形式显示出这一格的方块
+// 以从上面下落到坐标 [2, 1, 1] 的动画形式显示出这一格的方块
 scene.world.showSection([2, 1, 1], Direction.down);
 ```
 
@@ -165,9 +167,7 @@ scene.world.showSection([2, 1, 1], Direction.down);
 scene.world.showSection([3, 1, 1, 1, 1, 3], Direction.down);
 ```
 
-这样以[3,1,1]及[1,1,3]为对角组成的`长方体区域内`的方块全部都会以下落的方式展现出来
+这样以 [3, 1, 1] 及  [1, 1, 3] 为对角组成的`长方体区域内`的方块全部都会以下落的方式展现出来
 
 若是某格方块是`已显示状态`, 此时在该格放置方块时, 该方块会直接显示出来, 不必再显示一次
-例如: 使用 showStructure(n) 时, y=0~n 的个格子全部变为`已显示状态`, 即使是空气方块
-
-这样从 `[3,1,1]` 到 `[1,1,3]` 这一区域内的方块`(矩形)`全部都会以下落的方式展现出来
+例如: 使用 showStructure(n) 时, y = 0 ~ n 的个格子全部变为`已显示状态`, 即使是空气方块
