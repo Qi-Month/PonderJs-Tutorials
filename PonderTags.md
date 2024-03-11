@@ -30,6 +30,7 @@ Ponder.tags((e) => {
   );
 });
 ```
+
 ![图片](kubejs/assets/images/PonderTag示例.gif)
 
 # 其二 画龙点睛
@@ -49,9 +50,14 @@ EX: 建立 Ponder 时一并设置其 PonderTag
 
 ```js
 Ponder.registry((e) => {
-  e.create('minecraft:iron_block')
-    .tag("kubejs:iron_golem")    // 只能添加已有的PonderTag, 添加复数PonderTag时无须 [ ],  用逗号隔开PonderTag即可
-    .scene("minecraft:Iron_Golem", "铁傀儡", "kubejs:ie_2", (scene, utils) => {});
+  e.create("minecraft:iron_block")
+    .tag("kubejs:iron_golem") // 只能添加已有的PonderTag, 添加复数PonderTag时无须 [ ],  用逗号隔开PonderTag即可
+    .scene(
+      "minecraft:Iron_Golem",
+      "铁傀儡",
+      "kubejs:ie_2",
+      (scene, utils) => {}
+    );
 });
 ```
 

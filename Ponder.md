@@ -32,7 +32,7 @@ Ponder.registry((e) => {});
 
 # 准备阶段
 
-首先, 你需要一个.nbt文件
+首先, 你需要一个.nbt 文件
 
 可以用 `Create Mod` 的蓝图与笔或者原版的结构方块获取 NBT 的结构(这俩自己学习用法,本教程并不会提及)
 
@@ -57,9 +57,8 @@ Ponder.registry((e) => {
       "kubejs:submarine", // Ponder ID
       "潜水艇 ", // 侧边显示的标题
       "kubejs:submarine", // 读取的结构文件名称, 可于assets自行下载
-      (scene, utils) => {
-
-    });
+      (scene, utils) => {}
+    );
 });
 ```
 
@@ -69,24 +68,28 @@ Ponder.registry((e) => {
 
 注意:
 
-- 离你最近的地板方块的坐标是[0, 0, 0],往左, 上, 右分别对应x, y, z
+- 离你最近的地板方块的坐标是[0, 0, 0],往左, 上, 右分别对应 x, y, z
 
 # 显示地板
+
 > 在最开始, 我们需要显示部分的结构(例如地板), 你有一些选择, 在 `{ }` 内输入
 
 ```js
-scene.showBasePlate();  // 显示读取的nbt文件中, y=0 的部分
-scene.showStructure(n);  // 显示读取的nbt文件中, y=0~n 的部分, 也可不填参数, 那个场合将整个nbt文件的结构显示
+scene.showBasePlate(); // 显示读取的nbt文件中, y=0 的部分
+scene.showStructure(n); // 显示读取的nbt文件中, y=0~n 的部分, 也可不填参数, 那个场合将整个nbt文件的结构显示
 ```
+
 > showBasePlate() 和 showStructure(0) 完全相等
 
 # 适当的等待
+
 > 显示完底盘直接开始动画你可能会觉得稍显快速, 此时你可以使用
 
 ```js
-scene.idle(20);  // 等待 20 Tick
-scene.idleSeconds(1);  // 等待 1 秒
+scene.idle(20); // 等待 20 Tick
+scene.idleSeconds(1); // 等待 1 秒
 ```
+
 > 20 Tick = 1 秒, 关于 Tick 更多信息可以到 [Minecraft 中文 wiki](https://zh.minecraft.wiki) 进行查看,这里不做过多的赘述
 
 这里提一嘴: 在 Ponder 中 `scene.idle(20);` 的作用是停顿,例如显示完底盘等 1s 再继续显示,就写上这个,时间单位是`Tick` ,在 Minecraft 中 1Tick = 0.05s,因此停顿一秒就是 20Tick,关于 Tick 的更多信息可以到 [Minecraft Wiki](https://zh.minecraft.wiki/w/%E5%88%BB) 进行查看,这里不做过多的赘述
@@ -115,16 +118,21 @@ scene.idleSeconds(1);  // 等待 1 秒
 
 ```js
 Ponder.registry((e) => {
-  e.create("kubejs:submarine_core")
-    .scene("kubejs:submarine", "潜水艇", "kubejs:submarine", (scene, utils) => {
-        // 显示底盘, 同时等待 20 Tick
-        scene.showBasePlate();
-        scene.idle(20);
-    });
+  e.create("kubejs:submarine_core").scene(
+    "kubejs:submarine",
+    "潜水艇",
+    "kubejs:submarine",
+    (scene, utils) => {
+      // 显示底盘, 同时等待 20 Tick
+      scene.showBasePlate();
+      scene.idle(20);
+    }
+  );
 });
 ```
 
 # 放置方块
+
 > 下一步, 我们想要把鼓风机显示出来, 根据上图的结构我们得知右边的鼓风机的位置在`[2, 1, 1]`, 那我们接着写
 
 ```js
@@ -136,6 +144,7 @@ scene.world.setBlocks([2, 1, 1], false, "create:encased_fan");
 ```
 
 # 显示方块
+
 仅仅放置方块并不够, 你还需要显示他
 
 ```js
@@ -148,6 +157,7 @@ scene.world.showSection([2, 1, 1], Direction.down);
 ```js
 scene.world.showSection([3, 1, 1, 1, 1, 3], Direction.down);
 ```
+
 这样以[3,1,1]及[1,1,3]为对角组成的`长方体区域内`的方块全部都会以下落的方式展现出来
 
 若是某格方块是`已显示状态`, 此时在该格放置方块时, 该方块会直接显示出来, 不必再显示一次
