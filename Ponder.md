@@ -155,7 +155,7 @@ scene.world.setBlocks([2, 1, 1], false, "create:encased_fan");
 仅仅放置方块并不够, 你还需要显示他
 
 ```js
-// 以从上面下落到坐标[2,1,2]的动画形式显示出这一格的方块
+// 以从上面下落到坐标 [2,1,1] 的动画形式显示出这一格的方块
 scene.world.showSection([2, 1, 1], Direction.down);
 ```
 
