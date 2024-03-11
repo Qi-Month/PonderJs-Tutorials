@@ -1,14 +1,10 @@
-# 关于 ponder 的分类
+# PonderTags
 
-### 脚本目录位于.minecraft/kubejs/client_scripts 在此文件内的任意地方都可以,但是更建议在 client_scripts 内创建一个"Ponder"文件夹,将你的 Ponder 脚本丢进去,而 Ponder 文件夹内还可以套文件夹用于进一步的整理与分类,养成分类的好习惯,会让你的编写更加方便
+## 关于 ponder 的分类
 
-## 和其他的 KubeJS 脚本一样,开头都应该先声明事件,所有的编写都在{}内进行
+### 第一种
 
-```js
-Ponder.tags((e) => {});
-```
-
-## 第一种: 建立新的 PonderTag
+> 建立新的 PonderTag
 
 ```js
 Ponder.tags((e) => {
@@ -22,7 +18,9 @@ Ponder.tags((e) => {
 });
 ```
 
-## 第二种: 为已有的 PonderTag 添加新的关联物品
+### 第二种
+
+> 为已有的 PonderTag 添加新的关联物品
 
 ```js
 Ponder.tags((e) => {
@@ -33,7 +31,7 @@ Ponder.tags((e) => {
 });
 ```
 
-## P.S: 建立 Ponder 时一并设置其 PonderTag
+PS: 建立 Ponder 时一并设置其 PonderTag
 
 ```js
 Ponder.registry((e) => {
@@ -43,7 +41,9 @@ Ponder.registry((e) => {
 });
 ```
 
-## 第三种: 删除 PonderTag 内的的关联物品
+### 第三种
+
+> 删除 PonderTag 内的的关联物品
 
 ```js
 Ponder.tags((e) => {
@@ -54,7 +54,9 @@ Ponder.tags((e) => {
 });
 ```
 
-## 第四种: 删除已有的 PonderTag
+### 第四种
+
+> 删除已有的 PonderTag
 
 ```js
 Ponder.tags((e) => {
