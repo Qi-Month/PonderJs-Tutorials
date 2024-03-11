@@ -9,6 +9,7 @@
   <ol>
     <li><a href="#前言">前言</a> </li>
     <li><a href="#开始之前">开始之前</a></li>
+	<li><a href="#正式开始">开始</a></li>
     <li><a href="#准备阶段">准备阶段</a></li>
     <li><a href="#显示地板">显示地板</a></li>
     <li><a href="#适当的等待">适当的等待</a></li>
@@ -19,7 +20,13 @@
 
 # 开始之前
 
-> 脚本目录位于 客户端 `/kubejs/client_scripts`
+Ciallo ～(∠·ω< )⌒☆ 这里是**柒星月**~,你也可以叫我**柒月**,那么在开始之前呢,我们先来看一段完整的`Ponder`演示,以方便了解一下`Ponder`究竟可以做什么
+![图片](kubejs/assets/images/完整.gif)
+可以看到`Ponder`除了`Create`自带的用法外,我们还可以使用它制作出`Modpack`内某些`多方块结构`以及`世界合成`等涉及到多个方块的工作方式
+
+# 正式开始
+
+> 脚本目录位于 `客户端/kubejs/client_scripts`
 >
 > 在此文件内的任意地方都可以,但是更建议在 `client_scripts` 内创建一个 `Ponder` 文件夹,将你的 Ponder 脚本丢进去,而 Ponder 文件夹内还可以套文件夹用于进一步的整理与分类,养成分类的好习惯,会让你的编写更加方便(注意一下我的目录)
 > ![图片](kubejs/assets/images/文件夹.png)
@@ -46,7 +53,7 @@ Ponder.registry((e) => {});
 
 ![图片](kubejs/assets/images/坐标.gif)
 
-> 将 nbt 文件存储在 客户端 `/kubejs/assets/kubejs/ponder/`
+> 将 nbt 文件存储在 `客户端/kubejs/assets/kubejs/ponder/`
 
 在脚本中插入以下内容:
 
