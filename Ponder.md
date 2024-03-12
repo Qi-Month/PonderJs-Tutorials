@@ -8,17 +8,17 @@
   <summary>目录（单击展开）</summary>
   <ol>
     <li><a href="#前言">前言</a> </li>
-
     <li><a href="#开始之前">开始之前</a></li>
     <li><a href="#正式开始">开始</a></li>
     <li><a href="#准备阶段">准备阶段</a></li>
     <li><a href="#显示地板">显示地板</a></li>
     <li><a href="#适当的等待">适当的等待</a></li>
+	<li><a href="#关键帧">关键帧</a></li>
     <li><a href="#放置方块">放置方块</a></li>
     <li><a href="#显示方块">显示方块</a></li>
     <li><a href="#文本显示">文本显示</a></li>
     <li><a href="#包边">包边</a></li>
-
+	<li><a href="操作交互">交互操作(左右键)</a></li>
   </ol>
 </details>
 
@@ -51,6 +51,7 @@ Ponder.registry((e) => {});
 首先,你需要一个`.nbt`文件
 
 可以用机械动力的[蓝图与笔](https://www.mcmod.cn/item/347848.html)或者原版的[结构方块](https://www.mcmod.cn/item/35469.html)获取 NBT 的结构(这俩自己去学习用法,本教程并不会提及)
+
 **这边提一个至关重要的点,如果你想要获取的结构仅仅只是一个地板,并且想要在这个地板的基础上做出很多 Ponder 的话,那地板上面所预留的空气方块也一样要足够!如果没有足够的空气方块那么普通方块也不会正常的显示!**
 ![图片](kubejs/assets/images/结构方块.png)
 **最推荐的就是像上图这样直接搞一个正方形的结构,包括空气方块!**
@@ -58,7 +59,7 @@ Ponder.registry((e) => {});
 
 可以打开 Ponder 的开发者模式,用于显示坐标(限制存档,新存档需要再次开启)
 
-![配置](kubejs/assets/images/config.gif)
+![配置](kubejs/assets/images/配置.gif)
 
 开启开发者模式后便可查看各个方块的坐标
 
@@ -152,6 +153,16 @@ Ponder.registry((e) => {
 });
 ```
 
+# 关键帧
+
+在 Ponder 场景的演示动画中,我们难免会遇见动画太长而我们只看某一段的场面,Ponder 却不想视频那样可以直接拖动进度条,但是却有一个接近的东西,在某些关键的地方创建一个个的跳转点
+![关键帧](kubejs/assets/images/关键帧.gif)
+
+```js
+// 单独语句
+scene.addKeyframe();
+```
+
 # 放置方块
 
 > 下一步,我们想要把鼓风机显示出来,根据上图的结构我们得知右边的鼓风机的位置在 `[2,1,1]`,那我们接着写
@@ -205,6 +216,13 @@ scene.text(40, "文本", [4.5, 3.5, 2]);
 scene.text(30, "文本");
 ```
 
+结合上文的关键帧知识点,我们也可以在文本处直接创建一个关键词
+
+```js
+scene.text(30, "文本");
+	.attachKeyFrame()
+```
+
 > 根据对 Minecraft 的了解,在文本前输入不同的代码可以使其呈现出不一样的效果,例如加粗以及图中的蓝色文本
 > 具体请到 👉[Minecraft wiki](https://zh.minecraft.wiki/w/格式化代码?variant=zh-cn#颜色代码)👈 进行查看
 
@@ -219,4 +237,35 @@ red不用我多说也知道是什么意思,但是Ponder场景自身似乎支持�
 坐标的选取可以和上面的一样直接选择一个区域,就如同图里的一样
 */
 scene.overlay.showOutline("red", {}, [7, 1, 3, 3, 5, 7], 30);
+```
+
+# 操作交互
+
+这种就是典型的一种右键操作示例图
+![右键](kubejs/assets/images/右键.png)
+
+交互显示并不会帮你实现任何操作,他能做的仅仅只有显示一个小框框在你的屏幕上,告诉看的人"这里的交互方式是右键",想要显示需要额外的操作,这里就是最基础的连接的开始了,先来看一段 GIF
+![右键操作](<kubejs/assets/images/右键(操作).gif>)
+
+这里就很经典的运用了两个知识点,`右键`和`替换方块`,我们先看看`右键`的代码
+
+```js
+scene
+  .showControls(30, utils.grid.at(3, 1, 5), "left") // 从右往左显示操作,时长为30tick
+  .rightClick() // 操作方式(右键)
+  .withItem("immersiveengineering:hammer"); // (显示所使用的Itme)
+```
+
+没错,就这么简单.一行行拆开来看也是非常的简单易懂
+
+如果搭配上`方块替换`来看,整串的代码就是这样
+
+```js
+// 右键操作
+scene
+  .showControls(80, utils.grid.at(2, 1, 2), "down") // 显示一个从上到下的动画箭头
+  .rightClick() // 操作的类型(右键)
+  .withItem("kubejs:sturdy_sheet_block"); // 需要的方块(如果空手右键就不写这一行)
+// 替换方块
+scene.world.setBlocks([2, 1, 2], "mekanism:cardboard_box", ture); // true想写就写,个人是没这个习惯,为了教程才写的
 ```
