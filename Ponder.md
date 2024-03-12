@@ -341,5 +341,3 @@ scene.showControls(80, [2, 1, 2], "down")
 ```
 
 [PonderIcons.md 跳转连接](kubejs/constant/PonderIcons.md).
-
-[def]: #进阶用法建议先把基础学好了再回来看这个
