@@ -26,7 +26,7 @@
 
 Ciallo ～(∠·ω< )⌒☆ 这里是**柒星月**~,你也可以叫我**柒月**,那么在开始之前呢,我们先来看一段完整的`Ponder`演示,以方便了解一下`Ponder`究竟可以做什么
 
-![图片](kubejs/assets/images/完整.gif)
+![完整gif](kubejs/assets/images/完整.gif)
 
 > 具体代码详见[Submarine](kubejs/client_scripts/Ponder/Submarine.js)
 > nbt 文件在[NBT](kubejs/assets/ponder/submarine.nbt)
@@ -38,7 +38,7 @@ Ciallo ～(∠·ω< )⌒☆ 这里是**柒星月**~,你也可以叫我**柒月**
 > 脚本目录位于 `客户端/kubejs/client_scripts`
 >
 > 在此文件内的任意地方都可以,但是更建议在 `client_scripts` 内创建一个 `Ponder` 文件夹,将你的 Ponder 脚本丢进去,而 `Ponder` 文件夹内还可以套文件夹用于进一步的整理与分类,养成分类的好习惯,会让你的编写更加方便(注意一下我的目录)
-> ![图片](kubejs/assets/images/文件夹.png)
+> ![文件夹展示](kubejs/assets/images/文件夹.png)
 
 和其他的 KubeJS 脚本一样,开头都应该先声明事件,所有的编写都在 `{}` 内进行,毕竟都是 `JavaScript` 的扩展
 
@@ -58,11 +58,11 @@ Ponder.registry((e) => {});
 
 可以打开 Ponder 的开发者模式,用于显示坐标(限制存档,新存档需要再次开启)
 
-![图片](kubejs/assets/images/config.gif)
+![配置](kubejs/assets/images/config.gif)
 
 开启开发者模式后便可查看各个方块的坐标
 
-![图片](kubejs/assets/images/坐标.gif)
+![坐标](kubejs/assets/images/坐标.gif)
 
 > 将 nbt 文件存储在 `客户端/kubejs/assets/kubejs/ponder/`
 
@@ -83,7 +83,7 @@ Ponder.registry((e) => {
 根据我们自己搭建的结构,以及 Ponder 场景中的地板坐标,大致推算出各个方块的位置
 (别在意我这个铜块生锈,忘记用涂蜡的铜块了 QwQ)
 
-![图片](kubejs/assets/images/结构展示.png)
+![结构展示](kubejs/assets/images/结构展示.png)
 
 注意:
 
@@ -190,7 +190,7 @@ scene.world.showSection([3, 1, 1, 1, 1, 3], Direction.down);
 文本显示很简单,这里我不会讲的特别详细(因为也没东西可以讲...)
 
 文本显示有两种,第一种是这种从某个坐标延伸出来的文本框
-![图片](kubejs/assets/images/文本1.png)
+![文本1](kubejs/assets/images/文本1.png)
 
 ```js
 // 40是时间,由Tick进行控制
@@ -198,7 +198,7 @@ scene.text(40, "文本", [4.5, 3.5, 2]);
 ```
 
 第二种则是直接在右上角显示的文本框
-![图片](kubejs/assets/images/文本2.png)
+![文本2](kubejs/assets/images/文本2.png)
 
 ```js
 // 和上面一样,30是显示的时间,由Tick进行控制
@@ -211,7 +211,7 @@ scene.text(30, "文本");
 # 包边
 
 和文本显示一样,都没什么可以讲的,所以挺短的
-![图片](kubejs/assets/images/包边.png)
+![包边](kubejs/assets/images/包边.png)
 
 ```js
 /*
