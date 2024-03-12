@@ -2,7 +2,7 @@
 
 > 什么是 Ponder ?
 
-为物品创建沉浸式场景,让玩家更容易理解其用途及细枝末节
+为物品创建沉浸式场景, 让玩家更容易理解其用途及细枝末节
 
 <details>
   <summary>目录（单击展开）</summary>
@@ -24,23 +24,23 @@
 
 # 开始之前
 
-Ciallo ～(∠·ω< )⌒☆ 这里是**柒星月**~,你也可以叫我**柒月**,那么在开始之前呢,我们先来看一段完整的`Ponder`演示,以方便了解一下`Ponder`究竟可以做什么
+Ciallo ～(∠·ω< )⌒☆ 这里是**柒星月**~, 你也可以叫我**柒月**, 那么在开始之前呢, 我们先来看一段完整的`Ponder`演示, 以方便了解一下`Ponder`究竟可以做什么
 
 ![完整gif](kubejs/assets/images/完整.gif)
 
 > 具体代码详见[Submarine](kubejs/client_scripts/Ponder/Submarine.js)
 > nbt 文件在[NBT](kubejs/assets/ponder/submarine.nbt)
 
-可以看到`Ponder`除了`Create`自带的用法外,我们还可以使用它制作出`Modpack`内某些`多方块结构`以及`世界合成`等涉及到多个方块的工作方式
+可以看到`Ponder`除了`Create`自带的用法外, 我们还可以使用它制作出`Modpack`内某些`多方块结构`以及`世界合成`等涉及到多个方块的工作方式
 
 # 正式开始
 
 > 脚本目录位于 `客户端/kubejs/client_scripts`
 >
-> 在此文件内的任意地方都可以,但是更建议在 `client_scripts` 内创建一个 `Ponder` 文件夹,将你的 Ponder 脚本丢进去,而 `Ponder` 文件夹内还可以套文件夹用于进一步的整理与分类,养成分类的好习惯,会让你的编写更加方便(注意一下我的目录)
+> 在此文件内的任意地方都可以, 但是更建议在 `client_scripts` 内创建一个 `Ponder` 文件夹, 将你的 Ponder 脚本丢进去, 而 `Ponder` 文件夹内还可以套文件夹用于进一步的整理与分类, 养成分类的好习惯, 会让你的编写更加方便(注意一下我的目录)
 > ![文件夹展示](kubejs/assets/images/文件夹.png)
 
-和其他的 KubeJS 脚本一样,开头都应该先声明事件,所有的编写都在 `{}` 内进行,毕竟都是 `JavaScript` 的扩展
+和其他的 KubeJS 脚本一样, 开头都应该先声明事件, 所有的编写都在 `{}` 内进行, 毕竟都是 `JavaScript` 的扩展
 
 ```js
 Ponder.registry((e) => {});
@@ -48,16 +48,18 @@ Ponder.registry((e) => {});
 
 # 准备阶段
 
-首先,你需要一个`.nbt`文件
+首先, 你需要一个 `.nbt` 文件
 
-可以用机械动力的[蓝图与笔](https://www.mcmod.cn/item/347848.html)或者原版的[结构方块](https://www.mcmod.cn/item/35469.html)获取 NBT 的结构(这俩自己去学习用法,本教程并不会提及)
+可以用机械动力的[蓝图与笔](https://www.mcmod.cn/item/347848.html)或者原版的[结构方块](https://www.mcmod.cn/item/35469.html)获取 NBT 的结构(这俩自己去学习用法, 本教程并不会提及)
 
-**这边提一个至关重要的点,如果你想要获取的结构仅仅只是一个地板,并且想要在这个地板的基础上做出很多 Ponder 的话,那地板上面所预留的空气方块也一样要足够!如果没有足够的空气方块那么普通方块也不会正常的显示!**
+**这边提一个至关重要的点, 如果你想要获取的结构仅仅只是一个地板, 并且想要在这个地板的基础上做出很多 Ponder 的话, 那地板上面所预留的空气方块也一样要足够!如果没有足够的空气方块那么普通方块也不会正常的显示!**
+
 ![图片](kubejs/assets/images/结构方块.png)
+
 **最推荐的就是像上图这样直接搞一个正方形的结构,包括空气方块!**
 在获取一个完整的 nbt 结构文件时,最好把地板也一起搭建并打包好
 
-可以打开 Ponder 的开发者模式,用于显示坐标(限制存档,新存档需要再次开启)
+可以打开 Ponder 的开发者模式,用于显示坐标(限制存档, 新存档需要再次开启)
 
 ![配置](kubejs/assets/images/配置.gif)
 
@@ -90,6 +92,15 @@ Ponder.registry((e) => {
 
 - 离你最近的地板方块的坐标是`[0,0,0]`,往`左`,`上`,`右`分别对应 `x,y,z`
 
+# 配置地板
+
+> 这是机械动力作者用来直接创建地板的方法
+
+```js
+// 其三个参数分别用于配置: X轴偏移, Z轴偏移以及地板大小
+scene.configureBasePlate(xOffset, zOffset, basePlateSize)
+```
+
 # 显示地板
 
 > 在最开始,我们需要显示部分的结构(例如地板),你有一些选择,在 `{}` 内输入
@@ -121,20 +132,29 @@ scene.idleSeconds(1);
 > Erhai_lake 温馨提示:
 >
 > 代码如诗行千里路,规范编程点滴成风华.
+> 
 > 技术路漫漫修行难,规范编码莫欠债.
+> 
 > 欠技术债一时爽,还债还千年.
+> 
 > 不把规范当玩笑,造福接手的程序员.
 >
 > 清晰注释似流水,变量命名如春风.
+> 
 > 逻辑严密如古琴,Bug 修复似绣花.
+> 
 > 代码洁净如明镜,函数单一如画框.
+> 
 > 重构不停如江水,测试全面如明镜.
 >
 > 持续集成如黄金,部署自动如飞翔.
+> 
 > 技术债务莫留下,规范编码当立志.
+> 
 > 传承优良编程风,后人称赞无忧愁.
 >
-> 诗词大意:将编程与诗歌相提并论,强调了规范编程的重要性,在编程道路上,遵循规范就如同写诗一样,需要点滴积累,同时强调了一下技术之路的艰辛和规范编码的必要性,警示不要欠下技术债务,否则将来还债将是漫长的过程(甚至还不起),最后强调了规范编码的价值,不仅可以造福当前的程序员,也能为后人留下优良的编程风格.
+> 诗词大意:将编程与诗歌相提并论,强调了规范编程的重要性,在编程道路上,遵循规范就如同写诗一样,需要点滴积累,同时强调了一下技术之路的艰辛和规范编码的必要性,
+> 警示不要欠下技术债务,否则将来还债将是漫长的过程(甚至还不起),最后强调了规范编码的价值,不仅可以造福当前的程序员,也能为后人留下优良的编程风格.
 
 此时你的代码应该如下面所示
 
@@ -159,10 +179,10 @@ Ponder.registry((e) => {
 ![关键帧](kubejs/assets/images/关键帧.gif)
 
 ```js
-// 创造一个关键帧
+// 在 当前 tick 创造一个关键帧
 scene.addKeyframe();
 
-// 在 5 Tick 后创造一个关键帧
+// 在 5 Tick 后(当前tick往后数的第六个tick)创造一个关键帧
 scene.addLazyKeyframe();
 ```
 
@@ -210,10 +230,66 @@ scene.world.showSection([3, 1, 1, 1, 1, 3], Direction.down);
 ```
 
 这样以 `[3,1,1]` 及 `[1,1,3]` 为对角组成的`矩形区域内`的方块全部都会以下落的方式展现出来
+
 同时上面的`setBlocks`也可以通过这样的方式以达到快速放置方块的效果
 
 若是某格方块是`已显示状态`,此时在该格放置方块时,该方块会直接显示出来,不必再显示一次
+
 例如: 使用 `showStructure(n)` 时,y = 0 ~ n 的个格子全部变为`已显示状态`,即使是空气方块
+
+> ### 注意
+>
+> - `[3, 1, 1, 1, 1, 3]`同样可以写为`[1, 1, 1, 3, 1, 3]`
+> - 并且无论哪种写法,`showSection`动画都将持续15 tick
+> - `showSection`方法将会把显示的区域合并到`baseWorldSection`中,即`scene.ponderjs$getPonderScene().baseWorldSection`
+
+## 进阶用法
+
+> ### showIndependentSection
+>
+> `scene.world.showIndependentSection(selection: Selection, fadeInDirection: Direction): ElementLink<WorldSectionElement>`
+>
+> 该方法用于显示一个区域,并返回该区域的`ElementLink`(此方法的动画同样持续15 tick)
+>
+> ```js
+> const example_link = scene.world.showIndependentSection([2 ,1 ,2], Direction.down);
+>  ```
+
+> ### showIndependentSection
+>
+> `scene.world.showIndependentSection(selection: Selection, fadeInDirection: Direction, fadeInDuration: number): ElementLink<WorldSectionElement>`
+>
+> 此方法相较与上面的方法,多了一个`fadeInDuration`参数
+> 
+> 该参数接受一个整数,用于修改动画持续时间
+
+> ### showIndependentSectionImmediately
+>
+> `scene.world.showIndependentSectionImmediately(selection: Selection): ElementLink<WorldSectionElement>`
+> 
+> 此方法是上述两个方法的简化版,作用是立刻显示一个区域,并且返回该区域的`ElementLink`
+> 
+> 作为简化的代价,该方法的默认`fadeInDirection`为`Direction.down`
+
+> ### showSectionAndMerge
+>
+> `scene.world.showSectionAndMerge(selection: Selection, fadeInDirection: Direction, link: ElementLink<WorldSectionElement>): void`
+>
+> 还记得我们刚刚创建的`example_link`吗?
+>
+> 便是此方法接受的`link`参数
+>
+> 该方法用于显示一个区域,并将显示的区域合并到`link`中(此方法的动画同样持续15 tick)
+
+> ### glueBlockOnto
+>
+> `scene.world.glueBlockOnto(blockPos: BlockPos, fadeInDirection: Direction, link: ElementLink<WorldSectionElement>): void`
+>
+> 这个方法是为了方便Java开发者而写的
+>
+> 在JavaScript中,它与上述方法的区别仅有第一个参数:
+> - 该方法只能传入一个方块坐标
+> - 而上述方法支持一个方块坐标或一个区域
 
 # 文本显示
 
@@ -297,13 +373,13 @@ scene.world.setBlocks([2, 1, 2], "mekanism:cardboard_box");
 > 此处额外列举其他接在 showControls 后面的方法
 
 ```js
-// 在 [2, 1, 2] 的上方创建一个向下指的框, 时长为 80 Tick, 框内显示 右键 及 "kubejs:sturdy_sheet_block"
 scene.showControls(80, [2, 1, 2], "down")
  .clone(); // 暂时不知道功能	
  .scroll(); // 在框内显示 鼠标中键(滚轮) 的图示
  .whileCTRL(); // 在框内显示 CTRL 的图示
  .withWrench(); // 在框内显示 机械动力的扳手 的图示
- .showing(picon); // 在框内显示 picon 对应的的图示, 所有 picon 可于 kubejs/constant/PonderIcons.md确认
+ .showing(picon); // 在框内显示 picon 对应的的图示, 所有 picon 可于 kubejs/constant/PonderIcons.md 确认
  .leftClick(); // 在框内显示 鼠标左键 的图示
  .whileSneaking(); // 在框内显示 潜行 的图示
 ```
+[PonderIcons.md跳转连接](https://github.com/Qi-Month/PonderJs-Tutorials/blob/main/kubejs/constant/PonderIcons.md).

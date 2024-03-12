@@ -12,6 +12,7 @@
     <li><a href="#其二-画龙点睛">为已有的 PonderTag 添加新的关联词条</a></li>
     <li><a href="#其三-去芜存菁">删除 PonderTag 内的的关联物品</a></li>
     <li><a href="#其四-一扫而空">删除已有的 PonderTag</a></li>
+    <li><a href="#其五-承上启下">机械动力自带的 PonderTag</a></li>
   </ol>
 </details>
 
@@ -20,13 +21,13 @@
 > 建立新的 PonderTag
 
 ```js
-Ponder.tags((e) => {
-  e.createTag(
-    "kubejs:iron_golem", // 你设定的PonderTag的id, 必须小写
-    "minecraft:iron_ingot", // 你设定的PonderTag的图标
-    "铁傀儡", // 你设定的PonderTag的名称
-    "铁傀儡是高大强壮的友好生物，用于保护玩家和村民。", // 你设定的PonderTag的介绍
-    ["minecraft:iron_block", "minecraft:carved_pumpkin"] // **可选参数** 你设定的PonderTag的关联词条, 只有一个时也能不用 [ ]
+Ponder.tags(event => {
+  event.createTag(
+    "kubejs:iron_golem", // 你设定的 PonderTag 的 id, 必须小写
+    "minecraft:iron_ingot", // 你设定的 PonderTag 的图标
+    "铁傀儡", // 你设定的 PonderTag 的名称
+    "铁傀儡是高大强壮的友好生物，用于保护玩家和村民。", // 你设定的 PonderTag 的介绍
+    ["minecraft:iron_block", "minecraft:carved_pumpkin"] // **可选参数** 你设定的 PonderTag 的关联词条, 只有一个时也能不用 [ ]
   );
 });
 ```
@@ -38,9 +39,9 @@ Ponder.tags((e) => {
 > 为已有的 PonderTag 添加新的关联词条
 
 ```js
-Ponder.tags((e) => {
-  e.add(
-    "kubejs:iron_golem", // 要编辑的PonderTag
+Ponder.tags(event => {
+  event.add(
+    "kubejs:iron_golem", // 要编辑的 PonderTag
     ["minecraft:iron_ingot", "minecraft:poppy"] // 要加入的关联词条, 只有一个时也能不用 [ ]
   );
 });
@@ -49,15 +50,10 @@ Ponder.tags((e) => {
 EX: 建立 Ponder 时一并设置其 PonderTag
 
 ```js
-Ponder.registry((e) => {
-  e.create("minecraft:iron_block")
-    .tag("kubejs:iron_golem") // 只能添加已有的PonderTag, 添加复数PonderTag时无须 [ ],  用逗号隔开PonderTag即可
-    .scene(
-      "minecraft:Iron_Golem",
-      "铁傀儡",
-      "kubejs:ie_2",
-      (scene, utils) => {}
-    );
+Ponder.registry(event => {
+  event.create("minecraft:iron_block")
+    .tag("kubejs:iron_golem") // 只能添加已有的 PonderTag, 添加复数 PonderTag 时无须 [ ],  用逗号隔开 PonderTag 即可
+    .scene("minecraft:Iron_Golem", "铁傀儡", "kubejs:ie_2", (scene, utils) => {});
 });
 ```
 
@@ -66,9 +62,9 @@ Ponder.registry((e) => {
 > 删除 PonderTag 内的的关联物品
 
 ```js
-Ponder.tags((e) => {
-  e.remove(
-    "kubejs:iron_golem", // 要编辑的PonderTag
+Ponder.tags(event => {
+  event.remove(
+    "kubejs:iron_golem", // 要编辑的 PonderTag
     ["minecraft:iron_ingot", "minecraft:poppy"] // 要删除的关联词条, 只有一个时也能不用 [ ]
   );
 });
@@ -79,15 +75,16 @@ Ponder.tags((e) => {
 > 删除已有的 PonderTag
 
 ```js
-Ponder.tags((e) => {
-  e.removeTag(
-    "kubejs:iron_golem" // 要删除的PonderTag, 删除复数PonderTag时无须 [ ],  用逗号隔开PonderTag即可
+Ponder.tags(event => {
+  event.removeTag(
+    "kubejs:iron_golem" // 要删除的 PonderTag, 删除复数 PonderTag 时无须 [ ],  用逗号隔开 PonderTag 即可
   );
 });
 ```
 
-> ## 机械动力自带的 [PonderTag](https://github.com/Creators-of-Create/Create/blob/mc1.18/dev/src/main/java/com/simibubi/create/infrastructure/ponder/AllPonderTags.java) 如下
->
+# 其五 承上启下
+> 机械动力自带的 [PonderTag](https://github.com/Creators-of-Create/Create/blob/mc1.18/dev/src/main/java/com/simibubi/create/infrastructure/ponder/AllPonderTags.java) 如下
+> 
 > | 标签                   | 图标       | 标题                   | 描述                                                               |
 > | ---------------------- | ---------- | ---------------------- | ------------------------------------------------------------------ |
 > | "kinetic_relays"       | 齿轮       | "动力方块"             | "用于传递旋转力的组件"                                             |
