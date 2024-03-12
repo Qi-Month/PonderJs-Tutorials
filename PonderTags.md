@@ -12,6 +12,7 @@
     <li><a href="#其二-画龙点睛">为已有的 PonderTag 添加新的关联词条</a></li>
     <li><a href="#其三-去芜存菁">删除 PonderTag 内的的关联物品</a></li>
     <li><a href="#其四-一扫而空">删除已有的 PonderTag</a></li>
+    <li><a href="#其五-承上启下">机械动力自带的 PonderTag</a></li>
   </ol>
 </details>
 
@@ -86,8 +87,9 @@ Ponder.tags((e) => {
 });
 ```
 
-> ## 机械动力自带的 [PonderTag](https://github.com/Creators-of-Create/Create/blob/mc1.18/dev/src/main/java/com/simibubi/create/infrastructure/ponder/AllPonderTags.java) 如下
->
+# 其五 承上启下
+> 机械动力自带的 [PonderTag](https://github.com/Creators-of-Create/Create/blob/mc1.18/dev/src/main/java/com/simibubi/create/infrastructure/ponder/AllPonderTags.java) 如下
+> 
 > | 标签                   | 图标       | 标题                   | 描述                                                               |
 > | ---------------------- | ---------- | ---------------------- | ------------------------------------------------------------------ |
 > | "kinetic_relays"       | 齿轮       | "动力方块"             | "用于传递旋转力的组件"                                             |
