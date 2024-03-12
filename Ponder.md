@@ -92,6 +92,15 @@ Ponder.registry((e) => {
 
 - 离你最近的地板方块的坐标是`[0,0,0]`,往`左`,`上`,`右`分别对应 `x,y,z`
 
+# 配置地板
+
+> 这是机械动力作者用来直接创建地板的方法
+
+```js
+// 其三个参数分别用于配置: X轴偏移, Z轴偏移以及地板大小
+scene.configureBasePlate(xOffset, zOffset, basePlateSize)
+```
+
 # 显示地板
 
 > 在最开始,我们需要显示部分的结构(例如地板),你有一些选择,在 `{}` 内输入
@@ -170,10 +179,10 @@ Ponder.registry((e) => {
 ![关键帧](kubejs/assets/images/关键帧.gif)
 
 ```js
-// 创造一个关键帧
+// 在 当前 tick 创造一个关键帧
 scene.addKeyframe();
 
-// 在 5 Tick 后创造一个关键帧
+// 在 5 Tick 后(当前tick往后数的第六个tick)创造一个关键帧
 scene.addLazyKeyframe();
 ```
 
@@ -222,10 +231,66 @@ scene.world.showSection([3, 1, 1, 1, 1, 3], Direction.down);
 ```
 
 这样以 `[3,1,1]` 及 `[1,1,3]` 为对角组成的`矩形区域内`的方块全部都会以下落的方式展现出来
+
 同时上面的`setBlocks`也可以通过这样的方式以达到快速放置方块的效果
 
 若是某格方块是`已显示状态`,此时在该格放置方块时,该方块会直接显示出来,不必再显示一次
+
 例如: 使用 `showStructure(n)` 时,y = 0 ~ n 的个格子全部变为`已显示状态`,即使是空气方块
+
+> ### 注意
+>
+> - `[3, 1, 1, 1, 1, 3]`同样可以写为`[1, 1, 1, 3, 1, 3]`
+> - 并且无论哪种写法,`showSection`动画都将持续15 tick
+> - `showSection`方法将会把显示的区域合并到`baseWorldSection`中,即`scene.ponderjs$getPonderScene().baseWorldSection`
+
+## 进阶用法
+
+> ### showIndependentSection
+>
+> `scene.world.showIndependentSection(selection: Selection, fadeInDirection: Direction): ElementLink<WorldSectionElement>`
+>
+> 该方法用于显示一个区域,并返回该区域的`ElementLink`(此方法的动画同样持续15 tick)
+>
+> ```js
+> const example_link = scene.world.showIndependentSection([2 ,1 ,2], Direction.down);
+>  ```
+
+> ### showIndependentSection
+>
+> `scene.world.showIndependentSection(selection: Selection, fadeInDirection: Direction, fadeInDuration: number): ElementLink<WorldSectionElement>`
+>
+> 此方法相较与上面的方法,多了一个`fadeInDuration`参数
+> 
+> 该参数接受一个整数,用于修改动画持续时间
+
+> ### showIndependentSectionImmediately
+>
+> `scene.world.showIndependentSectionImmediately(selection: Selection): ElementLink<WorldSectionElement>`
+> 
+> 此方法是上述两个方法的简化版,作用是立刻显示一个区域,并且返回该区域的`ElementLink`
+> 
+> 作为简化的代价,该方法的默认`fadeInDirection`为`Direction.down`
+
+> ### showSectionAndMerge
+>
+> `scene.world.showSectionAndMerge(selection: Selection, fadeInDirection: Direction, link: ElementLink<WorldSectionElement>): void`
+>
+> 还记得我们刚刚创建的`example_link`吗?
+>
+> 便是此方法接受的`link`参数
+>
+> 该方法用于显示一个区域,并将显示的区域合并到`link`中(此方法的动画同样持续15 tick)
+
+> ### glueBlockOnto
+>
+> `scene.world.glueBlockOnto(blockPos: BlockPos, fadeInDirection: Direction, link: ElementLink<WorldSectionElement>): void`
+>
+> 这个方法是为了方便Java开发者而写的
+>
+> 在JavaScript中,它与上述方法的区别仅有第一个参数:
+> - 该方法只能传入一个方块坐标
+> - 而上述方法支持一个方块坐标或一个区域
 
 # 文本显示
 
