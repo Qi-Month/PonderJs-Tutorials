@@ -159,8 +159,24 @@ Ponder.registry((e) => {
 ![关键帧](kubejs/assets/images/关键帧.gif)
 
 ```js
-// 单独语句
+// 创造一个关键帧
 scene.addKeyframe();
+
+// 在 5 Tick 后创造一个关键帧
+scene.addLazyKeyframe();
+```
+
+经过测试
+
+```js
+// 连续2个 addKeyframe 只会创造一个关键帧
+scene.addKeyframe();
+scene.addKeyframe();
+
+
+// 如此则会创造两个关键帧, 其间隔 5 Tick
+scene.addKeyframe();
+scene.addLazyKeyframe();
 ```
 
 # 放置方块
@@ -168,12 +184,16 @@ scene.addKeyframe();
 > 下一步,我们想要把鼓风机显示出来,根据上图的结构我们得知右边的鼓风机的位置在 `[2,1,1]`,那我们接着写
 
 ```js
-// 在[2,1,2]放置鼓风机方块,若该位置原本有方块,则破坏该原本方块,默认是true,可写可不写
-scene.world.setBlocks([2, 1, 1], "create:encased_fan", true);
+// 在[2,1,2]放置鼓风机方块,若该位置原本有方块,则破坏该原本方块
+scene.world.setBlocks([2, 1, 1], "create:encased_fan");
 
-// 同上,但是不显示破坏方块时的粒子效果
-scene.world.setBlocks([2, 1, 1], "create:encased_fan", false);
+// 同上, 若第三个参数为 false 则不显示破坏方块时的粒子效果
+scene.world.setBlocks([2, 1, 1], "create:encased_fan", true);
 ```
+
+> 值得一提的是, 后两个参数似乎是可以对调的, 即
+> 
+> scene.world.setBlocks([2, 1, 1], "create:encased_fan", false); = scene.world.setBlocks([2, 1, 1], false, "create:encased_fan");
 
 # 显示方块
 
@@ -201,26 +221,27 @@ scene.world.showSection([3, 1, 1, 1, 1, 3], Direction.down);
 文本显示很简单,这里我不会讲的特别详细(因为也没东西可以讲...)
 
 文本显示有两种,第一种是这种从某个坐标延伸出来的文本框
+
 ![文本1](kubejs/assets/images/文本1.png)
 
 ```js
-// 40是时间,由Tick进行控制
+// 显示 40 Tick "文本"
 scene.text(40, "文本", [4.5, 3.5, 2]);
 ```
 
 第二种则是直接在右上角显示的文本框
+
 ![文本2](kubejs/assets/images/文本2.png)
 
 ```js
-// 和上面一样,30是显示的时间,由Tick进行控制
+//  显示 30 Tick "文本"
 scene.text(30, "文本");
 ```
 
-结合上文的关键帧知识点,我们也可以在文本处直接创建一个关键词
+结合上文的关键帧知识点,我们也可以在文本处直接创建一个关键帧
 
 ```js
-scene.text(30, "文本");
-	.attachKeyFrame()
+scene.text(30, "文本").attachKeyFrame();
 ```
 
 > 根据对 Minecraft 的了解,在文本前输入不同的代码可以使其呈现出不一样的效果,例如加粗以及图中的蓝色文本
@@ -229,6 +250,7 @@ scene.text(30, "文本");
 # 包边
 
 和文本显示一样,都没什么可以讲的,所以挺短的
+
 ![包边](kubejs/assets/images/包边.png)
 
 ```js
@@ -242,18 +264,19 @@ scene.overlay.showOutline("red", {}, [7, 1, 3, 3, 5, 7], 30);
 # 操作交互
 
 这种就是典型的一种右键操作示例图
+
 ![右键](kubejs/assets/images/右键.png)
 
 交互显示并不会帮你实现任何操作,他能做的仅仅只有显示一个小框框在你的屏幕上,告诉看的人"这里的交互方式是左键亦或是右键",想要显示需要额外的操作,这里就是最基础的连接的开始了,先来看一段 GIF
+
 ![右键操作](<kubejs/assets/images/右键(操作).gif>)
 
 这里就很经典的运用了两个知识点,`右键`和`替换方块`,我们先看看`右键`的代码
 
 ```js
-scene
-  .showControls(30, utils.grid.at(3, 1, 5), "left") // 从右往左显示操作,时长为30tick
-  .rightClick() // 操作方式(右键)
-  .withItem("immersiveengineering:hammer"); // (显示所使用的Itme)
+scene.showControls(30, [3, 1, 5], "left") // 在 [3, 1, 5] 的右方创建一个向左指的框, 时长为 30 Tick
+  .rightClick() // 在框内显示 鼠标右键 的图示
+  .withItem("immersiveengineering:hammer"); // 在框内显示 "immersiveengineering:hammer" 的图示
 ```
 
 没错,就这么简单.一行行拆开来看也是非常的简单易懂
@@ -261,11 +284,24 @@ scene
 如果搭配上`方块替换`来看,整串的代码就是这样
 
 ```js
-// 右键操作
-scene
-  .showControls(80, utils.grid.at(2, 1, 2), "down") // 显示一个从上到下的动画箭头
-  .rightClick() // 操作的类型(右键)
-  .withItem("kubejs:sturdy_sheet_block"); // 需要的方块(如果空手右键就不写这一行)
+// 在 [2, 1, 2] 的上方创建一个向下指的框, 时长为 80 Tick, 框内显示 鼠标右键 及 "kubejs:sturdy_sheet_block"
+scene.showControls(80, [2, 1, 2], "down")
+ .rightClick()
+ .withItem("kubejs:sturdy_sheet_block");
+
 // 替换方块
-scene.world.setBlocks([2, 1, 2], "mekanism:cardboard_box", ture); // true想写就写,个人是没这个习惯,为了教程才写的
+scene.world.setBlocks([2, 1, 2], "mekanism:cardboard_box");
+```
+
+> 此处额外列举其他接在 showControls 后面的方法
+```js
+// 在 [2, 1, 2] 的上方创建一个向下指的框, 时长为 80 Tick, 框内显示 右键 及 "kubejs:sturdy_sheet_block"
+scene.showControls(80, [2, 1, 2], "down")
+ .clone(); // 暂时不知道功能
+ .scroll(); // 在框内显示 鼠标中键(滚轮) 的图示
+ .whileCTRL(); // 在框内显示 CTRL 的图示
+ .withWrench(); // 在框内显示 机械动力的扳手 的图示
+ .showing(picon); // 在框内显示 picon 对应的的图示, 所有 picon 可于 kubejs/constant/PonderIcons.md确认
+ .leftClick(); // 在框内显示 鼠标左键 的图示
+ .whileSneaking(); // 在框内显示 潜行 的图示
 ```
