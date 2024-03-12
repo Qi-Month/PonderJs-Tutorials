@@ -243,7 +243,7 @@ scene.world.showSection([3, 1, 1, 1, 1, 3], Direction.down);
 > - 并且无论哪种写法,`showSection`动画都将持续15 tick
 > - `showSection`方法将会把显示的区域合并到`baseWorldSection`中,即`scene.ponderjs$getPonderScene().baseWorldSection`
 
-## 进阶用法
+## 进阶用法(建议先把基础学好了再回来看这个)
 
 > ### showIndependentSection
 >
@@ -382,4 +382,4 @@ scene.showControls(80, [2, 1, 2], "down")
  .leftClick(); // 在框内显示 鼠标左键 的图示
  .whileSneaking(); // 在框内显示 潜行 的图示
 ```
-[PonderIcons.md跳转连接](https://github.com/Qi-Month/PonderJs-Tutorials/blob/main/kubejs/constant/PonderIcons.md).
+[PonderIcons.md跳转连接](kubejs/constant/PonderIcons.md).
