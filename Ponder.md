@@ -173,7 +173,6 @@ scene.addLazyKeyframe();
 scene.addKeyframe();
 scene.addKeyframe();
 
-
 // 如此则会创造两个关键帧, 其间隔 5 Tick
 scene.addKeyframe();
 scene.addLazyKeyframe();
@@ -192,7 +191,7 @@ scene.world.setBlocks([2, 1, 1], "create:encased_fan", true);
 ```
 
 > 值得一提的是, 后两个参数似乎是可以对调的, 即
-> 
+>
 > scene.world.setBlocks([2, 1, 1], "create:encased_fan", false); = scene.world.setBlocks([2, 1, 1], false, "create:encased_fan");
 
 # 显示方块
@@ -274,7 +273,8 @@ scene.overlay.showOutline("red", {}, [7, 1, 3, 3, 5, 7], 30);
 这里就很经典的运用了两个知识点,`右键`和`替换方块`,我们先看看`右键`的代码
 
 ```js
-scene.showControls(30, [3, 1, 5], "left") // 在 [3, 1, 5] 的右方创建一个向左指的框, 时长为 30 Tick
+scene
+  .showControls(30, [3, 1, 5], "left") // 在 [3, 1, 5] 的右方创建一个向左指的框, 时长为 30 Tick
   .rightClick() // 在框内显示 鼠标右键 的图示
   .withItem("immersiveengineering:hammer"); // 在框内显示 "immersiveengineering:hammer" 的图示
 ```
@@ -285,19 +285,21 @@ scene.showControls(30, [3, 1, 5], "left") // 在 [3, 1, 5] 的右方创建一个
 
 ```js
 // 在 [2, 1, 2] 的上方创建一个向下指的框, 时长为 80 Tick, 框内显示 鼠标右键 及 "kubejs:sturdy_sheet_block"
-scene.showControls(80, [2, 1, 2], "down")
- .rightClick()
- .withItem("kubejs:sturdy_sheet_block");
+scene
+  .showControls(80, [2, 1, 2], "down")
+  .rightClick()
+  .withItem("kubejs:sturdy_sheet_block");
 
 // 替换方块
 scene.world.setBlocks([2, 1, 2], "mekanism:cardboard_box");
 ```
 
 > 此处额外列举其他接在 showControls 后面的方法
+
 ```js
 // 在 [2, 1, 2] 的上方创建一个向下指的框, 时长为 80 Tick, 框内显示 右键 及 "kubejs:sturdy_sheet_block"
 scene.showControls(80, [2, 1, 2], "down")
- .clone(); // 暂时不知道功能
+ .clone(); // 暂时不知道功能	
  .scroll(); // 在框内显示 鼠标中键(滚轮) 的图示
  .whileCTRL(); // 在框内显示 CTRL 的图示
  .withWrench(); // 在框内显示 机械动力的扳手 的图示
