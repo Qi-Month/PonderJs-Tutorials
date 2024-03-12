@@ -27,6 +27,8 @@
 Ciallo ～(∠·ω< )⌒☆ 这里是**柒星月**~,你也可以叫我**柒月**,那么在开始之前呢,我们先来看一段完整的`Ponder`演示,以方便了解一下`Ponder`究竟可以做什么
 
 ![图片](kubejs/assets/images/完整.gif)
+具体代码详见[Submarine](kubejs/client_scripts/Ponder/Submarine.js)
+nbt文件在[NBT](kubejs/assets/ponder/submarine.nbt)
 
 可以看到`Ponder`除了`Create`自带的用法外,我们还可以使用它制作出`Modpack`内某些`多方块结构`以及`世界合成`等涉及到多个方块的工作方式
 
@@ -34,10 +36,10 @@ Ciallo ～(∠·ω< )⌒☆ 这里是**柒星月**~,你也可以叫我**柒月**
 
 > 脚本目录位于 `客户端/kubejs/client_scripts`
 >
-> 在此文件内的任意地方都可以,但是更建议在 `client_scripts` 内创建一个 `Ponder` 文件夹,将你的 Ponder 脚本丢进去,而 Ponder 文件夹内还可以套文件夹用于进一步的整理与分类,养成分类的好习惯,会让你的编写更加方便(注意一下我的目录)
+> 在此文件内的任意地方都可以,但是更建议在 `client_scripts` 内创建一个 `Ponder` 文件夹,将你的 Ponder 脚本丢进去,而 `Ponder` 文件夹内还可以套文件夹用于进一步的整理与分类,养成分类的好习惯,会让你的编写更加方便(注意一下我的目录)
 > ![图片](kubejs/assets/images/文件夹.png)
 
-和其他的 KubeJS 脚本一样,开头都应该先声明事件,所有的编写都在 `{}` 内进行,毕竟都是 Js 的扩展
+和其他的 KubeJS 脚本一样,开头都应该先声明事件,所有的编写都在 `{}` 内进行,毕竟都是 `JavaScript` 的扩展
 
 ```js
 Ponder.registry((e) => {});
@@ -47,7 +49,7 @@ Ponder.registry((e) => {});
 
 首先,你需要一个`.nbt`文件
 
-可以用机械动力的[`蓝图与笔`](https://www.mcmod.cn/item/347848.html)或者原版的[`结构方块`](https://www.mcmod.cn/item/35469.html)获取 NBT 的结构(这俩自己去学习用法,本教程并不会提及)
+可以用机械动力的[蓝图与笔](https://www.mcmod.cn/item/347848.html)或者原版的[结构方块](https://www.mcmod.cn/item/35469.html)获取 NBT 的结构(这俩自己去学习用法,本教程并不会提及)
 **这边提一个至关重要的点,如果你想要获取的结构仅仅只是一个地板,并且想要在这个地板的基础上做出很多 Ponder 的话,那地板上面所预留的空气方块也一样要足够!如果没有足够的空气方块那么普通方块也不会正常的显示!**
 ![图片](kubejs/assets/images/结构方块.png)
 **最推荐的就是像上图这样直接搞一个正方形的结构,包括空气方块!**
@@ -110,7 +112,7 @@ scene.idle(20);
 scene.idleSeconds(1);
 ```
 
-> 20 Tick = 1 秒,关于 Tick 更多信息可以到 👉[Minecraft 中文 wiki](https://zh.minecraft.wiki)👈 进行查看,这里不做过多的赘述
+> 20 Tick = 1 秒,关于 Tick 更多信息可以到 👉[Minecraft 中文 wiki]( https://zh.minecraft.wiki/w/刻?variant=zh-cn)👈 进行查看,这里不做过多的赘述
 
 `该停顿的地方就停顿,该换行的地方就换行,该缩进的地方就缩进,不要为了贪图快捷而把该有的东西给漏了.要记住你做出来的东西是给人看的,以后痛苦的是自己,一定要养成好习惯!`
 
