@@ -6,17 +6,17 @@
 
 # 开始之前
 
-当你完成代码并启动游戏时, Ponder 会自动生成对应的名为 `en_us.json` 的翻译文件`(即使你的代码内对应的描述并非英文)`, 其档案路径为
+当你完成代码并启动游戏时, Ponder 会自动生成对应的名为 `en_us.json` 的翻译文件 **（即使你的代码内对应的描述并非英文）**, 其档案路径为
 
-> kubejs\assets\ponderjs_generated\lang\en_us.json
+> `kubejs\assets\ponderjs_generated\lang\en_us.json`
 >
 > 注意 : 每次启动游戏都会根据你的代码重置 `en_us.json` 的内容
 
-此处只举两个简单的例子 :
+此处只举两个简单的例子：
 
-> en_us.json 对应英文
+> `en_us.json` 对应英文
 >
-> zh_cn.json 对应简体中文
+> `zh_cn.json` 对应简体中文
 
 # PonderTag 的部分
 
@@ -37,15 +37,15 @@ Ponder.tags(event => {
 }
 ```
 
-> kubejs 对应 PonderTag 的 id 的前缀
+> `kubejs` 对应 PonderTag 的 id 的命名空间（namespace）
 >
-> ponder.tag 代表其对应 tag 部分
+> `ponder.tag` 代表其对应 tag 部分
 >
-> iron_golem 对应 PonderTag 的 id 的后缀
+> `iron_golem` 对应 PonderTag 的 id 的路径（path）
 
 # Ponder 的部分
 
-以位于 `client_scripts` 的名为 `Submarine.js` 的以下代码为例 `(可于assets自行下载)`
+以位于 `client_scripts` 的名为 `Submarine.js` 的以下代码为例 **（可于 assets 自行下载）**
 
 ```js
 Ponder.registry(event => {
@@ -66,8 +66,8 @@ Ponder.registry(event => {
 }
 ```
 
-> kubejs.ponder.submarine 对应 Ponder 的 id
+> `kubejs.ponder.submarine` 对应 Ponder 的 id
 >
-> header 对应 Ponder 的标题
+> `header` 对应 Ponder 的标题
 >
-> text_1 依照显示的顺序依序生成 text_1 ~ text_n
+> `text_1` 依照显示的顺序依序生成 text_1 ~ text_n
