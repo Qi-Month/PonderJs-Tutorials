@@ -1,19 +1,18 @@
 # 前言
 
-> 什么是 PonderTag ?
+> 什么是 PonderTag？
 
 在思索索引创建分类, 相同分类的 Ponder 也能互相跳转, 是非常方便的功能
 
 <details>
   <summary>目录（单击展开）</summary>
-  <ol>
-    <li><a href="#前言">前言</a> </li>
-    <li><a href="#其一-无中生有">建立新的 PonderTag</a></li>
-    <li><a href="#其二-画龙点睛">为已有的 PonderTag 添加新的关联词条</a></li>
-    <li><a href="#其三-去芜存菁">删除 PonderTag 内的的关联物品</a></li>
-    <li><a href="#其四-一扫而空">删除已有的 PonderTag</a></li>
-    <li><a href="#其五-承上启下">机械动力自带的 PonderTag</a></li>
-  </ol>
+
+  1. [前言](#前言)
+  2. [建立新的 PonderTag](#其一-无中生有)
+  3. [为已有的 PonderTag 添加新的关联词条](#其二-画龙点睛)
+  4. [删除 PonderTag 内的的关联物品](#其三-去芜存菁)
+  5. [删除已有的 PonderTag](#其四-一扫而空)
+  6. [机械动力自带的 PonderTag](#其五-承上启下)
 </details>
 
 # 其一 无中生有
@@ -53,7 +52,7 @@ EX: 建立 Ponder 时一并设置其 PonderTag
 Ponder.registry(event => {
   event.create("minecraft:iron_block")
     .tag("kubejs:iron_golem") // 只能添加已有的 PonderTag, 添加复数 PonderTag 时无须 [ ],  用逗号隔开 PonderTag 即可
-    .scene("minecraft:Iron_Golem", "铁傀儡", "kubejs:ie_2", (scene, utils) => {});
+    .scene("kubejs:iron_golem", "铁傀儡", "kubejs:base_plate_5", (scene, utils) => {});
 });
 ```
 
@@ -83,6 +82,7 @@ Ponder.tags(event => {
 ```
 
 # 其五 承上启下
+
 > 机械动力自带的 [PonderTag](https://github.com/Creators-of-Create/Create/blob/mc1.18/dev/src/main/java/com/simibubi/create/infrastructure/ponder/AllPonderTags.java) 如下
 > 
 > | 标签                   | 图标       | 标题                   | 描述                                                               |
