@@ -33,7 +33,7 @@ Ponder.registry(event => {
 
             scene.addKeyframe();
 
-            scene.text(20, '注意 : §4这四个位置必须是空气方块§r\n任何非空气方块（包括雪、高草和水）在这四个位置时都会阻碍铁魔像 生成');
+            scene.text(20, '注意 : §4这四个位置必须是空气方块§r\n任何非空气方块（包括雪、高草和水）在这四个位置时都会阻碍铁傀儡的生成');
 
             scene.overlay.showOutline("green", {}, [3, 1, 2], 20);
             scene.overlay.showOutline("green", {}, [3, 3, 2], 20);
