@@ -295,13 +295,13 @@ scene.world.setBlocks([2, 1, 2], "mekanism:cardboard_box");
 
 > 此处额外列举其他接在 showControls 后面的方法
 ```js
-// 在 [2, 1, 2] 的上方创建一个向下指的框, 时长为 80 Tick, 框内显示 右键 及 "kubejs:sturdy_sheet_block"
 scene.showControls(80, [2, 1, 2], "down")
  .clone(); // 暂时不知道功能
  .scroll(); // 在框内显示 鼠标中键(滚轮) 的图示
  .whileCTRL(); // 在框内显示 CTRL 的图示
  .withWrench(); // 在框内显示 机械动力的扳手 的图示
- .showing(picon); // 在框内显示 picon 对应的的图示, 所有 picon 可于 kubejs/constant/PonderIcons.md确认
+ .showing(picon); // 在框内显示 picon 对应的的图示, 所有 picon 可于 kubejs/constant/PonderIcons.md 确认
  .leftClick(); // 在框内显示 鼠标左键 的图示
  .whileSneaking(); // 在框内显示 潜行 的图示
 ```
+[PonderIcons.md](https://github.com/Qi-Month/PonderJs-Tutorials/blob/main/kubejs/constant/PonderIcons.md).
