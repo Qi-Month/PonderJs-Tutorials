@@ -23,8 +23,13 @@
 以位于 `client_scripts` 的名为 `PonderTag.js` 的以下代码为例
 
 ```js
-Ponder.tags(event => {
-  event.createTag("kubejs:iron_golem", "minecraft:iron_ingot", "铁傀儡", "铁傀儡是高大强壮的友好生物，用于保护玩家和村民。");
+Ponder.tags((event) => {
+  event.createTag(
+    "kubejs:iron_golem",
+    "minecraft:iron_ingot",
+    "铁傀儡",
+    "铁傀儡是高大强壮的友好生物，用于保护玩家和村民。"
+  );
 });
 ```
 
@@ -48,11 +53,13 @@ Ponder.tags(event => {
 以位于 `client_scripts` 的名为 `Submarine.js` 的以下代码为例 **（可于 assets 自行下载）**
 
 ```js
-Ponder.registry(event => {
-  event.create("kubejs:submarine_core").scene("kubejs:submarine", "潜水艇", "kubejs:submarine", (scene, utils) => {
+Ponder.registry((event) => {
+  event
+    .create("kubejs:submarine_core")
+    .scene("kubejs:submarine", "潜水艇", "kubejs:submarine", (scene, utils) => {
       scene.text(40, "第一个文本");
       scene.text(40, "第二个文本");
-  });
+    });
 });
 ```
 

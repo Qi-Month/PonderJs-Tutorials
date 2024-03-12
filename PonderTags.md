@@ -7,12 +7,12 @@
 <details>
   <summary>目录（单击展开）</summary>
 
-  1. [前言](#前言)
-  2. [建立新的 PonderTag](#其一-无中生有)
-  3. [为已有的 PonderTag 添加新的关联词条](#其二-画龙点睛)
-  4. [删除 PonderTag 内的的关联物品](#其三-去芜存菁)
-  5. [删除已有的 PonderTag](#其四-一扫而空)
-  6. [机械动力自带的 PonderTag](#其五-承上启下)
+1. [前言](#前言)
+2. [建立新的 PonderTag](#其一-无中生有)
+3. [为已有的 PonderTag 添加新的关联词条](#其二-画龙点睛)
+4. [删除 PonderTag 内的的关联物品](#其三-去芜存菁)
+5. [删除已有的 PonderTag](#其四-一扫而空)
+6. [机械动力自带的 PonderTag](#其五-承上启下)
 </details>
 
 # 其一 无中生有
@@ -20,7 +20,7 @@
 > 建立新的 PonderTag
 
 ```js
-Ponder.tags(event => {
+Ponder.tags((event) => {
   event.createTag(
     "kubejs:iron_golem", // 你设定的 PonderTag 的 id, 必须小写
     "minecraft:iron_ingot", // 你设定的 PonderTag 的图标
@@ -38,7 +38,7 @@ Ponder.tags(event => {
 > 为已有的 PonderTag 添加新的关联词条
 
 ```js
-Ponder.tags(event => {
+Ponder.tags((event) => {
   event.add(
     "kubejs:iron_golem", // 要编辑的 PonderTag
     ["minecraft:iron_ingot", "minecraft:poppy"] // 要加入的关联词条, 只有一个时也能不用 [ ]
@@ -49,10 +49,16 @@ Ponder.tags(event => {
 EX: 建立 Ponder 时一并设置其 PonderTag
 
 ```js
-Ponder.registry(event => {
-  event.create("minecraft:iron_block")
+Ponder.registry((event) => {
+  event
+    .create("minecraft:iron_block")
     .tag("kubejs:iron_golem") // 只能添加已有的 PonderTag, 添加复数 PonderTag 时无须 [ ],  用逗号隔开 PonderTag 即可
-    .scene("kubejs:iron_golem", "铁傀儡", "kubejs:base_plate_5", (scene, utils) => {});
+    .scene(
+      "kubejs:iron_golem",
+      "铁傀儡",
+      "kubejs:base_plate_5",
+      (scene, utils) => {}
+    );
 });
 ```
 
@@ -61,7 +67,7 @@ Ponder.registry(event => {
 > 删除 PonderTag 内的的关联物品
 
 ```js
-Ponder.tags(event => {
+Ponder.tags((event) => {
   event.remove(
     "kubejs:iron_golem", // 要编辑的 PonderTag
     ["minecraft:iron_ingot", "minecraft:poppy"] // 要删除的关联词条, 只有一个时也能不用 [ ]
@@ -74,7 +80,7 @@ Ponder.tags(event => {
 > 删除已有的 PonderTag
 
 ```js
-Ponder.tags(event => {
+Ponder.tags((event) => {
   event.removeTag(
     "kubejs:iron_golem" // 要删除的 PonderTag, 删除复数 PonderTag 时无须 [ ],  用逗号隔开 PonderTag 即可
   );
@@ -84,7 +90,7 @@ Ponder.tags(event => {
 # 其五 承上启下
 
 > 机械动力自带的 [PonderTag](https://github.com/Creators-of-Create/Create/blob/mc1.18/dev/src/main/java/com/simibubi/create/infrastructure/ponder/AllPonderTags.java) 如下
-> 
+>
 > | 标签                   | 图标       | 标题                   | 描述                                                               |
 > | ---------------------- | ---------- | ---------------------- | ------------------------------------------------------------------ |
 > | "kinetic_relays"       | 齿轮       | "动力方块"             | "用于传递旋转力的组件"                                             |
