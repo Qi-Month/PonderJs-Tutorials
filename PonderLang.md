@@ -20,7 +20,7 @@
 
 # PonderTag 的部分
 
-以位于 `client_scripts` 的名为 `PonderTag.js` 的以下代码为例 **（可于 assets 自行下载）**
+以位于 `client_scripts` 的名为 [PonderTag.js](kubejs/client_scripts/Ponder/PonderTag.js) 的以下代码为例
 
 ```js
 Ponder.tags((event) => {
@@ -50,7 +50,7 @@ Ponder.tags((event) => {
 
 # Ponder 的部分
 
-以位于 `client_scripts` 的名为 `Submarine.js` 的以下代码为例 **（可于 assets 自行下载）**
+以位于 `client_scripts` 的名为 [Submarine.js](kubejs/client_scripts/Ponder/Submarine.js) 的以下代码为
 
 ```js
 Ponder.registry((event) => {
