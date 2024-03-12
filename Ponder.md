@@ -315,4 +315,4 @@ scene.showControls(80, [2, 1, 2], "down")
  .leftClick(); // 在框内显示 鼠标左键 的图示
  .whileSneaking(); // 在框内显示 潜行 的图示
 ```
-[PonderIcons.md](https://github.com/Qi-Month/PonderJs-Tutorials/blob/main/kubejs/constant/PonderIcons.md).
+[PonderIcons.md跳转连接](https://github.com/Qi-Month/PonderJs-Tutorials/blob/main/kubejs/constant/PonderIcons.md).
