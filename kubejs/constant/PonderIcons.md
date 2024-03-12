@@ -1,8 +1,17 @@
-以下代码节录自 globals.d.ts
-
-> 调用 picon 使用 PonderIcons.你要的PonderIcons 即可
+> 调用 picon 使用 `PonderIcons.你要的PonderIcons` 即可
 >
 > 例如 : PonderIcons.I_WHITELIST_AND
+>
+> 相关内容请见[Ponder.md](https://github.com/Qi-Month/PonderJs-Tutorials/blob/main/Ponder.md)
+
+<details>
+  <summary>目录（单击展开）</summary>
+  <ol>
+    <li><a href="#以下代码节录自-globals.d.ts">globals</a> </li>
+  </ol>
+</details>
+
+# 以下代码节录自 globals.d.ts
 
 ```ts
 declare class PonderIcons implements Internal.ScreenElement {
