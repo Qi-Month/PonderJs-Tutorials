@@ -4,7 +4,7 @@
 >
 > `scene.world.showIndependentSection(selection: Selection, fadeInDirection: Direction): ElementLink<WorldSectionElement>`
 >
-> 该方法用于显示一个区域,并返回该区域的`ElementLink`(此方法的动画同样持续 15 tick)
+> 该方法用于显示一个区域, 并返回该区域的`ElementLink`(此方法的动画同样持续 15 tick)
 >
 > ```js
 > const example_link = scene.world.showIndependentSection(
@@ -19,7 +19,7 @@
 >
 > 此方法相较与上面的方法,多了一个`fadeInDuration`参数
 >
-> 该参数接受一个整数,用于修改动画持续时间
+> 该参数接受一个整数, 用于修改动画持续时间
 
 > ### showIndependentSectionImmediately
 >
@@ -45,7 +45,7 @@
 >
 > 这个方法是为了方便 Java 开发者而写的
 >
-> 在 JavaScript 中,它与上述方法的区别仅有第一个参数:
+> 在 JavaScript 中, 它与上述方法的区别仅有第一个参数:
 >
 > 在 JavaScript 中,它与上述方法的区别仅有第一个参数:
 >
