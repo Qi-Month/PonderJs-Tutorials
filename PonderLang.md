@@ -20,7 +20,7 @@
 
 # PonderTag 的部分
 
-以位于 `client_scripts` 的名为 `PonderTag.js` 的以下代码为例
+以位于 `client_scripts` 的名为 `PonderTag.js` 的以下代码为例 **（可于 assets 自行下载）**
 
 ```js
 Ponder.tags((event) => {
@@ -57,8 +57,17 @@ Ponder.registry((event) => {
   event
     .create("kubejs:submarine_core")
     .scene("kubejs:submarine", "潜水艇", "kubejs:submarine", (scene, utils) => {
-      scene.text(40, "第一个文本");
-      scene.text(40, "第二个文本");
+        ↓
+        ==
+        ↑
+        scene.text(40, "§b列车驾驶台", [4.5, 3.5, 2]);
+        scene.idle(40);
+        scene.rotateCameraY(-180);
+        scene.idle(20);
+        scene.text(40, "§b蓄电池", [4.5, 2.5, 3.5]);
+        ↓
+        ==
+        ↑
     });
 });
 ```
@@ -68,8 +77,8 @@ Ponder.registry((event) => {
 ```json
 {
   "kubejs.ponder.submarine.header": "潜水艇",
-  "kubejs.ponder.submarine.text_1": "第一个文本",
-  "kubejs.ponder.submarine.text_2": "第二个文本"
+  "kubejs.ponder.submarine.text_1": "§b列车驾驶台",
+  "kubejs.ponder.submarine.text_2": "§b蓄电池"
 }
 ```
 
