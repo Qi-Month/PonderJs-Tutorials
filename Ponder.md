@@ -143,11 +143,11 @@ Ponder.registry((e) => {
 > 下一步, 我们想要把鼓风机显示出来, 根据上图的结构我们得知右边的鼓风机的位置在`[2, 1, 1]`, 那我们接着写
 
 ```js
-// 在[2, 1, 2]放置鼓风机方块, 若该位置原本有方块, 则破坏该原本方块
-scene.world.setBlocks([2, 1, 1], "create:encased_fan");
+// 在[2, 1, 2]放置鼓风机方块, 若该位置原本有方块, 则破坏该原本方块, 默认是true,可写可不写
+scene.world.setBlocks([2, 1, 1], "create:encased_fan", true);
 
 // 同上, 但是不显示破坏方块时的粒子效果
-scene.world.setBlocks([2, 1, 1], false, "create:encased_fan");
+scene.world.setBlocks([2, 1, 1], "create:encased_fan", false);
 ```
 
 # 显示方块
