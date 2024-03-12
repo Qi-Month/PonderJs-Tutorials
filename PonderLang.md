@@ -80,7 +80,7 @@ Ponder.registry(event => {
 {
   "kubejs.ponder.iron_golem_1.header": "召唤铁傀儡",
   "kubejs.ponder.iron_golem_1.text_1": "想要召唤铁傀儡\n首先, 你需要将四个铁块以 §bT§r 字摆放",
-  "kubejs.ponder.iron_golem_1.text_2": "注意 : §4这四个位置必须是空气方块§r\n任何非空气方块（包括雪、高草和水）在这四个位置时都会阻碍铁魔像 生成"
+  "kubejs.ponder.iron_golem_1.text_2": "注意 : §4这四个位置必须是空气方块§r\n任何非空气方块（包括雪、高草和水）在这四个位置时都会阻碍铁傀儡的生成"
 }
 ```
 
