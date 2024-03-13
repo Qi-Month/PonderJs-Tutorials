@@ -11,6 +11,7 @@ details>
     <li><a href="#前言">前言</a> </li>
     <li><a href="#开始之前">开始之前</a></li>
     <li><a href="#准备阶段">准备阶段</a></li>
+    <li><a href="#配置地板">配置地板</a></li>
     <li><a href="#显示地板">显示地板</a></li>
     <li><a href="#适当的等待">适当的等待</a></li>
     <li><a href="#放置方块">放置方块</a></li>
@@ -249,8 +250,8 @@ scene.world.showSection([3, 1, 1, 1, 1, 3], Direction.down);
 
 # 进阶玩法(了解好基础后再来!)
 
-[进阶 1](kubejs/Advanced/Advanced.md)
-[进阶 2](kubejs/Advanced/PonderScene.md)
+[进阶 1](kubejs/Advanced/Section.md)
+[进阶 2](kubejs/Advanced/Scene.md)
 
 # 文本显示
 
