@@ -30,10 +30,10 @@ details>
 
 Ciallo ～(∠·ω< )⌒☆ 这里是**柒星月**~, 你也可以叫我**柒月**, 那么在开始之前呢, 我们先来看一段完整的`Ponder`演示, 以方便了解一下`Ponder`究竟可以做什么
 
-![完整gif](kubejs/assets/images/完整.gif)
+![完整gif](kubejs/assets/mod_id/images/完整.gif)
 
 > 具体代码详见[Submarine](kubejs/client_scripts/Ponder/Submarine.js)
-> nbt 文件在[NBT](kubejs/assets/ponder/submarine.nbt)
+> nbt 文件在[NBT](kubejs/assets/mod_id/ponder/submarine.nbt)
 
 可以看到 `Ponder` 除了 `Create` 自带的用法外, 我们还可以使用它制作出 `Modpack` 内某些 `多方块结构` 以及 `世界合成` 等涉及到多个方块的工作方式
 
@@ -43,7 +43,7 @@ Ciallo ～(∠·ω< )⌒☆ 这里是**柒星月**~, 你也可以叫我**柒月*
 >
 > 在此文件内的任意地方都可以, 但是更建议在 `client_scripts` 内创建一个 `Ponder` 文件夹, 将你的 Ponder 脚本丢进去, 而 `Ponder` 文件夹内还可以套文件夹用于进一步的整理与分类, 养成分类的好习惯, 会让你的编写更加方便(注意一下我的目录)
 >
-> ![文件夹展示](kubejs/assets/images/文件夹.png)
+> ![文件夹展示](kubejs/assets/mod_id/images/文件夹.png)
 
 和其他的 KubeJS 脚本一样, 开头都应该先声明事件, 所有的编写都在 `{}` 内进行, 毕竟都是 `JavaScript` 的扩展
 
@@ -59,20 +59,20 @@ Ponder.registry((e) => {});
 
 **这边提一个至关重要的点, 如果你想要获取的结构仅仅只是一个地板, 并且想要在这个地板的基础上做出很多 Ponder 的话, 那地板上面所预留的空气方块也一样要足够!如果没有足够的空气方块那么普通方块也不会正常的显示!**
 
-![图片](kubejs/assets/images/结构方块.png)
+![图片](kubejs/assets/mod_id/images/结构方块.png)
 
 **最推荐的就是像上图这样直接搞一个正方形的结构, 包括空气方块!**
 在获取一个完整的 nbt 结构文件时, 最好把地板也一起搭建并打包好
 
 可以打开 Ponder 的开发者模式, 用于显示坐标(限制存档, 新存档需要再次开启)
 
-![配置](kubejs/assets/images/配置.gif)
+![配置](kubejs/assets/mod_id/images/配置.gif)
 
 开启开发者模式后便可查看各个方块的坐标
 
-![坐标](kubejs/assets/images/坐标.gif)
+![坐标](kubejs/assets/mod_id/images/坐标.gif)
 
-> 将 nbt 文件存储在 `客户端/kubejs/assets/kubejs/ponder/`
+> 将 nbt 文件存储在 `客户端/kubejs/assets/mod_id/kubejs/ponder/`
 
 在脚本中插入以下内容:
 
@@ -83,7 +83,7 @@ Ponder.registry((event) => {
     .scene(
       "kubejs:submarine", // Ponder ID
       "潜水艇 ", // 侧边显示的标题
-      "kubejs:submarine", // 读取的结构文件名称，可于assets/ponder/自行下载
+      "kubejs:submarine", // 读取的结构文件名称，可于assets/mod_id/ponder/自行下载
       (scene, utils) => {}
     );
 });
@@ -92,7 +92,7 @@ Ponder.registry((event) => {
 根据我们自己搭建的结构, 以及 Ponder 场景中的地板坐标, 大致推算出各个方块的位置
 （别在意我这个铜块生锈, 忘记用涂蜡的铜块了 QwQ）
 
-![结构展示](kubejs/assets/images/结构展示.png)
+![结构展示](kubejs/assets/mod_id/images/结构展示.png)
 
 注意：
 
@@ -180,7 +180,7 @@ Ponder.registry((event) => {
 
 在 Ponder 场景的演示动画中, 我们难免会遇见动画太长而我们只看某一段的场面, Ponder 却不像视频那样可以直接拖动进度条, 但是却有一个接近的东西, 在某些关键的地方创建一个个的跳转点
 
-![关键帧](kubejs/assets/images/关键帧.gif)
+![关键帧](kubejs/assets/mod_id/images/关键帧.gif)
 
 ```js
 // 在 当前 tick 创造一个关键帧
@@ -258,7 +258,7 @@ scene.world.showSection([3, 1, 1, 1, 1, 3], Direction.down);
 
 文本显示有两种,第一种是这种从某个坐标延伸出来的文本框
 
-![文本1](kubejs/assets/images/文本1.png)
+![文本1](kubejs/assets/mod_id/images/文本1.png)
 
 ```js
 // 显示 40 Tick "文本"
@@ -267,7 +267,7 @@ scene.text(40, "文本", [4.5, 3.5, 2]);
 
 第二种则是直接在右上角显示的文本框
 
-![文本2](kubejs/assets/images/文本2.png)
+![文本2](kubejs/assets/mod_id/images/文本2.png)
 
 ```js
 //  显示 30 Tick "文本"
@@ -287,7 +287,7 @@ scene.text(30, "文本").attachKeyFrame();
 
 和文本显示一样, 都没什么可以讲的, 所以挺短的
 
-![包边](kubejs/assets/images/包边.png)
+![包边](kubejs/assets/mod_id/images/包边.png)
 
 ```js
 /*
@@ -301,11 +301,11 @@ scene.overlay.showOutline("red", {}, [7, 1, 3, 3, 5, 7], 30);
 
 这种就是典型的一种右键操作示例图
 
-![右键](kubejs/assets/images/右键.png)
+![右键](kubejs/assets/mod_id/images/右键.png)
 
 交互显示并不会帮你实现任何操作, 他能做的仅仅只有显示一个小框框在你的屏幕上, 告诉看的人"这里的交互方式是左键亦或是右键", 想要显示需要额外的操作, 这里就是最基础的连接的开始了, 先来看一段 GIF
 
-![右键操作](<kubejs/assets/images/右键(操作).gif>)
+![右键操作](<kubejs/assets/mod_id/images/右键(操作).gif>)
 
 这里就很经典的运用了两个知识点, `右键`和`替换方块`, 我们先看看`右键`的代码
 
@@ -345,12 +345,6 @@ scene.showControls(80, [2, 1, 2], "down")
 ```
 
 [PonderIcons.md 跳转连接](kubejs/constant/PonderIcons.md).
-
-<!-- 掉落物创建
-创建实体
-实体转移
-更改状态
-更改NBT -->
 
 > 后面几个知识点挺零散的
 

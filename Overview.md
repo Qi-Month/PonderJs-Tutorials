@@ -5,10 +5,10 @@
 「思索」是机械动力模组提供的一种直观的物品功能演示方法, 可以用动画演示的形式让玩家直观的理解游戏内的某个元素的的各种用法特性
 
 > 图一 : 在机械动力的思索目录内对添加的 "铁傀儡" 进行查看
-> ![在目录查找思索示例](kubejs/assets/images/PonderTag示例.gif)
+> ![在目录查找思索示例](kubejs/assets/mod_id/images/PonderTag示例.gif)
 
 > 图二 : 在游戏内对物品栏内的 "动力辊压机" 长按 w 进行思索
-> ![对物品进行思索示例](kubejs/assets/images/overview-1.gif)
+> ![对物品进行思索示例](kubejs/assets/mod_id/images/overview-1.gif)
 
 # PonderJS 魔改概览
 

@@ -31,7 +31,7 @@ Ponder.tags((event) => {
 });
 ```
 
-![图片](kubejs/assets/images/PonderTag示例.gif)
+![图片](kubejs/assets/mod_id/images/PonderTag示例.gif)
 
 # 其二 画龙点睛
 

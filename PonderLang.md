@@ -8,7 +8,7 @@
 
 当你完成代码并启动游戏时, Ponder 会自动生成对应的名为 `en_us.json` 的翻译文件 **（即使你的代码内对应的描述并非英文）**, 其档案路径为
 
-> `kubejs\assets\ponderjs_generated\lang\en_us.json`
+> `kubejs/assets/mod_id/ponderjs_generated/lang/en_us.json`
 >
 > 注意 : 每次启动游戏都会根据你的代码重置 `en_us.json` 的内容
 
