@@ -20,18 +20,13 @@
 
 # 开始
 
-以位于 `client_scripts` 的名为 [iron_golem.js](kubejs/client_scripts/Ponder/iron_golem.js) 的代码为例
+以位于 `client_scripts` 的名为 [iron_golem.js](kubejs/client_scripts/Ponder/iron_golem.js) 的部分代码为例
 
 # PonderTag 的部分
 
 ```js
-Ponder.tags((event) => {
-  event.createTag(
-    "kubejs:iron_golem",
-    "minecraft:iron_block",
-    "铁傀儡",
-    "铁傀儡是高大强壮的友好生物，用于保护玩家和村民。"
-  );
+Ponder.tags(event => {
+    event.createTag("kubejs:iron_golem", "minecraft:iron_block", "铁傀儡", "铁傀儡是高大强壮的友好生物，用于保护玩家和村民。");
 });
 ```
 
@@ -53,11 +48,11 @@ Ponder.tags((event) => {
 # Ponder 的部分
 
 ```js
-Ponder.registry(e => {
+Ponder.registry(event => {
     ↓
     ==
     ↑
-    e.create("minecraft:iron_block")
+    event.create("minecraft:iron_block")
         .tag("kubejs:iron_golem")
         .scene("kubejs:iron_golem_1", "召唤铁傀儡", (scene, util) => {
     ↓
@@ -71,6 +66,7 @@ Ponder.registry(e => {
     ↓
     ==
     ↑
+       });
 });
 ```
 
