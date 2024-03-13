@@ -36,5 +36,5 @@ Ponder.registry((e) => {});
 
 - 七根木棍(梯子)(仅仅只是为了确保 GitHub 稳定性, 教程中包含大量的图, 如果因为连接的不稳定而看不到图将会是**最大的损失**)(当然如果你是打包到本地当我没说)
 - [PonderJS](https://www.mcmod.cn/class/4979.html)(1.18.2 以下), [Ponder for KubeJS](https://www.mcmod.cn/class/7205.html)(1.18.2 及以上), 以及它们的前置
-- ProbeJs
+- [ProbeJs](https://www.mcmod.cn/class/6486.html)
 - 那么 **一丢丢** 🌌🤏 的 KubeJs 基础

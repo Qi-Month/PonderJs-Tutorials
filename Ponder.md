@@ -4,23 +4,26 @@
 
 为物品创建沉浸式场景，让玩家更容易理解其用途及细枝末节
 
-<details>
-  <summary>目录（单击展开）</summary>
+details>
 
-- [前言](#前言)
-- [开始之前](#开始之前)
-- [正式开始](#正式开始)
-- [准备阶段](#准备阶段)
-- [配置地板](#配置地板)
-- [显示地板](#显示地板)
-- [适当的等待](#适当的等待)
-- [关键帧](#关键帧)
-- [放置方块](#放置方块)
-- [显示方块](#显示方块)
-- [进阶玩法(了解好基础后再来!)](#进阶玩法了解好基础后再来)
-- [文本显示](#文本显示)
-- [包边](#包边)
-- [操作交互](#操作交互)
+<summary>目录（单击展开）</summary>
+  <ol>
+    <li><a href="#前言">前言</a> </li>
+    <li><a href="#开始之前">开始之前</a></li>
+    <li><a href="#准备阶段">准备阶段</a></li>
+    <li><a href="#显示地板">显示地板</a></li>
+    <li><a href="#适当的等待">适当的等待</a></li>
+    <li><a href="#放置方块">放置方块</a></li>
+    <li><a href="#显示方块">显示方块</a></li>
+	<li><a href="#进阶玩法了解好基础后再来">进阶</a></li>
+	<li><a href="#文本显示">文本显示</a></li>
+	<li><a href="#包边">包边</a></li>
+	<li><a href="#操作交互">操作交互</a></li>
+	<li><a href="#掉落物">掉落物</a></li>
+	<li><a href="#实体">创建实体</a></li>
+	<li><a href="#状态">状态</a></li>
+	<li><a href="#方块NBT修改">方块NBT</a></li>
+  </ol>
 </details>
 
 # 开始之前
@@ -341,3 +344,33 @@ scene.showControls(80, [2, 1, 2], "down")
 ```
 
 [PonderIcons.md 跳转连接](kubejs/constant/PonderIcons.md).
+
+<!-- 掉落物创建
+创建实体
+实体转移
+更改状态
+更改NBT -->
+
+> 后面几个知识点挺零散的
+
+# 掉落物
+
+```js
+// 坐标,Item飞出去的方向以及Item Id
+scene.world.createItemEntity([2, 1, 2], Direction.down, "kubejs:furnace_core");
+```
+
+# 实体
+
+```js
+// 实体ID 坐标
+scene.world.createEntity("alexscaves:submarine", [4, 2, 3]);
+```
+
+# 实体更改
+
+> ←To be continued
+
+# 方块 NBT 修改
+
+> ←To be continued
