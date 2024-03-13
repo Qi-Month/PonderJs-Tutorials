@@ -4,7 +4,7 @@
 
 为物品创建沉浸式场景，让玩家更容易理解其用途及细枝末节
 
-details>
+<details>
 
 <summary>目录（单击展开）</summary>
   <ol>
