@@ -53,11 +53,11 @@ Ponder.tags((event) => {
 # Ponder 的部分
 
 ```js
-Ponder.registry(event => {
+Ponder.registry(e => {
     ↓
     ==
     ↑
-    event.create("minecraft:iron_block")
+    e.create("minecraft:iron_block")
         .tag("kubejs:iron_golem")
         .scene("kubejs:iron_golem_1", "召唤铁傀儡", (scene, util) => {
     ↓

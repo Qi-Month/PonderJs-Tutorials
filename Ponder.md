@@ -249,7 +249,8 @@ scene.world.showSection([3, 1, 1, 1, 1, 3], Direction.down);
 
 # 进阶玩法(了解好基础后再来!)
 
-[进阶](Advanced/Advanced.md)
+[进阶 1](kubejs/Advanced/Advanced.md)
+[进阶 2](kubejs/Advanced/PonderScene.md)
 
 # 文本显示
 
