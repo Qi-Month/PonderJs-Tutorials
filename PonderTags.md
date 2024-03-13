@@ -46,17 +46,20 @@ Ponder.tags((event) => {
 });
 ```
 
-EX: 建立 Ponder 时一并设置其 PonderTag
+EX: 建立 Ponder 时一并设置其 PonderTag, 以位于 `client_scripts` 的名为 [iron_golem.js](kubejs/client_scripts/Ponder/iron_golem.js) 的部分代码为例
 
 ```js
-Ponder.registry((event) => {
-  event.create("minecraft:iron_block")
-    .tag("kubejs:iron_golem") // 只能添加已有的 PonderTag, 添加复数 PonderTag 时无须 [ ],  用逗号隔开 PonderTag 即可
-    .scene(
-      "kubejs:iron_golem",
-      "铁傀儡",
-      (scene, utils) => {}
-    );
+Ponder.registry(event => {
+    ↓
+    ==
+    ↑
+    event.create("minecraft:iron_block")
+        .tag("kubejs:iron_golem")  // 只能添加已有的 PonderTag, 添加复数 PonderTag 时无须 [ ],  用逗号隔开 PonderTag 即可
+        .scene("kubejs:iron_golem_1", "召唤铁傀儡", (scene, util) => {
+    ↓
+    ==
+    ↑
+       });
 });
 ```
 
