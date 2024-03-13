@@ -20,7 +20,7 @@
 
 # 开始
 
-以位于 `client_scripts` 的名为 [iron_golem.js](kubejs/client_scripts/Ponder/iron_golem.js) 的代码为例
+以位于 `client_scripts` 的名为 [iron_golem.js](kubejs/client_scripts/Ponder/iron_golem.js) 的部分代码为例
 
 # PonderTag 的部分
 
