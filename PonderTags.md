@@ -23,7 +23,7 @@
 Ponder.tags((event) => {
   event.createTag(
     "kubejs:iron_golem", // 你设定的 PonderTag 的 id, 必须小写
-    "minecraft:iron_ingot", // 你设定的 PonderTag 的图标
+    "minecraft:iron_block", // 你设定的 PonderTag 的图标
     "铁傀儡", // 你设定的 PonderTag 的名称
     "铁傀儡是高大强壮的友好生物，用于保护玩家和村民。", // 你设定的 PonderTag 的介绍
     ["minecraft:iron_block", "minecraft:carved_pumpkin"] // **可选参数** 你设定的 PonderTag 的关联词条, 只有一个时也能不用 [ ]
@@ -50,13 +50,11 @@ EX: 建立 Ponder 时一并设置其 PonderTag
 
 ```js
 Ponder.registry((event) => {
-  event
-    .create("minecraft:iron_block")
+  event.create("minecraft:iron_block")
     .tag("kubejs:iron_golem") // 只能添加已有的 PonderTag, 添加复数 PonderTag 时无须 [ ],  用逗号隔开 PonderTag 即可
     .scene(
       "kubejs:iron_golem",
       "铁傀儡",
-      "kubejs:base_plate_5",
       (scene, utils) => {}
     );
 });

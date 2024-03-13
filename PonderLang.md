@@ -18,15 +18,17 @@
 >
 > `zh_cn.json` 对应简体中文
 
-# PonderTag 的部分
+# 开始
 
-以位于 `client_scripts` 的名为 `PonderTag.js` 的以下代码为例
+以位于 `client_scripts` 的名为 [iron_golem.js](kubejs/client_scripts/Ponder/iron_golem.js) 的代码为例
+
+# PonderTag 的部分
 
 ```js
 Ponder.tags((event) => {
   event.createTag(
     "kubejs:iron_golem",
-    "minecraft:iron_ingot",
+    "minecraft:iron_block",
     "铁傀儡",
     "铁傀儡是高大强壮的友好生物，用于保护玩家和村民。"
   );
@@ -50,16 +52,25 @@ Ponder.tags((event) => {
 
 # Ponder 的部分
 
-以位于 `client_scripts` 的名为 `Submarine.js` 的以下代码为例 **（可于 assets 自行下载）**
-
 ```js
-Ponder.registry((event) => {
-  event
-    .create("kubejs:submarine_core")
-    .scene("kubejs:submarine", "潜水艇", "kubejs:submarine", (scene, utils) => {
-      scene.text(40, "第一个文本");
-      scene.text(40, "第二个文本");
-    });
+Ponder.registry(event => {
+    ↓
+    ==
+    ↑
+    event.create("minecraft:iron_block")
+        .tag("kubejs:iron_golem")
+        .scene("kubejs:iron_golem_1", "召唤铁傀儡", (scene, util) => {
+    ↓
+    ==
+    ↑
+            scene.text(25, '想要召唤铁傀儡\n首先, 你需要将四个铁块以 §bT§r 字摆放');
+    ↓
+    ==
+    ↑
+            scene.text(20, '注意 : §4这四个位置必须是空气方块§r\n任何非空气方块（包括雪、高草和水）在这四个位置时都会阻碍铁傀儡的生成');
+    ↓
+    ==
+    ↑
 });
 ```
 
@@ -67,13 +78,13 @@ Ponder.registry((event) => {
 
 ```json
 {
-  "kubejs.ponder.submarine.header": "潜水艇",
-  "kubejs.ponder.submarine.text_1": "第一个文本",
-  "kubejs.ponder.submarine.text_2": "第二个文本"
+  "kubejs.ponder.iron_golem_1.header": "召唤铁傀儡",
+  "kubejs.ponder.iron_golem_1.text_1": "想要召唤铁傀儡\n首先, 你需要将四个铁块以 §bT§r 字摆放",
+  "kubejs.ponder.iron_golem_1.text_2": "注意 : §4这四个位置必须是空气方块§r\n任何非空气方块（包括雪、高草和水）在这四个位置时都会阻碍铁傀儡的生成"
 }
 ```
 
-> `kubejs.ponder.submarine` 对应 Ponder 的 id
+> `kubejs.ponder.iron_golem_1` 对应 Ponder 的 id
 >
 > `header` 对应 Ponder 的标题
 >
