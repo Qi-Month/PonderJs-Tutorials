@@ -25,8 +25,13 @@
 # PonderTag 的部分
 
 ```js
-Ponder.tags(event => {
-    event.createTag("kubejs:iron_golem", "minecraft:iron_block", "铁傀儡", "铁傀儡是高大强壮的友好生物，用于保护玩家和村民。");
+Ponder.tags((event) => {
+  event.createTag(
+    "kubejs:iron_golem",
+    "minecraft:iron_block",
+    "铁傀儡",
+    "铁傀儡是高大强壮的友好生物，用于保护玩家和村民。"
+  );
 });
 ```
 
