@@ -10,9 +10,10 @@
   <ol>
     <li><a href="#前言">前言</a> </li>
     <li><a href="#开始之前">开始之前</a></li>
-    <li><a href="#准备阶段">准备阶段</a></li>
-    <li><a href="#配置地板">配置地板</a></li>
-    <li><a href="#显示地板">显示地板</a></li>
+    <li><a href="#正式开始">正式开始</a></li>
+    <li><a href="#创建场景">创建场景</a></li>
+    <li><a href="#配置起始结构">配置起始结构</a></li>
+    <li><a href="#显示起始结构">显示起始结构</a></li>
     <li><a href="#适当的等待">适当的等待</a></li>
     <li><a href="#放置方块">放置方块</a></li>
     <li><a href="#显示方块">显示方块</a></li>
@@ -52,7 +53,65 @@ Ciallo ～(∠·ω< )⌒☆ 这里是**柒星月**~, 你也可以叫我**柒月*
 Ponder.registry((e) => {});
 ```
 
-# 准备阶段
+# 创建场景
+
+准备工作做完后, 在脚本中插入以下内容来创建一个场景:
+
+```js
+Ponder.registry((event) => {
+  event.create("kubejs:submarine_core") // 填入需要添加 Ponder 的 Item/Tag, 填入多个 Item/Tag 时要用 [ ] 包裹
+    .scene(
+      "kubejs:submarine", // Ponder ID
+      "潜水艇 ", // 侧边显示的标题
+      (scene, utils) => {
+	// 在 { } 内的即是此场景的内容
+    });
+});
+```
+
+一个 Item 可以添加多个 Ponder, 具体效果可以看游戏内 Ponder 界面的翻页
+
+
+> 多场景有几种创建方法
+
+```js
+// 1 .scene() 后面直接在接一个 .scene()
+Ponder.registry((event) => {
+  event.create("kubejs:submarine_core")
+    .scene("kubejs:submarine_1", "潜水艇", (scene, utils) => {
+	// 场景1
+    }).scene("kubejs:submarine_2", "潜水艇 ", (scene, utils) => {
+	// 场景2
+    });
+
+// 2 另外开一个,  实际上, 即使是在另一个档案中创建也行
+  event.create("kubejs:submarine_core")
+    .scene("kubejs:submarine_3", "潜水艇", (scene, utils) => {
+	// 场景3
+    });
+});
+```
+> 注意要点 : 
+> 1. 会依读取的顺序成为第 1 ~ n 个场景, 透过翻页来切换
+> 2. 不同场景的 Ponder ID 一样并不会导致报错, 但会产生`标题错误`或者`文本错误`等问题
+
+注意：
+
+- 离你最近的地板方块的坐标是 `[0, 0, 0]`, 往`左`、`上`、`右`分别对应 `x, y, z`
+
+# 配置起始结构
+
+首先, 我们需要一个结构（例如地板）, 你有两种方法配置起始结构
+
+> 1. 这是机械动力作者用来直接创建地板的方法
+
+```js
+// 在 { } 内使用这个函数, 将会生成 1 个 n * n, 西移 x 格, 北移 z 格的地板(开启开发者模式后便可查看各个方块的坐标及方位)
+// 其三个参数分别用于配置: X偏移, Z偏移以及地板大小(x < 0 即是东移, z 同理)
+scene.configureBasePlate(x, z, n);
+```
+
+> 2. 自己准备起始结构
 
 首先, 你需要一个 `.nbt` 文件
 
@@ -75,46 +134,20 @@ Ponder.registry((e) => {});
 
 > 将 nbt 文件存储在 `客户端/kubejs/assets/mod_id/kubejs/ponder/`
 
-在脚本中插入以下内容:
-
+在创建场景时额外填入参数来读取自己准备的起始结构
 ```js
 Ponder.registry((event) => {
-  event
-    /*
-    填入需要添加 Ponder 的 Item
-    填入多个 Item 时要用 [ ] 包裹
-	同时也可以使用 Tag
-	一个Item可以添加多个Ponder,具体效果可以看游戏内Ponder界面的翻页
-    */
-    .create("kubejs:submarine_core")
-    .scene(
-      "kubejs:submarine", // Ponder ID
-      "潜水艇 ", // 侧边显示的标题
-      "kubejs:submarine", // 读取的结构文件名称，可于assets/mod_id/ponder/自行下载
-      (scene, utils) => {}
-    );
+  event.create("kubejs:submarine_core")
+    .scene("kubejs:submarine",
+      "潜水艇 ",
+      "kubejs:submarine", // 读取的结构文件名称, 可于assets/mod_id/ponder/自行下载
+      (scene, utils) => {
+
+    });
 });
 ```
 
-根据我们自己搭建的结构, 以及 Ponder 场景中的地板坐标, 大致推算出各个方块的位置
-（别在意我这个铜块生锈, 忘记用涂蜡的铜块了 QwQ）
-
-![结构展示](kubejs/assets/mod_id/images/结构展示.png)
-
-注意：
-
-- 离你最近的地板方块的坐标是 `[0, 0, 0]`, 往`左`、`上`、`右`分别对应 `x, y, z`
-
-# 配置地板
-
-> 这是机械动力作者用来直接创建地板的方法
-
-```js
-// 其三个参数分别用于配置: X轴偏移, Z轴偏移以及地板大小
-scene.configureBasePlate(xOffset, zOffset, basePlateSize);
-```
-
-# 显示地板
+# 显示起始结构
 
 > 在最开始, 我们需要显示部分的结构（例如地板）, 你有一些选择, 在 `{}` 内输入
 
@@ -124,7 +157,8 @@ scene.showBasePlate();
 // 显示读取的nbt文件中, y = 0 ~ n 的部分，也可不填参数, 那个场合将整个nbt文件的结构显示
 scene.showStructure(n);
 ```
-
+> P.S : 即使选用作者自带的生成地板方法, 也是要手动显示地板滴
+> 
 > showBasePlate() 和 showStructure(0) 完全相等
 
 # 适当的等待
@@ -211,7 +245,12 @@ scene.addLazyKeyframe();
 
 # 放置方块
 
-> 下一步, 我们想要把鼓风机显示出来, 根据上图的结构我们得知右边的鼓风机的位置在 `[2,　1,　1]`, 那我们接着写
+> 下一步, 我们想要把鼓风机显示出来, 我们可以用 Ponder 场景中的地板坐标, 大致推算出各个方块的位置
+（别在意我这个铜块生锈, 忘记用涂蜡的铜块了 QwQ）
+
+![结构展示](kubejs/assets/mod_id/images/结构展示.png)
+
+> 根据上图的结构我们得知右边的鼓风机的位置在 `[2,　1,　1]`, 那我们接着写
 
 ```js
 // 在 [2, 1, 2] 放置鼓风机方块, 若该位置原本有方块, 则破坏该原本方块
@@ -352,8 +391,6 @@ scene.showControls(80, [2, 1, 2], "down")
 ```
 
 [PonderIcons.md 跳转连接](kubejs/constant/PonderIcons.md).
-
-> 后面几个知识点挺零散的
 
 # 掉落物
 
