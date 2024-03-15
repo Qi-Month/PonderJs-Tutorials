@@ -80,7 +80,13 @@ Ponder.registry((e) => {});
 ```js
 Ponder.registry((event) => {
   event
-    .create("kubejs:submarine_core") // 填入需要添加 Ponder 的 Item, 填入多个 Item 时要用 [ ] 包裹, 同时也可以使用 Tag
+    /*
+    填入需要添加 Ponder 的 Item
+    填入多个 Item 时要用 [ ] 包裹
+	同时也可以使用 Tag
+	一个Item可以添加多个Ponder,具体效果可以看游戏内Ponder界面的翻页
+    */
+    .create("kubejs:submarine_core")
     .scene(
       "kubejs:submarine", // Ponder ID
       "潜水艇 ", // 侧边显示的标题
