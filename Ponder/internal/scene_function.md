@@ -1,15 +1,12 @@
 > 调用函数使用 `scene.你要的函数` 即可
 >
 > 例如 : scene.idle(3);
->
-> 相关内容请见[Ponder.md](https://github.com/Qi-Month/PonderJs-Tutorials/blob/main/Ponder.md)
 
 <details>
   <summary>目录（单击展开）</summary>
-  <ol>
-    <li><a href="#以下代码节录自-internal_33.d.ts">internal_33</a> </li>
-    <li><a href="#以下代码节录自-internal_62.d.ts">internal_62</a> </li>
-  </ol>
+  
+1. [internal_33](#以下代码节录自-internal_33dts)
+2. [internal_62](#以下代码节录自-internal_62dts)
 </details>
 
 # 以下代码节录自 internal_33.d.ts

@@ -4,6 +4,7 @@ Ponder.tags(event => {
 
 Ponder.registry(event => {
     function GetPos(_pos) {
+        if (typeof _pos === "string") { _pos = parseInt(_pos); };
         return [parseInt(_pos / 100), parseInt(_pos / 10) % 10, _pos % 10]; 
     };
     function Set_and_show(scene) {
@@ -11,6 +12,14 @@ Ponder.registry(event => {
             scene.world.setBlocks(GetPos(_pos), (_id.match(":") ? _id : "minecraft:" + _id), false);
             scene.world.showSection(GetPos(_pos), _face || "down");
             if (_wait) { scene.idle(_wait); };
+        };
+    };
+    function Destroy_and_hide(scene) {
+        return function (_poss) {
+            _poss.split(",").forEach(_pos => {
+                scene.world.destroyBlock(GetPos(_pos));
+                scene.world.hideSection(GetPos(_pos), "down");
+            });
         };
     };
     event.create("minecraft:iron_block")
@@ -35,10 +44,7 @@ Ponder.registry(event => {
 
             scene.text(20, '注意 : §4这四个位置必须是空气方块§r\n任何非空气方块（包括雪、高草和水）在这四个位置时都会阻碍铁傀儡的生成');
 
-            scene.overlay.showOutline("green", {}, [3, 1, 2], 20);
-            scene.overlay.showOutline("green", {}, [3, 3, 2], 20);
-            scene.overlay.showOutline("green", {}, [1, 1, 2], 20);
-            scene.overlay.showOutline("green", {}, [1, 3, 2], 20);
+            ("312,332,112,132").split(",").forEach(_pos => scene.overlay.showOutline("green", {}, GetPos(_pos), 20));
 
             scene.idle(20);
 
@@ -54,22 +60,19 @@ Ponder.registry(event => {
 
             scene.idle(15);
 
-            [212, 222, 122, 322, 232].forEach(_pos => {
-                scene.world.destroyBlock(GetPos(_pos));
-            });
+            Destroy_and_hide(scene)("212,222,122,322,232");
 
-            scene.world.createEntity("minecraft:iron_golem", [2, 1, 2]);
+            var iron_golem_1 = scene.world.createEntity("minecraft:iron_golem", [2.5, 1, 2.5]);
 
-            scene.idle(5);
+            scene.idle(15);
 
-            scene.markAsFinished();
-        }).scene("kubejs:iron_golem_2", "召唤铁傀儡其二", (scene, util) => {
-            scene.configureBasePlate(0, 0, 5);
-            scene.showBasePlate();
-
-            [212, 222, 122, 322].forEach(_pos => { Set_and_show(scene)(_pos, "iron_block", "down"); });
+            scene.world.removeEntity(iron_golem_1);
 
             scene.addKeyframe();
+            //----------------------------------------------------------------------------------------------------------
+            scene.idle(20);
+
+            [212, 222, 122, 322].forEach(_pos => Set_and_show(scene)(_pos, "iron_block", "down"));
 
             scene.idle(20);
 
@@ -83,19 +86,17 @@ Ponder.registry(event => {
 
             scene.idle(15);
 
-            [212, 222, 122, 322, 232].forEach(_pos => {
-                scene.world.destroyBlock(GetPos(_pos));
-            });
+            Destroy_and_hide(scene)("212,222,122,322,232");
 
-            scene.world.createEntity("minecraft:iron_golem", [2, 1, 2]);
+            iron_golem_1 = scene.world.createEntity("minecraft:iron_golem", [2.5, 1, 2.5]);
 
-            scene.idle(5);
+            scene.idle(15);
 
-            scene.markAsFinished();
-        }).scene("kubejs:iron_golem_3", "召唤铁傀儡其三", (scene, util) => {
-            scene.configureBasePlate(0, 0, 5);
-            scene.showBasePlate();
-            scene.idle(5);
+            scene.world.removeEntity(iron_golem_1);
+
+            scene.addKeyframe();
+            //----------------------------------------------------------------------------------------------------------
+            scene.idle(20);
 
             scene.text(80, '实际上, 这个十字结构可以任意旋转, 都能生成铁傀儡');
 
@@ -107,11 +108,9 @@ Ponder.registry(event => {
             Set_and_show(scene)(211, "iron_block", "east", 5);
             Set_and_show(scene)(312, "carved_pumpkin", "north", 5);
 
-            [310, 311, 411, 211, 312].forEach(_pos => {
-                scene.world.destroyBlock(GetPos(_pos));
-            });
+            Destroy_and_hide(scene)("310,311,411,211,312");
 
-            scene.world.createEntity("minecraft:iron_golem", [3, 1, 0]);
+            scene.world.createEntity("minecraft:iron_golem", [3.5, 1, 0.5]);
 
             scene.idle(10);
 
@@ -125,11 +124,33 @@ Ponder.registry(event => {
             Set_and_show(scene)(322, "iron_block", "west", 5);
             Set_and_show(scene)(212, "carved_pumpkin", "up", 5);
 
-            [212, 222, 122, 322, 232].forEach(_pos => {
-                scene.world.destroyBlock(GetPos(_pos));
-            });
+            Destroy_and_hide(scene)("212,222,122,322,232");
 
-            scene.world.createEntity("minecraft:iron_golem", [2, 3, 2]);
+            scene.world.createEntity("minecraft:iron_golem", [2.5, 3, 2.5]);
+
+            scene.idle(15);
+
+            scene.markAsFinished();
+        }).scene("kubejs:iron_golem_2", "铁傀儡的掉落物", (scene, util) => {
+            scene.configureBasePlate(0, 0, 5);
+            scene.showBasePlate();
+            var iron_golem_1 = scene.world.createEntity("minecraft:iron_golem", [2.5, 1, 2.5]);
+            scene.addKeyframe();
+
+            scene.idle(5);
+
+            scene.text(30, '铁傀儡在死亡时掉落：\n3 ~ 5 铁锭\n0 ~ 2 虞美人\n§4掠夺附魔效果对铁傀儡无效§r');
+
+            scene.showControls(10, [2.5, 2, 2.5], "left").withItem("minecraft:netherite_sword");
+
+            scene.idle(10);
+
+            scene.particles.simple(10, "cloud", [2, 1, 2]).density(1).withinBlockSpace();
+
+            scene.world.removeEntity(iron_golem_1);
+
+            scene.world.createItemEntity([2 + Math.random(), 1, 2 + Math.random()], [0, 0, 0], 'minecraft:poppy');
+            scene.world.createItemEntity([2 + Math.random(), 1, 2 + Math.random()], [0, 0, 0], 'minecraft:iron_ingot');
 
             scene.idle(10);
 

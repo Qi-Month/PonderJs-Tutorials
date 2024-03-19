@@ -1,15 +1,12 @@
 > 调用函数使用 `scene.world.你要的函数` 即可
 >
 > 例如 : scene.world.setBlocks([2, 1, 1], "create:encased_fan");
->
-> 相关内容请见[Ponder.md](https://github.com/Qi-Month/PonderJs-Tutorials/blob/main/Ponder.md)
 
 <details>
   <summary>目录（单击展开）</summary>
-  <ol>
-    <li><a href="#以下代码节录自-internal_46.d.ts">internal_46</a> </li>
-    <li><a href="#以下代码节录自-internal_26.d.ts">internal_26</a> </li>
-  </ol>
+  
+1. [internal_46](#以下代码节录自-internal_46dts)
+2. [internal_26](#以下代码节录自-internal_26dts)
 </details>
 
 # 以下代码节录自 internal_46.d.ts

@@ -5,10 +5,10 @@
 「思索」是机械动力模组提供的一种直观的物品功能演示方法, 可以用动画演示的形式让玩家直观的理解游戏内的某个元素的的各种用法特性
 
 > 图一 : 在机械动力的思索目录内对添加的 "铁傀儡" 进行查看
-> ![在目录查找思索示例](kubejs/assets/mod_id/images/PonderTag示例.gif)
+> ![在目录查找思索示例](assets/images/PonderTag示例.gif)
 
 > 图二 : 在游戏内对物品栏内的 "动力辊压机" 长按 w 进行思索
-> ![对物品进行思索示例](kubejs/assets/mod_id/images/overview-1.gif)
+> ![对物品进行思索示例](assets/images/overview-1.gif)
 
 # PonderJS 魔改概览
 
@@ -16,7 +16,7 @@
 
 - **条目和关联词条** : 一个条目内可以包含若干物品(即「关联词条」)
 
-  相关内容请见[PonderTags.md](https://github.com/Qi-Month/PonderJs-Tutorials/blob/main/PonderTags.md)。
+  相关内容请见 [Tags.md](Ponder/Tags.md)。
 
 - **思索场景**
 
@@ -42,13 +42,13 @@
 
     连接线和外框可以用来突出显示某些方块, 强调连接的二者的关系等
 
-  相关内容请见[Ponder.md](https://github.com/Qi-Month/PonderJs-Tutorials/blob/main/Ponder.md)
+  相关内容请见 [Ponder.md](Ponder/Ponder.md)
 
 - **基本概念和实用工具**
 
   您可能需要了解一些基础知识和基本概念来愉快的编写 PonderJS, 同时您也可能需要一些实用工具来加速思索场景的构建一类
 
-  相关内容请见[Utils.md](https://github.com/Qi-Month/PonderJs-Tutorials/blob/main/Utils.md)
+  相关内容请见 [Utils.md](https://github.com/Qi-Month/PonderJs-Tutorials/blob/main/Utils.md)
 
 - **语言文件**
 
@@ -56,6 +56,6 @@
 
   这有助于国际化翻译, 和集中检查错误
 
-  相关内容请见[PonderLang.md](https://github.com/Qi-Month/PonderJs-Tutorials/blob/main/PonderLang.md)
+  相关内容请见 [Translate.md](Ponder/Translate.md)
 
 _最后,魔改愉快!_
