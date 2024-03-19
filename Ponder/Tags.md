@@ -31,7 +31,7 @@ Ponder.tags((event) => {
 });
 ```
 
-![图片](https://github.com/whenmo/PonderJs-Tutorials/blob/main/assets/images/PonderTag示例.gif)
+![图片](https://github.com/Qi-Month/PonderJs-Tutorials/blob/main/assets/images/PonderTag示例.gif)
 
 # 其二 画龙点睛
 
@@ -46,7 +46,7 @@ Ponder.tags((event) => {
 });
 ```
 
-EX: 建立 Ponder 时一并设置其 PonderTag, 以 [iron_golem.js](https://github.com/whenmo/PonderJs-Tutorials/blob/main/kubejs/client_scripts/Ponder/iron_golem.js) 的部分代码为例
+EX: 建立 Ponder 时一并设置其 PonderTag, 以 [iron_golem.js](https://github.com/Qi-Month/PonderJs-Tutorials/blob/main/kubejs/client_scripts/Ponder/iron_golem.js) 的部分代码为例
 
 ```js
 Ponder.registry(event => {
