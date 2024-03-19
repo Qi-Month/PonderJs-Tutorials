@@ -10,7 +10,7 @@
     1. [放置方块](#放置方块怎么又是你)
     2. [破坏方块](#破坏方块)
     3. [替换方块](#替换方块)
-    4. [设定方块](#设定方块)
+    4. [设定方块状态](#设定方块状态)
     5. [设定方块NBT](#设定方块NBT)
 
 </details>
@@ -81,7 +81,7 @@ replaceBlocks(arg0: Internal.Selection_, arg1: Internal.BlockState_, arg2: boole
 
 我们可以看到第一个参数种类与 setBlocks 相同, 即`可以范围替换`
 
-## 设定方块
+## 设定方块状态
 
 首先来看范例
 
