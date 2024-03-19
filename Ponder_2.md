@@ -81,3 +81,25 @@ replaceBlocks(arg0: Internal.Selection_, arg1: Internal.BlockState_, arg2: boole
 
 我们可以看到第一个参数种类与 setBlocks 相同, 即`可以范围替换`
 
+## 设定方块
+
+首先来看范例
+
+```js
+scene.world.setBlocks([2, 1, 2], 'minecraft:chiseled_bookshelf', true);
+
+// 将以 [2, 1, 3] 及 [3, 1, 3] 为对角组成的矩形区域内的方块全部替换为铁块方块, 并不显示破坏方块时的粒子效果
+scene.world.modifyBlock([2, 1, 2], state => state.with("facing", "west").with("slot_4_occupied", "true"), true);
+```
+若是该位置无方块, 则不替换方块, 也不显示破坏方块时的粒子效果
+
+> 以下代码节录自 internal_26.d.ts
+
+```js
+modifyBlocks(arg0: Internal.Selection_, arg1: Internal.BlockStateFunction_, arg2: boolean_): void_;
+modifyBlocks(arg0: Internal.Selection_, arg1: boolean_, arg2: Internal.BlockStateFunction_): void_;
+modifyBlocks(arg0: Internal.Selection_, arg1: Internal.BlockStateFunction_): void_;
+
+modifyBlock(arg0: BlockPos_, arg1: Internal.BlockStateFunction_, arg2: boolean_): void_;
+```
+
