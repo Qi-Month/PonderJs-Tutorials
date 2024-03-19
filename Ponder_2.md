@@ -12,6 +12,8 @@
     1. [放置方块](#放置方块-怎么又是你)
     2. [破坏方块](#破坏方块)
     3. [替换方块](#替换方块)
+    4. [设定方块](#设定方块)
+    5. [设定方块NBT](#设定方块NBT)
 
 </details>
  
@@ -82,6 +84,33 @@ replaceBlocks(arg0: Internal.Selection_, arg1: Internal.BlockState_, arg2: boole
 我们可以看到第一个参数种类与 setBlocks 相同, 即`可以范围替换`
 
 ## 设定方块
+
+首先来看范例
+
+```js
+scene.world.setBlocks([2, 1, 2], 'minecraft:chiseled_bookshelf', true);
+
+// 将 [2, 1, 2] 的方块 设定 facing 为 west, slot_4_occupied 为 true, 并不显示破坏方块时的粒子效果
+scene.world.modifyBlock([2, 1, 2], state => state.with("facing", "west").with("slot_4_occupied", "true"), false);
+
+// 将 [2, 1, 2] 的方块 设定为橡木活板门, open 为 true, 并显示破坏方块时的粒子效果
+scene.world.modifyBlock([2, 1, 2], () => Block.id("minecraft:oak_trapdoor").with("type", "top"), true);
+
+// 将以 [2, 1, 3] 及 [3, 1, 3] 为对角组成的矩形区域内的方块 设定为橡木活板门, open 为 true, 并显示破坏方块时的粒子效果
+scene.world.modifyBlocks([2, 1, 3, 3, 1, 3], () => Block.id("minecraft:oak_trapdoor").with("type", "top"), true);
+```
+
+> 以下代码节录自 [scene_world_function.md](kubejs/constant/scene_world_function.md)
+
+```js
+modifyBlocks(arg0: Internal.Selection_, arg1: Internal.BlockStateFunction_, arg2: boolean_): void_;
+modifyBlocks(arg0: Internal.Selection_, arg1: boolean_, arg2: Internal.BlockStateFunction_): void_;
+modifyBlocks(arg0: Internal.Selection_, arg1: Internal.BlockStateFunction_): void_;
+
+modifyBlock(arg0: BlockPos_, arg1: Internal.BlockStateFunction_, arg2: boolean_): void_;
+```
+
+## 设定方块NBT
 
 首先来看范例
 
