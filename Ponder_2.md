@@ -5,20 +5,13 @@
 [Ponder_1](Ponder_1.md) 以 [Submarine.js](kubejs/client_scripts/Ponder/Submarine.js) 为范本介绍, Ponder_2 则以 [iron_golem.js](kubejs/client_scripts/Ponder/iron_golem.js) 为范本介绍
 
 <details>
-
-<summary>目录（单击展开）</summary>
-  <ol>
-    <li><a href="#前言">前言</a> </li>
-    <li><a href="#关于方块">关于方块</a> </li>
-  </ol>
-</details>
-
-<details>
   <summary>目录（单击展开）</summary>
 
   - [前言](#前言)
   - [关于方块](#关于方块)
-    1. [破坏方块](#破坏方块)
+    1. [放置方块](#放置方块(怎么又是你))
+    2. [破坏方块](#破坏方块)
+    3. [替换方块](#替换方块)
 
 </details>
  
