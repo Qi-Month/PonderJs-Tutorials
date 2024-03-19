@@ -88,10 +88,10 @@ replaceBlocks(arg0: Internal.Selection_, arg1: Internal.BlockState_, arg2: boole
 首先来看范例
 
 ```js
-scene.world.setBlocks([2, 1, 2], 'minecraft:chiseled_bookshelf', true);
+scene.world.setBlocks([2, 1, 2], 'create:cogwheel', true);
 
-// 将 [2, 1, 2] 的方块 设定 facing 为 west, slot_4_occupied 为 true, 并不显示破坏方块时的粒子效果
-scene.world.modifyBlock([2, 1, 2], state => state.with("facing", "west").with("slot_4_occupied", "true"), false);
+// 将 [2, 1, 2] 的方块 设定 axis 为 x, waterlogged 为 true, 并不显示破坏方块时的粒子效果
+scene.world.modifyBlock([2, 1, 2], state => state.with("axis", "x").with("waterlogged", "true"), false);
 
 // 将 [2, 1, 2] 的方块 设定为橡木活板门, open 为 true, 并显示破坏方块时的粒子效果
 scene.world.modifyBlock([2, 1, 2], () => Block.id("minecraft:oak_trapdoor").with("type", "top"), true);
@@ -115,25 +115,19 @@ modifyBlock(arg0: BlockPos_, arg1: Internal.BlockStateFunction_, arg2: boolean_)
 首先来看范例
 
 ```js
-scene.world.setBlocks([2, 1, 2], 'minecraft:chiseled_bookshelf', true);
+scene.world.setBlocks([2, 1, 2], 'create:cogwheel', true);
 
-// 将 [2, 1, 2] 的方块 设定 facing 为 west, slot_4_occupied 为 true, 并不显示破坏方块时的粒子效果
-scene.world.modifyBlock([2, 1, 2], state => state.with("facing", "west").with("slot_4_occupied", "true"), false);
+// 将 [2, 1, 2] 的方块的 NBT 中的 Speed 设定为 16
+scene.world.modifyBlockEntityNBT([2, 1, 2], nbt => { nbt.Speed = 16 });
 
-// 将 [2, 1, 2] 的方块 设定为橡木活板门, open 为 true, 并显示破坏方块时的粒子效果
-scene.world.modifyBlock([2, 1, 2], () => Block.id("minecraft:oak_trapdoor").with("type", "top"), true);
-
-// 将以 [2, 1, 3] 及 [3, 1, 3] 为对角组成的矩形区域内的方块 设定为橡木活板门, open 为 true, 并显示破坏方块时的粒子效果
-scene.world.modifyBlocks([2, 1, 3, 3, 1, 3], () => Block.id("minecraft:oak_trapdoor").with("type", "top"), true);
+// 同上, 目前第二个参数的用途不明
+scene.world.modifyBlockEntityNBT([2, 1, 2], true, nbt => { nbt.Speed = 16 });
 ```
 
 > 以下代码节录自 [scene_world_function.md](kubejs/constant/scene_world_function.md)
 
 ```js
-modifyBlocks(arg0: Internal.Selection_, arg1: Internal.BlockStateFunction_, arg2: boolean_): void_;
-modifyBlocks(arg0: Internal.Selection_, arg1: boolean_, arg2: Internal.BlockStateFunction_): void_;
-modifyBlocks(arg0: Internal.Selection_, arg1: Internal.BlockStateFunction_): void_;
-
-modifyBlock(arg0: BlockPos_, arg1: Internal.BlockStateFunction_, arg2: boolean_): void_;
+modifyBlockEntityNBT(arg0: Internal.Selection_, arg1: boolean_, arg2: Internal.Consumer_<Internal.CompoundTag>): void_;
+modifyBlockEntityNBT(arg0: Internal.Selection_, arg1: Internal.Consumer_<Internal.CompoundTag>): void_;
 ```
 
