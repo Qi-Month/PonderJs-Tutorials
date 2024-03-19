@@ -21,7 +21,7 @@
 scene.world.showSection([2, 1, 1], Direction.down);
 ```
 
-> 以下代码节录自 [scene_world_function.md](kubejs/constant/scene_world_function.md)
+> 以下代码节录自 [scene_world_function.md](https://github.com/whenmo/PonderJs-Tutorials/blob/main/Ponder/internal/scene_world_function.md)
 
 ```js
 showSection(arg0: Internal.Selection_, arg1: Internal.Direction_): void_;
