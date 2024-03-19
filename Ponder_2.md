@@ -1,8 +1,6 @@
 # 前言
 
-> [Ponder_1](Ponder_1.md) 介绍过的此处不多赘述
-
-[Ponder_1](Ponder_1.md) 以 [Submarine.js](kubejs/client_scripts/Ponder/Submarine.js) 为范本介绍
+> [Ponder_1](Ponder_1.md) 以 [Submarine.js](kubejs/client_scripts/Ponder/Submarine.js) 为范本介绍, 介绍过的函数此处不多赘述
 
 <details>
   <summary>目录（单击展开）</summary>
