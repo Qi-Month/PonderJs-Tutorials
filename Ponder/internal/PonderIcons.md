@@ -4,9 +4,8 @@
 
 <details>
   <summary>目录（单击展开）</summary>
-  <ol>
-    <li><a href="#以下代码节录自-globals.d.ts">globals</a> </li>
-  </ol>
+  
+1. [globals](#以下代码节录自-globalsdts)
 </details>
 
 # 以下代码节录自 globals.d.ts
