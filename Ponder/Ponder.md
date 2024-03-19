@@ -32,7 +32,7 @@ Ciallo ～(∠·ω< )⌒☆ 这里是**柒星月**~, 你也可以叫我**柒月*
 
 ![完整gif](assets/images/完整.gif)
 
-> 本处使用的范例文件为 [Submarine.js](kubejs/client_scripts/Ponder/Submarine.js)
+> 本处使用的范例文件为 [Submarine.js](https://github.com/whenmo/PonderJs-Tutorials/blob/main/kubejs/client_scripts/Ponder/Submarine.js)
 > 
 > 其调用的 nbt 文件在 [submarine.nbt](kubejs/assets/kubejs/ponder/submarine.nbt)
 
