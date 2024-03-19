@@ -52,7 +52,7 @@ scene.world.destroyBlock([2, 1, 2]);
 ```
 若是该位置无方块, 则不显示破坏方块时的粒子效果
 
-> 以下代码节录自 internal_26.d.ts
+> 以下代码节录自 [scene_world_function.md](kubejs/constant/scene_world_function.md)
 
 ```js
 destroyBlock(arg0: BlockPos_): void_;
@@ -73,7 +73,7 @@ scene.world.replaceBlocks([2, 1, 3, 3, 1, 3], "minecraft:iron_block", false);
 ```
 若是该位置无方块, 则不替换方块, 也不显示破坏方块时的粒子效果
 
-> 以下代码节录自 internal_26.d.ts
+> 以下代码节录自 [scene_world_function.md](kubejs/constant/scene_world_function.md)
 
 ```js
 replaceBlocks(arg0: Internal.Selection_, arg1: Internal.BlockState_, arg2: boolean_): void_;
@@ -88,12 +88,17 @@ replaceBlocks(arg0: Internal.Selection_, arg1: Internal.BlockState_, arg2: boole
 ```js
 scene.world.setBlocks([2, 1, 2], 'minecraft:chiseled_bookshelf', true);
 
-// 将以 [2, 1, 3] 及 [3, 1, 3] 为对角组成的矩形区域内的方块全部替换为铁块方块, 并不显示破坏方块时的粒子效果
-scene.world.modifyBlock([2, 1, 2], state => state.with("facing", "west").with("slot_4_occupied", "true"), true);
-```
-若是该位置无方块, 则不替换方块, 也不显示破坏方块时的粒子效果
+// 将 [2, 1, 2] 的方块 设定 facing 为 west, slot_4_occupied 为 true, 并不显示破坏方块时的粒子效果
+scene.world.modifyBlock([2, 1, 2], state => state.with("facing", "west").with("slot_4_occupied", "true"), false);
 
-> 以下代码节录自 internal_26.d.ts
+// 将 [2, 1, 2] 的方块 设定为橡木活板门, open 为 true, 并显示破坏方块时的粒子效果
+scene.world.modifyBlock([2, 1, 2], () => Block.id("minecraft:oak_trapdoor").with("type", "top"), true);
+
+// 将以 [2, 1, 3] 及 [3, 1, 3] 为对角组成的矩形区域内的方块 设定为橡木活板门, open 为 true, 并显示破坏方块时的粒子效果
+scene.world.modifyBlocks([2, 1, 3, 3, 1, 3], () => Block.id("minecraft:oak_trapdoor").with("type", "top"), true);
+```
+
+> 以下代码节录自 [scene_world_function.md](kubejs/constant/scene_world_function.md)
 
 ```js
 modifyBlocks(arg0: Internal.Selection_, arg1: Internal.BlockStateFunction_, arg2: boolean_): void_;
