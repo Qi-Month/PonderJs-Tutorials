@@ -30,12 +30,11 @@
 
 Ciallo ～(∠·ω< )⌒☆ 这里是**柒星月**~, 你也可以叫我**柒月**, 那么在开始之前呢, 我们先来看一段完整的`Ponder`演示, 以方便了解一下`Ponder`究竟可以做什么
 
-![完整gif](assets/images/完整.gif)
+![完整gif](https://github.com/whenmo/PonderJs-Tutorials/blob/main/assets/images/完整.gif)
 
-> 本处使用的范例文件为 [Submarine.js](kubejs/client_scripts/Ponder/Submarine.js)
 > 本处使用的范例文件为 [Submarine.js](https://github.com/whenmo/PonderJs-Tutorials/blob/main/kubejs/client_scripts/Ponder/Submarine.js)
 > 
-> 其调用的 nbt 文件在 [submarine.nbt](kubejs/assets/kubejs/ponder/submarine.nbt)
+> 其调用的 nbt 文件在 [submarine.nbt](https://github.com/whenmo/PonderJs-Tutorials/blob/main/kubejs/assets/kubejs/ponder/submarine.nbt)
 
 可以看到 `Ponder` 除了 `Create` 自带的用法外, 我们还可以使用它制作出 `Modpack` 内某些 `多方块结构` 以及 `世界合成` 等涉及到多个方块的工作方式
 
@@ -45,9 +44,9 @@ Ciallo ～(∠·ω< )⌒☆ 这里是**柒星月**~, 你也可以叫我**柒月*
 >
 > 在此文件内的任意地方都可以, 但是更建议在 `client_scripts` 内创建一个 `Ponder` 文件夹, 将你的 Ponder 脚本丢进去, 而 `Ponder` 文件夹内还可以套文件夹用于进一步的整理与分类, 养成分类的好习惯, 会让你的编写更加方便
 >
-> 小提一嘴 [kubejs](kubejs) 内的文件是完全按照路径放置的, 可以参考
+> 小提一嘴 [kubejs](https://github.com/whenmo/PonderJs-Tutorials/blob/main/kubejs) 内的文件是完全按照路径放置的, 可以参考
 > 
-> ![文件夹展示](assets/images/文件夹.png)
+> ![文件夹展示]([assets/images](https://github.com/whenmo/PonderJs-Tutorials/blob/main/assets/images)/文件夹.png)
 
 和其他的 KubeJS 脚本一样, 开头都应该先声明事件, 所有的编写都在 `{}` 内进行, 毕竟都是 `JavaScript` 的扩展
 
