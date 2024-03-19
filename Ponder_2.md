@@ -2,7 +2,7 @@
 
 > [Ponder_1](Ponder_1.md) 介绍过的此处不多赘述
 
-[Ponder_1](Ponder_1.md) 以 [Submarine.js](kubejs/client_scripts/Ponder/Submarine.js) 为范本介绍, Ponder_2 则以 [iron_golem.js](kubejs/client_scripts/Ponder/iron_golem.js) 为范本介绍
+[Ponder_1](Ponder_1.md) 以 [Submarine.js](kubejs/client_scripts/Ponder/Submarine.js) 为范本介绍
 
 <details>
   <summary>目录（单击展开）</summary>
