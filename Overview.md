@@ -42,7 +42,7 @@
 
     连接线和外框可以用来突出显示某些方块, 强调连接的二者的关系等
 
-  相关内容请见[Ponder.md](https://github.com/Qi-Month/PonderJs-Tutorials/blob/main/Ponder.md)
+  相关内容请见[Ponder.md](Ponder_Tutorial/Ponder.md)
 
 - **基本概念和实用工具**
 
