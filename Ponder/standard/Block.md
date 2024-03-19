@@ -23,7 +23,7 @@
 
 ## 放置方块(怎么又是你)
 
-根据 [scene_world_function.md](kubejs/constant/scene_world_function.md) 我们可知放置方块有两种函数
+根据 [scene_world_function.md](https://github.com/whenmo/PonderJs-Tutorials/blob/main/Ponder/internal/scene_world_function.md) 我们可知放置方块有两种函数
 
 ```js
 setBlocks(arg0: Internal.Selection_, arg1: boolean_, arg2: Internal.BlockState_): void_;
@@ -54,7 +54,7 @@ scene.world.destroyBlock([2, 1, 2]);
 ```
 若是该位置无方块, 则不显示破坏方块时的粒子效果
 
-> 以下代码节录自 [scene_world_function.md](kubejs/constant/scene_world_function.md)
+> 以下代码节录自 [scene_world_function.md](https://github.com/whenmo/PonderJs-Tutorials/blob/main/Ponder/internal/scene_world_function.md)
 
 ```js
 destroyBlock(arg0: BlockPos_): void_;
@@ -75,7 +75,7 @@ scene.world.replaceBlocks([2, 1, 3, 3, 1, 3], "minecraft:iron_block", false);
 ```
 若是该位置无方块, 则不替换方块, 也不显示破坏方块时的粒子效果
 
-> 以下代码节录自 [scene_world_function.md](kubejs/constant/scene_world_function.md)
+> 以下代码节录自 [scene_world_function.md](https://github.com/whenmo/PonderJs-Tutorials/blob/main/Ponder/internal/scene_world_function.md)
 
 ```js
 replaceBlocks(arg0: Internal.Selection_, arg1: Internal.BlockState_, arg2: boolean_): void_;
@@ -100,7 +100,7 @@ scene.world.modifyBlock([2, 1, 2], () => Block.id("minecraft:oak_trapdoor").with
 scene.world.modifyBlocks([2, 1, 3, 3, 1, 3], () => Block.id("minecraft:oak_trapdoor").with("type", "top"), true);
 ```
 
-> 以下代码节录自 [scene_world_function.md](kubejs/constant/scene_world_function.md)
+> 以下代码节录自 [scene_world_function.md](https://github.com/whenmo/PonderJs-Tutorials/blob/main/Ponder/internal/scene_world_function.md)
 
 ```js
 modifyBlocks(arg0: Internal.Selection_, arg1: Internal.BlockStateFunction_, arg2: boolean_): void_;
@@ -124,24 +124,9 @@ scene.world.modifyBlockEntityNBT([2, 1, 2], nbt => { nbt.Speed = 16 });
 scene.world.modifyBlockEntityNBT([2, 1, 2], true, nbt => { nbt.Speed = 16 });
 ```
 
-> 以下代码节录自 [scene_world_function.md](kubejs/constant/scene_world_function.md)
+> 以下代码节录自 [scene_world_function.md](https://github.com/whenmo/PonderJs-Tutorials/blob/main/Ponder/internal/scene_world_function.md)
 
 ```js
 modifyBlockEntityNBT(arg0: Internal.Selection_, arg1: boolean_, arg2: Internal.Consumer_<Internal.CompoundTag>): void_;
 modifyBlockEntityNBT(arg0: Internal.Selection_, arg1: Internal.Consumer_<Internal.CompoundTag>): void_;
-```
-
-# 关于显示
-
-## 显示方块
-
-```js
-// 以从上面下落到坐标 [2, 1, 1] 的动画形式显示出这一格的方块
-scene.world.showSection([2, 1, 1], Direction.down);
-```
-
-> 以下代码节录自 [scene_world_function.md](kubejs/constant/scene_world_function.md)
-
-```js
-showSection(arg0: Internal.Selection_, arg1: Internal.Direction_): void_;
 ```
