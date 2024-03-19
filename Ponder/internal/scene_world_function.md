@@ -1,8 +1,6 @@
 > 调用函数使用 `scene.world.你要的函数` 即可
 >
 > 例如 : scene.world.setBlocks([2, 1, 1], "create:encased_fan");
->
-> 相关内容请见[Ponder.md](https://github.com/Qi-Month/PonderJs-Tutorials/blob/main/Ponder.md)
 
 <details>
   <summary>目录（单击展开）</summary>
