@@ -4,10 +4,9 @@
 
 <details>
   <summary>目录（单击展开）</summary>
-  <ol>
-    <li><a href="#以下代码节录自-internal_46.d.ts">internal_46</a> </li>
-    <li><a href="#以下代码节录自-internal_26.d.ts">internal_26</a> </li>
-  </ol>
+  
+1. [internal_46](#以下代码节录自-internal_46dts)
+2. [internal_26](#以下代码节录自-internal_26dts)
 </details>
 
 # 以下代码节录自 internal_46.d.ts
