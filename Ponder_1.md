@@ -23,8 +23,6 @@
 	<li><a href="#操作交互">操作交互</a></li>
 	<li><a href="#掉落物">掉落物</a></li>
 	<li><a href="#实体">创建实体</a></li>
-	<li><a href="#状态">状态</a></li>
-	<li><a href="#方块NBT修改">方块NBT</a></li>
   </ol>
 </details>
 
@@ -405,9 +403,5 @@ scene.world.createEntity("alexscaves:submarine", [4, 2, 3]);
 ```
 
 # 实体更改
-
-> ←To be continued
-
-# 方块 NBT 修改
 
 > ←To be continued
