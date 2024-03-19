@@ -12,7 +12,9 @@
     3. [替换方块](#替换方块)
     4. [设定方块状态](#设定方块状态)
     5. [设定方块NBT](#设定方块NBT)
+  - [关于显示](#关于显示)
 
+    
 </details>
  
 # 关于方块
@@ -129,3 +131,17 @@ modifyBlockEntityNBT(arg0: Internal.Selection_, arg1: boolean_, arg2: Internal.C
 modifyBlockEntityNBT(arg0: Internal.Selection_, arg1: Internal.Consumer_<Internal.CompoundTag>): void_;
 ```
 
+# 关于显示
+
+## 显示方块
+
+```js
+// 以从上面下落到坐标 [2, 1, 1] 的动画形式显示出这一格的方块
+scene.world.showSection([2, 1, 1], Direction.down);
+```
+
+> 以下代码节录自 [scene_world_function.md](kubejs/constant/scene_world_function.md)
+
+```js
+showSection(arg0: Internal.Selection_, arg1: Internal.Direction_): void_;
+```
