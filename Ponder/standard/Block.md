@@ -12,8 +12,6 @@
     3. [替换方块](#替换方块)
     4. [设定方块状态](#设定方块状态)
     5. [设定方块NBT](#设定方块NBT)
-  - [关于显示](#关于显示)
-
     
 </details>
  
@@ -129,4 +127,16 @@ scene.world.modifyBlockEntityNBT([2, 1, 2], true, nbt => { nbt.Speed = 16 });
 ```js
 modifyBlockEntityNBT(arg0: Internal.Selection_, arg1: boolean_, arg2: Internal.Consumer_<Internal.CompoundTag>): void_;
 modifyBlockEntityNBT(arg0: Internal.Selection_, arg1: Internal.Consumer_<Internal.CompoundTag>): void_;
+```
+
+## 其余待做函数
+
+> 以下代码节录自 [scene_world_function.md](https://github.com/Qi-Month/PonderJs-Tutorials/blob/main/Ponder/internal/scene_world_function.md)
+
+```js
+modifyBlockEntity<T extends Internal.BlockEntity>(arg0: BlockPos_, arg1: T, arg2: Internal.Consumer_<T>): void_;
+restoreBlocks(arg0: Internal.Selection_): void_;
+glueBlockOnto(arg0: BlockPos_, arg1: Internal.Direction_, arg2: Internal.ElementLink_<Internal.WorldSectionElement>): void_;
+cycleBlockProperty(arg0: BlockPos_, arg1: Internal.Property_<any>): void_;
+incrementBlockBreakingProgress(arg0: BlockPos_): void_;
 ```
