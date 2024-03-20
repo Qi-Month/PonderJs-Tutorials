@@ -33,19 +33,19 @@ Ciallo ～(∠·ω< )⌒☆ 这里是**柒星月**~, 你也可以叫我**柒月*
 ![完整gif](https://github.com/Qi-Month/PonderJs-Tutorials/blob/main/assets/images/完整.gif)
 
 > 本处使用的范例文件为 [Submarine.js](https://github.com/Qi-Month/PonderJs-Tutorials/blob/main/kubejs/client_scripts/Ponder/Submarine.js)
-> 
+>
 > 其调用的 nbt 文件在 [submarine.nbt](https://github.com/Qi-Month/PonderJs-Tutorials/blob/main/kubejs/assets/kubejs/ponder/submarine.nbt)
 
 可以看到 `Ponder` 除了 `Create` 自带的用法外, 我们还可以使用它制作出 `Modpack` 内某些 `多方块结构` 以及 `世界合成` 等涉及到多个方块的工作方式
 
 # 正式开始
 
-> 在 `客户端/kubejs/client_scripts` 创建一个js脚本
+> 在 `客户端/kubejs/client_scripts` 创建一个 js 脚本
 >
 > 在此文件内的任意地方都可以, 但是更建议在 `client_scripts` 内创建一个 `Ponder` 文件夹, 将你的 Ponder 脚本丢进去, 而 `Ponder` 文件夹内还可以套文件夹用于进一步的整理与分类, 养成分类的好习惯, 会让你的编写更加方便
 >
 > 小提一嘴 [kubejs](https://github.com/Qi-Month/PonderJs-Tutorials/blob/main/kubejs) 内的文件是完全按照路径放置的, 可以参考
-> 
+>
 > ![文件夹展示](https://github.com/Qi-Month/PonderJs-Tutorials/blob/main/assets/images/文件夹.png)
 
 和其他的 KubeJS 脚本一样, 开头都应该先声明事件, 所有的编写都在 `{}` 内进行, 毕竟都是 `JavaScript` 的扩展
@@ -60,13 +60,15 @@ Ponder.registry((e) => {});
 
 ```js
 Ponder.registry((event) => {
-  event.create("kubejs:submarine_core") // 填入需要添加 Ponder 的 Item/Tag, 填入多个 Item/Tag 时要用 [ ] 包裹
+  event
+    .create("kubejs:submarine_core") // 填入需要添加 Ponder 的 Item/Tag, 填入多个 Item/Tag 时要用 [ ] 包裹
     .scene(
       "kubejs:submarine", // Ponder ID
       "潜水艇 ", // 侧边显示的标题
       (scene, utils) => {
-	// 在 { } 内的即是此场景的内容
-    });
+        // 在 { } 内的即是此场景的内容
+      }
+    );
 });
 ```
 
@@ -77,24 +79,28 @@ Ponder.registry((event) => {
 ```js
 // 1 .scene() 后面直接在接一个 .scene()
 Ponder.registry((event) => {
-  event.create("kubejs:submarine_core")
+  event
+    .create("kubejs:submarine_core")
     .scene("kubejs:submarine_1", "潜水艇", (scene, utils) => {
-	// 场景1
-    }).scene("kubejs:submarine_2", "潜水艇 ", (scene, utils) => {
-	// 场景2
+      // 场景1
+    })
+    .scene("kubejs:submarine_2", "潜水艇 ", (scene, utils) => {
+      // 场景2
     });
 
-// 2 另外开一个,  实际上, 即使是在另一个档案中创建也行
-  event.create("kubejs:submarine_core")
+  // 2 另外开一个,  实际上, 即使是在另一个档案中创建也行
+  event
+    .create("kubejs:submarine_core")
     .scene("kubejs:submarine_3", "潜水艇", (scene, utils) => {
-	// 场景3
+      // 场景3
     });
 });
 ```
-- 注意要点 :  
-> 会依读取的顺序成为第 1 ~ n 个场景, 透过翻页来切换
->
-> 不同场景的 Ponder ID 一样并不会导致报错, 但会产生`标题错误`或者`文本错误`等问题
+
+- 注意要点 :
+  > 会依读取的顺序成为第 1 ~ n 个场景, 透过翻页来切换
+  >
+  > 不同场景的 Ponder ID 一样并不会导致报错, 但会产生`标题错误`或者`文本错误`等问题
 
 # 配置起始结构
 
@@ -132,15 +138,15 @@ scene.configureBasePlate(x, z, n);
 > 将 nbt 文件存储在 [kubejs/assets/kubejs/ponder/](https://github.com/Qi-Month/PonderJs-Tutorials/blob/main/kubejs/assets/kubejs/ponder)
 
 在创建场景时额外填入参数来读取自己准备的起始结构
+
 ```js
 Ponder.registry((event) => {
-  event.create("kubejs:submarine_core")
-    .scene("kubejs:submarine",
-      "潜水艇 ",
-      "kubejs:submarine", // 读取的结构文件名称, 可于 kubejs/assets/kubejs/ponder/自行下载
-      (scene, utils) => {
-
-    });
+  event.create("kubejs:submarine_core").scene(
+    "kubejs:submarine",
+    "潜水艇 ",
+    "kubejs:submarine", // 读取的结构文件名称, 可于 kubejs/assets/kubejs/ponder/自行下载
+    (scene, utils) => {}
+  );
 });
 ```
 
@@ -154,8 +160,9 @@ scene.showBasePlate();
 // 显示读取的nbt文件中, y = 0 ~ n 的部分，也可不填参数, 那个场合将整个nbt文件的结构显示
 scene.showStructure(n);
 ```
+
 > P.S : 即使选用作者自带的生成地板方法, 也是要手动显示地板滴
-> 
+>
 > showBasePlate() 和 showStructure(0) 完全相等
 
 # 适当的等待
@@ -243,7 +250,7 @@ scene.addLazyKeyframe();
 # 放置方块
 
 > 下一步, 我们想要把鼓风机显示出来, 我们可以用 Ponder 场景中的地板坐标, 大致推算出各个方块的位置
-（别在意我这个铜块生锈, 忘记用涂蜡的铜块了 QwQ）
+> （别在意我这个铜块生锈, 忘记用涂蜡的铜块了 QwQ）
 
 ![结构展示](https://github.com/Qi-Month/PonderJs-Tutorials/blob/main/assets/images/结构展示.png)
 
@@ -350,7 +357,7 @@ scene.overlay.showOutline("red", {}, [7, 1, 3, 3, 5, 7], 30);
 
 交互显示并不会帮你实现任何操作, 他能做的仅仅只有显示一个小框框在你的屏幕上, 告诉看的人"这里的交互方式是左键亦或是右键", 想要显示需要额外的操作, 这里就是最基础的连接的开始了, 先来看一段 GIF
 
-![右键操作](https://github.com/Qi-Month/PonderJs-Tutorials/blob/main/assets/images/右键(操作).gif)
+![右键操作](<https://github.com/Qi-Month/PonderJs-Tutorials/blob/main/assets/images/右键(操作).gif>)
 
 这里就很经典的运用了两个知识点, `右键`和`替换方块`, 我们先看看`右键`的代码
 
