@@ -418,4 +418,4 @@ scene.world.createEntity("alexscaves:submarine", [4, 2, 3]);
 
 # 实体更改
 
-> ←To be continued
+![未完待续](../assets/images/未完待续.png)
