@@ -4,6 +4,10 @@
 
 为物品创建沉浸式场景，让玩家更容易理解其用途及细枝末节
 
+> 为什么教程中的图会有紫黑色的方块
+
+因为在本篇教程的同时我也在制作![整合包](https://www.mcmod.cn/modpack/709.html),图中的紫黑色方块是我使用`KubeJS`注册的一个新方块.由于录制的时间不同,紫黑色是还未有贴图的时候,Minecraft自身的规则是没有贴图会自动渲染成紫黑色的方块,后面有了贴图自然也就不一样了
+
 <details>
 
 <summary>目录（单击展开）</summary>
@@ -61,7 +65,7 @@ Ponder.registry((e) => {});
 ```js
 Ponder.registry((event) => {
   event
-    .create("kubejs:submarine_core") // 填入需要添加 Ponder 的 Item/Tag, 填入多个 Item/Tag 时要用 [ ] 包裹
+    .create("kubejs:submarine_core") // 填入需要添加 Ponder 的 Item/Tag, 填入多个时要用 [ ] 包裹
     .scene(
       "kubejs:submarine", // Ponder ID
       "潜水艇 ", // 侧边显示的标题
@@ -120,7 +124,7 @@ scene.configureBasePlate(x, z, n);
 
 可以用机械动力的 [蓝图与笔](https://www.mcmod.cn/item/347848.html) 或者原版的 [结构方块](https://www.mcmod.cn/item/35469.html) 获取 NBT 的结构(这俩自己去学习用法, 本教程并不会提及)
 
-**这边提一个至关重要的点, 如果你想要获取的结构仅仅只是一个地板, 并且想要在这个地板的基础上做出很多 Ponder 的话, 那地板上面所预留的空气方块也一样要足够!如果没有足够的空气方块那么普通方块也不会正常的显示!**
+**这边提一个至关重要的点, 如果你想要获取的结构仅仅只是一个地板, 并且想要在这个地板的基础上做出很多 `Ponder` 的话, 那地板上面所预留的空气方块也一样要足够!如果没有足够的空气方块那么普通方块也不会正常的显示!**
 
 ![图片](https://github.com/Qi-Month/PonderJs-Tutorials/blob/main/assets/images/结构方块.png)
 
@@ -355,7 +359,7 @@ scene.overlay.showOutline("red", {}, [7, 1, 3, 3, 5, 7], 30);
 
 ![右键](https://github.com/Qi-Month/PonderJs-Tutorials/blob/main/assets/images/右键.png)
 
-交互显示并不会帮你实现任何操作, 他能做的仅仅只有显示一个小框框在你的屏幕上, 告诉看的人"这里的交互方式是左键亦或是右键", 想要显示需要额外的操作, 这里就是最基础的连接的开始了, 先来看一段 GIF
+交互显示并不会帮你实现任何操作, 他能做的仅仅只有显示一个小框框在你的屏幕上, `告诉看的人这里的交互方式是左键亦或是右键`, 想要显示需要额外的操作, 这里就是最基础的连接的开始了, 先来看一段 GIF
 
 ![右键操作](<https://github.com/Qi-Month/PonderJs-Tutorials/blob/main/assets/images/右键(操作).gif>)
 
