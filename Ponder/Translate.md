@@ -6,7 +6,7 @@
 
 # 开始之前
 
-当你完成代码并启动游戏时, Ponder 会自动生成对应的名为 [en_us.json](https://github.com/Qi-Month/PonderJs-Tutorials/blob/main/kubejs/assets/ponderjs_generated/lang/en_us.json) 的翻译文件 **（即使你的代码内对应的描述并非英文）**, 其档案路径为
+当你完成代码并启动游戏时, Ponder 会自动生成对应的名为 [en_us.json](../kubejs/assets/ponderjs_generated/lang/en_us.json) 的翻译文件 **（即使你的代码内对应的描述并非英文）**, 其档案路径为
 
 > 注意 : 每次启动游戏都会根据你的代码重置 `en_us.json` 的内容
 
@@ -18,7 +18,7 @@
 
 # 开始
 
-以 [iron_golem.js](https://github.com/Qi-Month/PonderJs-Tutorials/blob/main/kubejs/client_scripts/Ponder/iron_golem.js) 的部分代码为例
+以 [iron_golem.js](../kubejs/client_scripts/Ponder/iron_golem.js) 的部分代码为例
 
 # PonderTag 的部分
 

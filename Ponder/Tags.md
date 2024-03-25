@@ -6,7 +6,6 @@
 
 <details>
   <summary>目录（单击展开）</summary>
-
 1. [前言](#前言)
 2. [建立新的 PonderTag](#其一-无中生有)
 3. [为已有的 PonderTag 添加新的关联词条](#其二-画龙点睛)
@@ -31,7 +30,7 @@ Ponder.tags((event) => {
 });
 ```
 
-![图片](https://github.com/Qi-Month/PonderJs-Tutorials/blob/main/assets/images/PonderTag示例.gif)
+![图片](../assets/images/PonderTag示例.gif)
 
 # 其二 画龙点睛
 
@@ -46,7 +45,7 @@ Ponder.tags((event) => {
 });
 ```
 
-EX: 建立 Ponder 时一并设置其 PonderTag, 以 [iron_golem.js](https://github.com/Qi-Month/PonderJs-Tutorials/blob/main/kubejs/client_scripts/Ponder/iron_golem.js) 的部分代码为例
+EX: 建立 Ponder 时一并设置其 PonderTag, 以 [iron_golem.js](../kubejs/client_scripts/Ponder/iron_golem.js) 的部分代码为例
 
 ```js
 Ponder.registry(event => {
