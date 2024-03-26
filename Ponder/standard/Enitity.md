@@ -76,7 +76,7 @@ P.S.经测试, 移动 0.5 是一格多一点, 等待其他大佬补充, 我搞�
 
 以下分别是 **([2, 1, 2], [0.5, 0, 0])** 和 **([3, 1, 2], [0, 0, 0])**
 
-![ItemEntity_move](../assets/images/ItemEntity_move.gif)
+![ItemEntity_move](../../assets/images/ItemEntity_move.gif)
 
 其返回值为 **Internal.ElementLink<Internal.EntityElement>**
 
