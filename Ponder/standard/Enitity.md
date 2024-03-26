@@ -46,9 +46,9 @@ createEntity(arg0: Internal.Function_<Internal.Level, Internal.Entity>): Interna
 
 ```js
 // 在 [2.5, 1, 2.5] 创造一只 羊 的实体
-var sheep = scene.world.createEntity("minecraft:sheep", [2.5, 1, 2.5]);
+var _sheep = scene.world.createEntity("minecraft:sheep", [2.5, 1, 2.5]);
 //编辑 羊 的实体
-scene.world.modifyEntity(sheep, event => {
+scene.world.modifyEntity(_sheep, event => {
     //设置 羊 的名字是 jeb_
     event.setCustomName("jeb_");
     //显示 羊 的受伤动画
