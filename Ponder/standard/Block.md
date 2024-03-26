@@ -131,6 +131,8 @@ modifyBlockEntityNBT(arg0: Internal.Selection_, arg1: Internal.Consumer_<Interna
 
 ## 其余待做函数
 
+等待大佬编辑
+
 > 以下代码节录自 [scene_world_function.md](../internal/scene_world_function.md)
 
 ```js
