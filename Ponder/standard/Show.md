@@ -1,6 +1,6 @@
 # 前言
 
-> [Ponder](https://github.com/Qi-Month/PonderJs-Tutorials/blob/main/Ponder/Ponder.md) 以 [Submarine.js](https://github.com/Qi-Month/PonderJs-Tutorials/blob/main/kubejs/client_scripts/Ponder/Submarine.js) 为范本介绍, 介绍过的函数此处不多赘述
+> [Ponder](../Ponder.md) 以 [Submarine.js](../../kubejs/client_scripts/Ponder/Submarine.js) 为范本介绍, 介绍过的函数此处不多赘述
 
 <details>
   <summary>目录（单击展开）</summary>
@@ -21,7 +21,7 @@
 scene.world.showSection([2, 1, 1], Direction.down);
 ```
 
-> 以下代码节录自 [scene_world_function.md](https://github.com/Qi-Month/PonderJs-Tutorials/blob/main/Ponder/internal/scene_world_function.md)
+> 以下代码节录自 [scene_world_function.md](../internal/scene_world_function.md)
 
 ```js
 showSection(arg0: Internal.Selection_, arg1: Internal.Direction_): void_;
