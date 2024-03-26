@@ -1,19 +1,14 @@
-# 前言
+# 关于显示
 
-> [Ponder](../Ponder.md) 以 [Submarine.js](../../kubejs/client_scripts/Ponder/Submarine.js) 为范本介绍, 介绍过的函数此处不多赘述
+> 此处介绍其他关于显示方块的函数
 
 <details>
   <summary>目录（单击展开）</summary>
 
-  - [前言](#前言)
-  - [关于显示](#关于显示)
-    1. [显示方块](#显示方块)
-
+  1. [显示方块](#显示方块)
     
 </details>
  
-# 关于显示
-
 ## 显示方块
 
 ```js
