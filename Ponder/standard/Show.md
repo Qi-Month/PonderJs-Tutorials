@@ -19,7 +19,14 @@
 ```js
 // 以从上面下落到坐标 [2, 1, 1] 的动画形式显示出这一格的方块
 scene.world.showSection([2, 1, 1], Direction.down);
+
+// 同上
+scene.world.showSection([2, 1, 1], Facing.down);
+
+// 同上
+scene.world.showSection([2, 1, 1], 'down');
 ```
+关于方向 [Direction & Facing](../internal/Facing.md)
 
 > 以下代码节录自 [scene_world_function.md](../internal/scene_world_function.md)
 
