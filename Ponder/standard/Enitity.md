@@ -21,14 +21,13 @@
 首先来看范例
 
 ```js
-// 在 [2.5, 1, 2.5] 创造一只 羊 的实体
-scene.world.createEntity("minecraft:sheep", [2.5, 1, 2.5]);
+// 在 [2.5, 1, 2.5] 创造一只 羊 的实体, 并附值给 _sheep
+var _sheep = scene.world.createEntity("minecraft:sheep", [2.5, 1, 2.5]);
 
 // 在 [2.5, 1, 2.5] 创造一只 羊 的实体, 设置 羊 的名字是 jeb_
 scene.world.createEntity("minecraft:sheep", [2.5, 1, 2.5], event => {
     event.setCustomName("jeb_");
 });
-
 ```
 
 > 以下代码节录自 [scene_world_function.md](../internal/scene_world_function.md)
@@ -45,7 +44,7 @@ createEntity(arg0: Internal.Function_<Internal.Level, Internal.Entity>): Interna
 首先来看范例
 
 ```js
-// 在 [2.5, 1, 2.5] 创造一只 羊 的实体
+// 在 [2.5, 1, 2.5] 创造一只 羊 的实体, 并附值给 _sheep
 var _sheep = scene.world.createEntity("minecraft:sheep", [2.5, 1, 2.5]);
 //编辑 羊 的实体
 scene.world.modifyEntity(_sheep, event => {
