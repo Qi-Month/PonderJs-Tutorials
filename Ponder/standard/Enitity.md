@@ -59,3 +59,12 @@ scene.world.modifyEntity(_sheep, event => {
 modifyEntity(arg0: Internal.ElementLink_<Internal.EntityElement>, arg1: Internal.Consumer_<Internal.Entity>): void_;
 ```
 
+## 其余待做函数
+
+等待大佬编辑
+
+> 以下代码节录自 [scene_world_function.md](../internal/scene_world_function.md)
+
+```js
+createItemEntity(arg0: Vec3d_, arg1: Vec3d_, arg2: Internal.ItemStack_): Internal.ElementLink<Internal.EntityElement>;
+```
