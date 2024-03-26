@@ -74,9 +74,9 @@ scene.world.createItemEntity([2, 1, 2], [0.5, 0, 0], 'minecraft:iron_ingot');
 ```
 P.S.经测试, 移动 0.5 是一格多一点, 等待其他大佬补充, 我搞不太懂逻辑
 
-以下左及右分别是 **([2, 1, 2], [0.5, 0, 0])** 和 **([3, 1, 2], [0, 0, 0])**
+以下分别是 **([2, 1, 2], [0.5, 0, 0])** 和 **([3, 1, 2], [0, 0, 0])**
 
-![图片](../assets/images/ItemEntity_move.jpg)
+![图片](../assets/images/ItemEntity_move.gif)
 
 其返回值为 **Internal.ElementLink<Internal.EntityElement>**
 
