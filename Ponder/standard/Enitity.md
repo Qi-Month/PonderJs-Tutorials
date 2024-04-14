@@ -69,11 +69,9 @@ modifyEntity(arg0: Internal.ElementLink_<Internal.EntityElement>, arg1: Internal
 首先来看范例
 
 ```js
-// 在 [2, 1, 2] 创造一个移动 [0.5, 0, 0] 的 minecraft:iron_ingot 掉落物实体
+// 在 [2, 1, 2] 创造一个初速度向量为 [0.5, 0, 0] 的 minecraft:iron_ingot 掉落物实体
 scene.world.createItemEntity([2, 1, 2], [0.5, 0, 0], 'minecraft:iron_ingot');
 ```
-P.S.经测试, 移动 0.5 是一格多一点, 等待其他大佬补充, 我搞不太懂逻辑
-
 以下分别是 **([2, 1, 2], [0.5, 0, 0])** 和 **([3, 1, 2], [0, 0, 0])**
 
 ![ItemEntity_move](../../assets/images/ItemEntity_move.gif)

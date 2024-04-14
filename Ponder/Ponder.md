@@ -307,6 +307,62 @@ scene.world.showSection([3, 1, 1, 1, 1, 3], Direction.down);
 > - 并且无论哪种写法, `showSection`动画都将持续 15 Tick
 > - `showSection`方法将会把显示的区域合并到`baseWorldSection`中, 即`scene.ponderjs$getPonderScene().baseWorldSection`
 
+# 修改方块状态
+很多时候会遇到需要指定方块的朝向,类型(如上/下/满半砖)的情况, 可以使用如下方法来修改方块状态:
+
+`scene.world.modifyBlock(方块位置, state => state.with("要修改的状态名", "要修改的状态值"), 是否有粒子效果);`
+
+举例：
+```js
+
+//将1,1,1处的方块的面朝向改为向下,无破坏粒子
+scene.world.modifyBlock(util.grid.at(1, 1, 1), state => state.with("facing", "down"), false);
+
+//将2,2,2处的方块的Eye属性改为True(让末地传送门框架放上末影之眼),产生破坏粒子
+scene.world.modifyBlock(util.grid.at(2, 2, 2), state => state.with("Eye", "true"), true);
+
+```
+# 修改方块nbt
+![盛水的流体储罐](../assets/images/盛水的流体储罐.png)
+![流体储罐的方块状态](../assets/images/流体储罐的方块状态.png)
+如图，这个流体储罐里有1000mB水，但是方块状态里并没有存储相关信息。
+
+F3+i(复制指向的方块的信息)看看：
+
+`/setblock 24 56 -57 create:fluid_tank[bottom=true,shape=window,top=false]{Boiler:{ActiveHeat:0,Engines:0,PassiveHeat:0b,Supply:0.0f,Update:1b,Whistles:0},Height:2,LastKnownPos:{X:24,Y:56,Z:-57},Luminosity:0,Owner:[(所有者的UUID)],Size:1,TankContent:{Amount:1000,FluidName:"minecraft:water"},Window:1b}`
+
+可以看到，内含的流体信息(TankContent)并不在方块状态(方括号括起来的内容)里,而是在nbt信息(花括号括起来的内容)里。
+那该如何修改呢？
+
+```js
+modifyTileNBT(选区,  nbt => {nbt内容}, 是否重绘方块(可选))
+```
+举例:
+
+```js
+scene.world.modifyTileNBT([2, 3, 3], (nbt) => {
+    nbt.Patterns = [
+        {
+            Color: 0,
+            Pattern: "pig"
+        }
+    ]
+})
+
+scene.world.modifyTileNBT([3, 3, 2], (nbt) => {
+    nbt.Patterns = [
+        {
+            Color: 0,
+            Pattern: "cre"
+        }
+    ]
+})
+```
+
+> 方块nbt的修改实际上涉及到了方块实体,SNBT相关知识.
+> 
+> 进阶教程中会有更详细的讲述.
+
 # 进阶玩法(了解好基础后再来!)
 
 [进阶 1](advanced/Section.md)
