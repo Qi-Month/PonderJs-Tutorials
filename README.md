@@ -23,13 +23,13 @@
 ### KubeJs 5
 
 ```js
-onEvent("ponder.registry", (e) => {});
+onEvent("ponder.registry", (event) => {});
 ```
 
 ### KubeJs 6
 
 ```js
-Ponder.registry((e) => {});
+Ponder.registry((event) => {});
 ```
 
 ## 所需要的工具
