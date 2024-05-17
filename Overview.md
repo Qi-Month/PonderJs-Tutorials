@@ -48,7 +48,7 @@
 
   您可能需要了解一些基础知识和基本概念来愉快的编写 PonderJS, 同时您也可能需要一些实用工具来加速思索场景的构建一类
 
-  相关内容请见 [Utils.md](https://github.com/Qi-Month/PonderJs-Tutorials/blob/main/Utils.md)
+  相关内容请见 [Utils.md](Ponder/Utils.md)
 
 - **语言文件**
 
