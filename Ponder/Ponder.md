@@ -56,7 +56,7 @@ Ciallo ～(∠·ω< )⌒☆ 这里是**柒星月**~, 你也可以叫我**柒月*
 由于`Ponder`属于客户端脚本, 除了使用原版的`F3+T`进行重载外, 同时也可以使用指令`kubejs reload client_script`进行重载
 
 ```js
-Ponder.registry((event) => {});
+Ponder.registry(event => {});
 ```
 
 # 创建场景
@@ -64,7 +64,7 @@ Ponder.registry((event) => {});
 准备工作做完后, 在脚本中插入以下内容来创建一个场景:
 
 ```js
-Ponder.registry((event) => {
+Ponder.registry(event => {
   event
     .create("kubejs:submarine_core") // 填入需要添加 Ponder 的 Item/Tag, 填入多个时要用 [ ] 包裹
     .scene(
@@ -83,7 +83,7 @@ Ponder.registry((event) => {
 
 ```js
 // 1 .scene() 后面直接在接一个 .scene()
-Ponder.registry((event) => {
+Ponder.registry(event => {
   event
     .create("kubejs:submarine_core")
     .scene("kubejs:submarine_1", "潜水艇", (scene, utils) => {
@@ -146,7 +146,7 @@ scene.configureBasePlate(x, z, n);
 在创建场景时额外填入参数来读取自己准备的起始结构
 
 ```js
-Ponder.registry((event) => {
+Ponder.registry(event => {
   event.create("kubejs:submarine_core").scene(
     "kubejs:submarine",
     "潜水艇 ",
@@ -218,7 +218,7 @@ scene.idleSeconds(1);
 此时你的代码应该如下面所示
 
 ```js
-Ponder.registry((event) => {
+Ponder.registry(event => {
   event
     .create("kubejs:submarine_core")
     .scene("kubejs:submarine", "潜水艇", "kubejs:submarine", (scene, utils) => {
@@ -316,10 +316,10 @@ scene.world.showSection([3, 1, 1, 1, 1, 3], Direction.down);
 ```js
 
 //将1,1,1处的方块的面朝向改为向下,无破坏粒子
-scene.world.modifyBlock(util.grid.at(1, 1, 1), state => state.with("facing", "down"), false);
+scene.world.modifyBlock([1, 1, 1], state => state.with("facing", "down"), false);
 
 //将2,2,2处的方块的Eye属性改为True(让末地传送门框架放上末影之眼),产生破坏粒子
-scene.world.modifyBlock(util.grid.at(2, 2, 2), state => state.with("Eye", "true"), true);
+scene.world.modifyBlock([2, 2, 2], state => state.with("Eye", "true"), true);
 
 ```
 # 修改方块nbt
@@ -350,8 +350,7 @@ scene.world.modifyTileNBT([2, 3, 3], (nbt) => {
 })
 
 scene.world.modifyTileNBT([3, 3, 2], (nbt) => {
-    nbt.Patterns = [
-        {
+    nbt.Patterns = [        {
             Color: 0,
             Pattern: "cre"
         }
@@ -426,8 +425,7 @@ scene.overlay.showOutline("red", {}, [7, 1, 3, 3, 5, 7], 30);
 这里就很经典的运用了两个知识点, `右键`和`替换方块`, 我们先看看`右键`的代码
 
 ```js
-scene
-  .showControls(30, [3, 1, 5], "left") // 在 [3, 1, 5] 的右方创建一个向左指的框, 时长为 30 Tick
+scene.showControls(30, [3, 1, 5], "left") // 在 [3, 1, 5] 的右方创建一个向左指的框, 时长为 30 Tick
   .rightClick() // 在框内显示 鼠标右键 的图示
   .withItem("immersiveengineering:hammer"); // 在框内显示 "immersiveengineering:hammer" 的图示
 ```
@@ -438,8 +436,7 @@ scene
 
 ```js
 // 在 [2, 1, 2] 的上方创建一个向下指的框, 时长为 80 Tick, 框内显示 鼠标右键 及 "kubejs:sturdy_sheet_block"
-scene
-  .showControls(80, [2, 1, 2], "down")
+scene.showControls(80, [2, 1, 2], "down")
   .rightClick()
   .withItem("kubejs:sturdy_sheet_block");
 
