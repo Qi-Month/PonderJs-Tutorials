@@ -56,7 +56,7 @@ Ciallo ～(∠·ω< )⌒☆ 这里是**柒星月**~, 你也可以叫我**柒月*
 由于`Ponder`属于客户端脚本, 除了使用原版的`F3+T`进行重载外, 同时也可以使用指令`kubejs reload client_script`进行重载
 
 ```js
-Ponder.registry(event => {});
+Ponder.registry((event) => {})
 ```
 
 # 创建场景
@@ -64,17 +64,22 @@ Ponder.registry(event => {});
 准备工作做完后, 在脚本中插入以下内容来创建一个场景:
 
 ```js
-Ponder.registry(event => {
-  event
-    .create("kubejs:submarine_core") // 填入需要添加 Ponder 的 Item/Tag, 填入多个时要用 [ ] 包裹
-    .scene(
-      "kubejs:submarine", // Ponder ID
-      "潜水艇 ", // 侧边显示的标题
-      (scene, utils) => {
-        // 在 { } 内的即是此场景的内容
-      }
-    );
-});
+Ponder.registry((event) => {
+	event.create("kubejs:submarine_core") // 填入需要添加 Ponder 的 Item/Tag, 填入多个时要用 [ ] 包裹
+		.scene(
+			"kubejs:submarine", // Ponder ID
+			"潜水艇 ", // 侧边显示的标题
+			(scene, utils) => {
+				// 在 { } 内的即是此场景的内容
+			}
+		)
+})
+
+// 下面是无注释的写法↓
+Ponder.registry((event) => {
+	event.create("kubejs:submarine_core")
+		.scene("kubejs:submarine", "潜水艇 ", (scene, utils) => {})
+})
 ```
 
 一个 Item 可以添加多个 Ponder, 具体效果可以看游戏内 Ponder 界面的翻页
@@ -83,29 +88,27 @@ Ponder.registry(event => {
 
 ```js
 // 1 .scene() 后面直接在接一个 .scene()
-Ponder.registry(event => {
-  event
-    .create("kubejs:submarine_core")
-    .scene("kubejs:submarine_1", "潜水艇", (scene, utils) => {
-      // 场景1
-    })
-    .scene("kubejs:submarine_2", "潜水艇 ", (scene, utils) => {
-      // 场景2
-    });
+Ponder.registry((event) => {
+    event.create("kubejs:submarine_core")
+        .scene("kubejs:submarine_1", "潜水艇", (scene, utils) => {
+        // 场景1
+        })
+        .scene("kubejs:submarine_2", "潜水艇 ", (scene, utils) => {
+        // 场景2
+        })
 
-  // 2 另外开一个,  实际上, 即使是在另一个档案中创建也行
-  event
-    .create("kubejs:submarine_core")
-    .scene("kubejs:submarine_3", "潜水艇", (scene, utils) => {
-      // 场景3
-    });
-});
+        // 2 另外开一个,实际上,即使是在另一个档案中创建也行
+    	event.create("kubejs:submarine_core")
+        	.scene("kubejs:submarine_3", "潜水艇", (scene, utils) => {
+      	// 场景3
+    	})
+})
 ```
 
 - 注意要点 :
   > 会依读取的顺序成为第 1 ~ n 个场景, 透过翻页来切换
   >
-  > 不同场景的 Ponder ID 一样并不会导致报错, 但会产生`标题错误`或者`文本错误`等问题
+  > 不同场景的 Ponder ID 一样并不会导致报错, 但会产生*`标题错误`*或者`文本错误`等问题
 
 # 配置起始结构
 
@@ -117,7 +120,7 @@ Ponder.registry(event => {
 // 在 { } 内使用这个函数, 将会生成 1 个 n * n, 西移 x 格, 北移 z 格的地板(开启开发者模式后便可查看各个方块的坐标及方位)
 // 其三个参数分别用于配置: X偏移, Z偏移以及地板大小(x < 0 即是东移, z 同理)
 // P.S 内建地板最多5x5, n>5时, 范围会出现, 但只会设置5x5的方块
-scene.configureBasePlate(x, z, n);
+scene.configureBasePlate(x, z, n)
 ```
 
 ## 2. 自己准备起始结构
@@ -146,14 +149,22 @@ scene.configureBasePlate(x, z, n);
 在创建场景时额外填入参数来读取自己准备的起始结构
 
 ```js
-Ponder.registry(event => {
-  event.create("kubejs:submarine_core").scene(
-    "kubejs:submarine",
-    "潜水艇 ",
-    "kubejs:submarine", // 读取的结构文件名称, 可于 kubejs/assets/kubejs/ponder/自行下载
-    (scene, utils) => {}
-  );
-});
+Ponder.registry((event) => {
+	event.create("kubejs:submarine_core")
+		.scene(
+			"kubejs:submarine",
+			"潜水艇 ",
+			"kubejs:submarine", // 读取的结构文件名称, 可于 kubejs/assets/kubejs/ponder/自行下载
+			(scene, utils) => {
+
+			})
+})
+
+// 下面是无注释的写法↓
+Ponder.registry((event) => {
+    event.create("kubejs:submarine_core")
+	    .scene("kubejs:submarine", "潜水艇 ", "kubejs:submarine", (scene, utils) => {})
+})
 ```
 
 # 显示起始结构
@@ -162,9 +173,9 @@ Ponder.registry(event => {
 
 ```js
 // 显示读取的nbt文件中, y = 0 的部分
-scene.showBasePlate();
+scene.showBasePlate()
 // 显示读取的nbt文件中, y = 0 ~ n 的部分，也可不填参数, 那个场合将整个nbt文件的结构显示
-scene.showStructure(n);
+scene.showStructure(n)
 ```
 
 > P.S : 即使选用作者自带的生成地板方法, 也是要手动显示地板滴
@@ -177,9 +188,9 @@ scene.showStructure(n);
 
 ```js
 // 等待 20 Tick
-scene.idle(20);
+scene.idle(20)
 // 等待 1 秒
-scene.idleSeconds(1);
+scene.idleSeconds(1)
 ```
 
 > 这边提一嘴, 在 Ponder 编写完成后一定要停顿至少一秒
@@ -218,15 +229,15 @@ scene.idleSeconds(1);
 此时你的代码应该如下面所示
 
 ```js
-Ponder.registry(event => {
-  event
-    .create("kubejs:submarine_core")
-    .scene("kubejs:submarine", "潜水艇", "kubejs:submarine", (scene, utils) => {
-      // 显示底盘, 同时等待 20 Tick
-      scene.showBasePlate();
-      scene.idle(20);
-    });
-});
+Ponder.registry((event) => {
+    event.create("kubejs:submarine_core")
+        .scene("kubejs:submarine", "潜水艇", "kubejs:submarine", (scene, utils) => {
+
+        // 显示底盘, 同时等待 20 Tick
+        scene.showBasePlate()
+        scene.idle(20)
+    })
+})
 ```
 
 # 关键帧
@@ -237,22 +248,22 @@ Ponder.registry(event => {
 
 ```js
 // 在 当前 Tick 创造一个关键帧
-scene.addKeyframe();
+scene.addKeyframe()
 
 // 在 5 Tick 后(当前Tick往后数的第六个Tick)创造一个关键帧
-scene.addLazyKeyframe();
+scene.addLazyKeyframe()
 ```
 
 经过测试
 
 ```js
 // 连续2个 addKeyframe 只会创造一个关键帧
-scene.addKeyframe();
-scene.addKeyframe();
+scene.addKeyframe()
+scene.addKeyframe()
 
 // 如此则会创造两个关键帧, 其间隔 5 Tick
-scene.addKeyframe();
-scene.addLazyKeyframe();
+scene.addKeyframe()
+scene.addLazyKeyframe()
 ```
 
 # 放置方块
@@ -264,19 +275,20 @@ scene.addLazyKeyframe();
 
 - 注意 : 离你最近的地板方块的坐标是 `[0, 0, 0]`, 往`左`、`上`、`右`分别对应 `x, y, z`
 
-> 根据上图的结构我们得知右边的鼓风机的位置在 `[2, 　1, 　1]`, 那我们接着写
+> 根据上图的结构我们得知右边的鼓风机的位置在 `[2, 1, 1]`, 那我们接着写
 
 ```js
 // 在 [2, 1, 2] 放置鼓风机方块, 若该位置原本有方块, 则破坏该原本方块
-scene.world.setBlocks([2, 1, 1], "create:encased_fan");
+scene.world.setBlocks([2, 1, 1], "create:encased_fan")
 
 // 同上, 若第三个参数为 false 则不显示破坏方块时的粒子效果
-scene.world.setBlocks([2, 1, 1], "create:encased_fan", true);
+scene.world.setBlocks([2, 1, 1], "create:encased_fan", true)
 ```
 
 > 值得一提的是, 后两个参数似乎是可以对调的, 即
->
-> scene.world.setBlocks([2, 1, 1], "create:encased_fan", false); = scene.world.setBlocks([2, 1, 1], false, "create:encased_fan");
+```js
+scene.world.setBlocks([2, 1, 1], "create:encased_fan", false) = scene.world.setBlocks([2, 1, 1], false, "create:encased_fan")
+ ```
 
 # 显示方块
 
@@ -284,13 +296,13 @@ scene.world.setBlocks([2, 1, 1], "create:encased_fan", true);
 
 ```js
 // 以从上面下落到坐标 [2, 1, 1] 的动画形式显示出这一格的方块
-scene.world.showSection([2, 1, 1], Direction.down);
+scene.world.showSection([2, 1, 1], Direction.DOWN)
 ```
 
 如果我们想要显示某区域的方块可以直接写
 
 ```js
-scene.world.showSection([3, 1, 1, 1, 1, 3], Direction.down);
+scene.world.showSection([3, 1, 1, 1, 1, 3], Direction.DOWN)
 ```
 
 这样以 `[3, 1, 1]` 及 `[1, 1, 3]` 为对角组成的`矩形区域内`的方块全部都会以下落的方式展现出来
@@ -310,17 +322,21 @@ scene.world.showSection([3, 1, 1, 1, 1, 3], Direction.down);
 # 修改方块状态
 很多时候会遇到需要指定方块的朝向,类型(如上/下/满半砖)的情况, 可以使用如下方法来修改方块状态:
 
-`scene.world.modifyBlock(方块位置, state => state.with("要修改的状态名", "要修改的状态值"), 是否有粒子效果);`
+`scene.world.modifyBlock(方块位置, state => state.with("要修改的状态名", "要修改的状态值"), 是否有粒子效果)`
 
 举例：
 ```js
-
 //将1,1,1处的方块的面朝向改为向下,无破坏粒子
-scene.world.modifyBlock([1, 1, 1], state => state.with("facing", "down"), false);
+scene.world.modifyBlock([1, 1, 1], (state) => state.with("facing", "DOWN"), false)
 
 //将2,2,2处的方块的Eye属性改为True(让末地传送门框架放上末影之眼),产生破坏粒子
-scene.world.modifyBlock([2, 2, 2], state => state.with("Eye", "true"), true);
+scene.world.modifyBlock([2, 2, 2], (state) => state.with("Eye", "true"), true)
 
+// 你也可以写成
+scene.world.modifyBlock([2, 2, 2], (state) => {
+	return state.with("Eye", "true"), true
+})
+// 但是...没必要不是..
 ```
 # 修改方块nbt
 ![盛水的流体储罐](../assets/images/盛水的流体储罐.png)
@@ -331,11 +347,11 @@ F3+i(复制指向的方块的信息)看看：
 
 `/setblock 24 56 -57 create:fluid_tank[bottom=true,shape=window,top=false]{Boiler:{ActiveHeat:0,Engines:0,PassiveHeat:0b,Supply:0.0f,Update:1b,Whistles:0},Height:2,LastKnownPos:{X:24,Y:56,Z:-57},Luminosity:0,Owner:[(所有者的UUID)],Size:1,TankContent:{Amount:1000,FluidName:"minecraft:water"},Window:1b}`
 
-可以看到，内含的流体信息(TankContent)并不在方块状态(方括号括起来的内容)里,而是在nbt信息(花括号括起来的内容)里。
+可以看到，内含的流体信息(`TankContent`)并不在方块状态(方括号括起来的内容)里,而是在nbt信息(花括号括起来的内容)里。
 那该如何修改呢？
 
 ```js
-modifyTileNBT(选区,  nbt => {nbt内容}, 是否重绘方块(可选))
+modifyTileNBT(选区, (nbt) => {nbt内容}, 是否重绘方块(可选))
 ```
 举例:
 
@@ -350,7 +366,8 @@ scene.world.modifyTileNBT([2, 3, 3], (nbt) => {
 })
 
 scene.world.modifyTileNBT([3, 3, 2], (nbt) => {
-    nbt.Patterns = [        {
+    nbt.Patterns = [
+		{
             Color: 0,
             Pattern: "cre"
         }
@@ -364,7 +381,7 @@ scene.world.modifyTileNBT([3, 3, 2], (nbt) => {
 
 # 进阶玩法(了解好基础后再来!)
 
-[进阶 1](advanced/Section.md)
+[进阶 1](advanced/Section.md)\
 [进阶 2](advanced/Scene.md)
 
 # 文本显示
@@ -377,7 +394,7 @@ scene.world.modifyTileNBT([3, 3, 2], (nbt) => {
 
 ```js
 // 显示 40 Tick "文本"
-scene.text(40, "文本", [4.5, 3.5, 2]);
+scene.text(40, "文本", [4.5, 3.5, 2])
 ```
 
 第二种则是直接在右上角显示的文本框
@@ -386,13 +403,13 @@ scene.text(40, "文本", [4.5, 3.5, 2]);
 
 ```js
 //  显示 30 Tick "文本"
-scene.text(30, "文本");
+scene.text(30, "文本")
 ```
 
 结合上文的关键帧知识点, 我们也可以在文本处直接创建一个关键帧
 
 ```js
-scene.text(30, "文本").attachKeyFrame();
+scene.text(30, "文本").attachKeyFrame()
 ```
 
 > 根据对 Minecraft 的了解, 在文本前输入不同的代码可以使其呈现出不一样的效果, 例如加粗以及图中的蓝色文本
@@ -409,7 +426,7 @@ scene.text(30, "文本").attachKeyFrame();
  *red 指的是边框的颜色, 但是Ponder场景自身似乎支持的颜色并不多
  *坐标的选取可以和上面的一样直接选择一个区域, 就如同图里的一样
  */
-scene.overlay.showOutline("red", {}, [7, 1, 3, 3, 5, 7], 30);
+scene.overlay.showOutline("red", {}, [7, 1, 3, 3, 5, 7], 30)
 ```
 
 # 操作交互
@@ -426,8 +443,8 @@ scene.overlay.showOutline("red", {}, [7, 1, 3, 3, 5, 7], 30);
 
 ```js
 scene.showControls(30, [3, 1, 5], "left") // 在 [3, 1, 5] 的右方创建一个向左指的框, 时长为 30 Tick
-  .rightClick() // 在框内显示 鼠标右键 的图示
-  .withItem("immersiveengineering:hammer"); // 在框内显示 "immersiveengineering:hammer" 的图示
+    .rightClick() // 在框内显示 鼠标右键 的图示
+    .withItem("immersiveengineering:hammer") // 在框内显示 "immersiveengineering:hammer" 的图示
 ```
 
 没错, 就这么简单, 一行行拆开来看也是非常的简单易懂
@@ -436,25 +453,25 @@ scene.showControls(30, [3, 1, 5], "left") // 在 [3, 1, 5] 的右方创建一个
 
 ```js
 // 在 [2, 1, 2] 的上方创建一个向下指的框, 时长为 80 Tick, 框内显示 鼠标右键 及 "kubejs:sturdy_sheet_block"
-scene.showControls(80, [2, 1, 2], "down")
-  .rightClick()
-  .withItem("kubejs:sturdy_sheet_block");
+scene.showControls(80, [2, 1, 2], "DOWN")
+    .rightClick()
+    .withItem("kubejs:sturdy_sheet_block")
 
 // 替换方块
-scene.world.setBlocks([2, 1, 2], "mekanism:cardboard_box");
+scene.world.setBlocks([2, 1, 2], "mekanism:cardboard_box")
 ```
 
 > 此处额外列举其他接在 showControls 后面的方法
 
 ```js
-scene.showControls(80, [2, 1, 2], "down")
- .clone(); // 暂时不知道功能
- .scroll(); // 在框内显示 鼠标中键(滚轮) 的图示
- .whileCTRL(); // 在框内显示 CTRL 的图示
- .withWrench(); // 在框内显示 机械动力的扳手 的图示
- .showing(picon); // 在框内显示 picon 对应的的图示, 所有 picon 可于 kubejs/constant/PonderIcons.md 确认
- .leftClick(); // 在框内显示 鼠标左键 的图示
- .whileSneaking(); // 在框内显示 潜行 的图示
+scene.showControls(80, [2, 1, 2], "DOWN")
+    .clone() // 暂时不知道功能
+    .scroll() // 在框内显示 鼠标中键(滚轮) 的图示
+    .whileCTRL() // 在框内显示 CTRL 的图示
+    .withWrench() // 在框内显示 机械动力的扳手 的图示
+    .showing(picon) // 在框内显示 picon 对应的的图示, 所有 picon 可于 kubejs/constant/PonderIcons.md 确认
+    .leftClick() // 在框内显示 鼠标左键 的图示
+    .whileSneaking() // 在框内显示 潜行 的图示
 ```
 
 [PonderIcons.md 跳转连接](internal/PonderIcons.md).
@@ -463,17 +480,20 @@ scene.showControls(80, [2, 1, 2], "down")
 
 ```js
 // 坐标, Item飞出去的方向以及Item Id
-scene.world.createItemEntity([2, 1, 2], Direction.down, "kubejs:furnace_core");
+scene.world.createItemEntity([2, 1, 2], Direction.DOWN, "kubejs:furnace_core")
 ```
 
 # 实体
 
 ```js
 // 实体ID 坐标
-scene.world.createEntity("alexscaves:submarine", [4, 2, 3]);
+scene.world.createEntity("alexscaves:submarine", [4, 2, 3])
 ```
 
 # 实体更改
 
 awa
 ![未完待续](../assets/images/未完待续.png)
+
+
+# 结构移动
