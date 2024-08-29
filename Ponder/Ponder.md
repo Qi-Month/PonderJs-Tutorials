@@ -91,16 +91,16 @@ Ponder.registry((event) => {
 Ponder.registry((event) => {
     event.create("kubejs:submarine_core")
         .scene("kubejs:submarine_1", "潜水艇", (scene, utils) => {
-        // 场景1
+            // 场景1
         })
         .scene("kubejs:submarine_2", "潜水艇 ", (scene, utils) => {
-        // 场景2
+        	// 场景2
         })
 
         // 2 另外开一个,实际上,即使是在另一个档案中创建也行
-    	event.create("kubejs:submarine_core")
-        	.scene("kubejs:submarine_3", "潜水艇", (scene, utils) => {
-      	// 场景3
+    event.create("kubejs:submarine_core")
+        .scene("kubejs:submarine_3", "潜水艇", (scene, utils) => {
+      		// 场景3
     	})
 })
 ```

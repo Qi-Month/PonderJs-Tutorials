@@ -23,13 +23,13 @@
 ### KubeJs 5
 
 ```js
-onEvent("ponder.registry", (event) => {});
+onEvent("ponder.registry", (event) => {})
 ```
 
 ### KubeJs 6
 
 ```js
-Ponder.registry((event) => {});
+Ponder.registry((event) => {})
 ```
 
 ## 所需要的工具
@@ -39,3 +39,5 @@ Ponder.registry((event) => {});
 - [PonderJS](https://www.mcmod.cn/class/4979.html)(1.18.2 以下), [Ponder for KubeJS](https://www.mcmod.cn/class/7205.html)(1.18.2 及以上), 以及它们的前置
 - [ProbeJs](https://www.mcmod.cn/class/6486.html)
 - 那么 **一丢丢** 🌌🤏 的 KubeJs 基础
+
+直接开始的[传送门](Ponder/Ponder.md)
