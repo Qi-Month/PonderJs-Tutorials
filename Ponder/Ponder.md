@@ -52,8 +52,8 @@ Ciallo ～(∠·ω< )⌒☆ 这里是**柒星月**~, 你也可以叫我**柒月*
 >
 > ![文件夹展示](../assets/images/文件夹.png)
 
-和其他的 KubeJS 脚本一样, 开头都应该先声明事件, 所有的编写都在 `{}` 内进行, 毕竟都是 `JavaScript` 的扩展
-由于`Ponder`属于客户端脚本, 除了使用原版的`F3+T`进行重载外, 同时也可以使用指令`kubejs reload client_script`进行重载
+**<font size=5>和其他的 KubeJS 脚本一样, 开头都应该先声明事件, 所有的编写都在 `{}` 内进行, 毕竟都是 `JavaScript` 的扩展**
+**由于`Ponder`属于客户端脚本, 除了使用原版的`F3+T`进行重载外, 同时也可以使用指令`kubejs reload client_script`进行重载</font>**
 
 ```js
 Ponder.registry((event) => {})
