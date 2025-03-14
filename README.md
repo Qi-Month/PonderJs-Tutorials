@@ -18,7 +18,9 @@
 >
 > 最后, 感谢和我一起编写的其它编者!
 
-本篇教程基于 KubeJS 6 编写, 在此之前我也写过 KubeJS 5 的, 各种方法没有区别, 唯一的区别就是开头的事件声明(截止我已发现的)
+本篇教程基于 KubeJS 6 编写, 在此之前我也写过 KubeJS 5 的, `1.18.2-1.20.1`各种方法没有区别, 唯一的区别就是开头的事件声明(截止我已发现的)
+
+但是1.16.5的[PonderJS](https://www.mcmod.cn/class/4979.html)语句和`1.18.2`及以后的[Ponder for KubeJS](https://www.mcmod.cn/class/7205.html)语句有一定的区别, 老版本的语句更偏向于Create原版的语句, 但是本文档并不教老版本的语法, 这边更建议直接去看[Create自己的Ponder](https://github.com/Creators-of-Create/Create/tree/mc1.20.1/dev/src/main/java/com/simibubi/create/infrastructure/ponder)
 
 ### KubeJS 5
 
