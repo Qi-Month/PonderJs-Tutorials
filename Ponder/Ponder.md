@@ -2,7 +2,7 @@
 
 > 什么是 Ponder ?
 
-为物品创建沉浸式场景，让玩家更容易理解其用途及细枝末节
+为物品添加沉浸式场景，让玩家更容易理解其用途及细枝末节
 
 > 为什么教程中的图会有紫黑色的方块
 
@@ -32,15 +32,14 @@
 
 # 开始之前
 
-Ciallo ～(∠·ω< )⌒☆ 这里是**柒星月**~, 你也可以叫我**柒月**, 那么在开始之前呢, 我们先来看一段完整的`Ponder`演示, 以方便了解一下`Ponder`究竟可以做什么
+Ciallo ～(∠·ω< )⌒☆ 这里是**柒星月**~, 你也可以叫我**柒月**, 那么在开始之前呢, 我们先来看一段完整的`Ponder`演示, 以方便了解一下`Ponder`可以简单的实现什么功能
 
 ![完整gif](../assets/images/完整.gif)
 
 > 本处使用的范例文件为 [Submarine.js](../kubejs/client_scripts/Ponder/Submarine.js)
->
 > 其调用的 nbt 文件在 [submarine.nbt](../kubejs/assets/kubejs/ponder/submarine.nbt)
 
-可以看到 `Ponder` 除了 `Create` 自带的用法外, 我们还可以使用它制作出 `Modpack` 内某些 `多方块结构` 以及 `世界合成` 等涉及到多个方块的工作方式
+可以看到 `Ponder` 除了 `Create` 自带的用法外, 我们还可以使用它制作出Modpack内的某些 `多方块结构` 以及 `世界合成` 等涉及到多个方块的工作方式
 
 # 正式开始
 
@@ -97,7 +96,7 @@ Ponder.registry((event) => {
         	// 场景2
         })
 
-        // 2 另外开一个,实际上,即使是在另一个档案中创建也行
+        // 2 另外开一个, 实际上, 即使是在另一个档案中创建也行
     event.create("kubejs:submarine_core")
         .scene("kubejs:submarine_3", "潜水艇", (scene, utils) => {
       		// 场景3
@@ -108,7 +107,7 @@ Ponder.registry((event) => {
 - 注意要点 :
   > 会依读取的顺序成为第 1 ~ n 个场景, 透过翻页来切换
   >
-  > 不同场景的 Ponder ID 一样并不会导致报错, 但会产生*`标题错误`*或者`文本错误`等问题
+  > 不同场景的 Ponder ID 一样并不会导致报错, 但会产生`标题错误`或者`文本错误`等问题
 
 # 配置起始结构
 
@@ -133,7 +132,7 @@ scene.configureBasePlate(x, z, n)
 
 ![图片](../assets/images/结构方块.png)
 
-**最推荐的就是像上图这样直接搞一个正方体的结构, 包括空气方块!(经实际测试发现, 想要搞一个像这样空白空气方块的结构, 使用`蓝图与笔`并不能做到, 只能使用原版的`结构方块`)**
+**最推荐的就是像上图这样直接搞一个正方体(1: 1: 1)的结构, 包括空气方块!(经实际测试发现, 想要搞一个像这样空白空气方块的结构, 使用`蓝图与笔`并不能做到, 只能使用原版的`结构方块`)**
 在获取一个完整的 nbt 结构文件时, 最好把地板也一起搭建并打包好
 
 可以打开 Ponder 的开发者模式, 用于显示坐标(限制存档, 新存档需要再次开启)
@@ -152,8 +151,8 @@ scene.configureBasePlate(x, z, n)
 Ponder.registry((event) => {
 	event.create("kubejs:submarine_core")
 		.scene(
-			"kubejs:submarine",
-			"潜水艇 ",
+			"kubejs:submarine", 
+			"潜水艇 ", 
 			"kubejs:submarine", // 读取的结构文件名称, 可于 kubejs/assets/kubejs/ponder/自行下载
 			(scene, utils) => {
 
@@ -180,7 +179,7 @@ scene.showStructure(n)
 
 > P.S : 即使选用作者自带的生成地板方法, 也是要手动显示地板滴
 >
-> showBasePlate() 和 showStructure(0) 完全相等
+> `showBasePlate()` 和 `showStructure(0)` 完全相等
 
 # 适当的等待
 
@@ -223,7 +222,7 @@ scene.idleSeconds(1)
 >
 > 传承优良编程风, 后人称赞无忧愁.
 >
-> 诗词大意 : 将编程与诗歌相提并论, 强调了规范编程的重要性, 在编程道路上, 遵循规范就如同写诗一样, 需要点滴积累, 同时强调了一下技术之路的艰辛和规范编码的必要性,
+> 诗词大意 : 将编程与诗歌相提并论, 强调了规范编程的重要性, 在编程道路上, 遵循规范就如同写诗一样, 需要点滴积累, 同时强调了一下技术之路的艰辛和规范编码的必要性, 
 > 警示不要欠下技术债务, 否则将来还债将是漫长的过程(甚至还不起), 最后强调了规范编码的价值, 不仅可以造福当前的程序员, 也能为后人留下优良的编程风格
 
 此时你的代码应该如下面所示
@@ -320,16 +319,16 @@ scene.world.showSection([3, 1, 1, 1, 1, 3], Direction.DOWN)
 > - `showSection`方法将会把显示的区域合并到`baseWorldSection`中, 即`scene.ponderjs$getPonderScene().baseWorldSection`
 
 # 修改方块状态
-很多时候会遇到需要指定方块的朝向,类型(如上/下/满半砖)的情况, 可以使用如下方法来修改方块状态:
+很多时候会遇到需要指定方块的朝向, 类型(如上/下/满半砖)的情况, 可以使用如下方法来修改方块状态:
 
 `scene.world.modifyBlock(方块位置, state => state.with("要修改的状态名", "要修改的状态值"), 是否有粒子效果)`
 
 举例：
 ```js
-//将1,1,1处的方块的面朝向改为向下,无破坏粒子
+//将1, 1, 1处的方块的面朝向改为向下, 无破坏粒子
 scene.world.modifyBlock([1, 1, 1], (state) => state.with("facing", "DOWN"), false)
 
-//将2,2,2处的方块的Eye属性改为True(让末地传送门框架放上末影之眼),产生破坏粒子
+//将2, 2, 2处的方块的Eye属性改为True(让末地传送门框架放上末影之眼), 产生破坏粒子
 scene.world.modifyBlock([2, 2, 2], (state) => state.with("Eye", "true"), true)
 
 // 你也可以写成
@@ -345,9 +344,9 @@ scene.world.modifyBlock([2, 2, 2], (state) => {
 
 F3+i(复制指向的方块的信息)看看：
 
-`/setblock 24 56 -57 create:fluid_tank[bottom=true,shape=window,top=false]{Boiler:{ActiveHeat:0,Engines:0,PassiveHeat:0b,Supply:0.0f,Update:1b,Whistles:0},Height:2,LastKnownPos:{X:24,Y:56,Z:-57},Luminosity:0,Owner:[(所有者的UUID)],Size:1,TankContent:{Amount:1000,FluidName:"minecraft:water"},Window:1b}`
+`/setblock 24 56 -57 create:fluid_tank[bottom=true, shape=window, top=false]{Boiler:{ActiveHeat:0, Engines:0, PassiveHeat:0b, Supply:0.0f, Update:1b, Whistles:0}, Height:2, LastKnownPos:{X:24, Y:56, Z:-57}, Luminosity:0, Owner:[(所有者的UUID)], Size:1, TankContent:{Amount:1000, FluidName:"minecraft:water"}, Window:1b}`
 
-可以看到，内含的流体信息(`TankContent`)并不在方块状态(方括号括起来的内容)里,而是在nbt信息(花括号括起来的内容)里。
+可以看到，内含的流体信息(`TankContent`)并不在方块状态(方括号括起来的内容)里, 而是在nbt信息(花括号括起来的内容)里。
 那该如何修改呢？
 
 ```js
@@ -359,7 +358,7 @@ modifyTileNBT(选区, (nbt) => {nbt内容}, 是否重绘方块(可选))
 scene.world.modifyTileNBT([2, 3, 3], (nbt) => {
     nbt.Patterns = [
         {
-            Color: 0,
+            Color: 0, 
             Pattern: "pig"
         }
     ]
@@ -368,14 +367,14 @@ scene.world.modifyTileNBT([2, 3, 3], (nbt) => {
 scene.world.modifyTileNBT([3, 3, 2], (nbt) => {
     nbt.Patterns = [
 		{
-            Color: 0,
+            Color: 0, 
             Pattern: "cre"
         }
     ]
 })
 ```
 
-> 方块nbt的修改实际上涉及到了方块实体,SNBT相关知识.
+> 方块nbt的修改实际上涉及到了方块实体, SNBT相关知识.
 > 
 > 进阶教程中会有更详细的讲述.
 
@@ -431,7 +430,7 @@ scene.overlay.showOutline("red", {}, [7, 1, 3, 3, 5, 7], 30)
 
 # 操作交互
 
-这种就是典型的一种右键操作示例图
+这种就是经典的一张右键操作示例图
 
 ![右键](../assets/images/右键.png)
 
@@ -443,8 +442,8 @@ scene.overlay.showOutline("red", {}, [7, 1, 3, 3, 5, 7], 30)
 
 ```js
 scene.showControls(30, [3, 1, 5], "left") // 在 [3, 1, 5] 的右方创建一个向左指的框, 时长为 30 Tick
-    .rightClick() // 在框内显示 鼠标右键 的图示
-    .withItem("immersiveengineering:hammer") // 在框内显示 "immersiveengineering:hammer" 的图示
+	.rightClick() // 在框内显示 鼠标右键 的图示
+	.withItem("immersiveengineering:hammer") // 在框内显示 "immersiveengineering:hammer" 的图示
 ```
 
 没错, 就这么简单, 一行行拆开来看也是非常的简单易懂
@@ -461,7 +460,9 @@ scene.showControls(80, [2, 1, 2], "DOWN")
 scene.world.setBlocks([2, 1, 2], "mekanism:cardboard_box")
 ```
 
-> 此处额外列举其他接在 showControls 后面的方法
+在Ponder中停顿是单独的一行语句, 因此如果没有声明停顿所有的操作都会在一瞬间执行
+
+> 此处额外列举其他接在 `showControls` 后面的方法
 
 ```js
 scene.showControls(80, [2, 1, 2], "DOWN")
@@ -474,13 +475,27 @@ scene.showControls(80, [2, 1, 2], "DOWN")
     .whileSneaking() // 在框内显示 潜行 的图示
 ```
 
-[PonderIcons.md 跳转连接](internal/PonderIcons.md).
+> **[PonderIcons.md 跳转连接](internal/PonderIcons.md).**
 
 # 掉落物
 
 ```js
-// 坐标, Item飞出去的方向以及Item Id
+// 坐标, Item飞出去的方向(下面的代码是朝下, 也就是掉落)以及Item Id
 scene.world.createItemEntity([2, 1, 2], Direction.DOWN, "kubejs:furnace_core")
+
+// 删除掉落物实体
+scene.world.removeEntity(scene.world.createItemEntity([2, 1, 2], Direction.DOWN, "kubejs:furnace_core"))
+```
+
+你没看错, 这是一种笨方法, 我们可以将创建实体的语句声明成一个变量, 然后进行调用(在声明后可以照常运行)\
+Be Like:
+
+```js
+// 坐标, Item飞出去的方向(下面的代码是朝下, 也就是掉落)以及Item Id
+let itemEntity = scene.world.createItemEntity([2, 1, 2], Direction.DOWN, "kubejs:furnace_core")
+
+// 删除掉落物实体
+scene.world.removeEntity(itemEntity)
 ```
 
 # 实体
@@ -492,8 +507,51 @@ scene.world.createEntity("alexscaves:submarine", [4, 2, 3])
 
 # 实体更改
 
-awa
+awa(这个我真不会qwq, 等我以后用到了学会了一定写)
 ![未完待续](../assets/images/未完待续.png)
 
 
 # 结构移动
+
+```js
+scene.world.moveSection(arg0: Internal.ElementLink_<Internal.WorldSectionElement>, arg1: Vec3d_, arg2: number)
+```
+这个是目前用的最多的语句
+
+可以看到在ProbeJS中显示需要3个参数, 来逐个解释一下
+
+首先第一个
+
+```ts
+Internal.ElementLink_<Internal.WorldSectionElement>
+```
+
+这个是一个`世界元素结构`, 换句话说, 这个参数需要填入`结构`, 例如
+
+```js
+scene.world.moveSection(scene.world.showIndependentSection([1, 1, 1, 1, 1, 1], Direction.DOWN))
+```
+
+但是可以看到, 这个...长度不是一般的长...所以还是定义一个变量吧()
+
+```js
+let showSection = scene.world.showIndependentSection([1, 1, 1, 1, 1, 1], Direction.DOWN)
+
+scene.world.moveSection(showSection)
+```
+
+第二个参数是需要移动的相对距离, 从第一个参数的结构为中心开始算, 例如说你要让结构Y轴向下移动6个格子, 你就写
+
+```js
+let showSection = scene.world.showIndependentSection([1, 1, 1, 1, 1, 1], Direction.DOWN)
+
+scene.world.moveSection(showSection, [0, - 6, 0])
+```
+
+第三个参数是结构移动的速度(单位Tick), 你想要让结构立刻移动到对应位置就写0, 如果想要他的速度是1秒就写20
+
+```js
+let showSection = scene.world.showIndependentSection([1, 1, 1, 1, 1, 1], Direction.DOWN)
+
+scene.world.moveSection(showSection, [0, - 6, 0], 20)
+```
