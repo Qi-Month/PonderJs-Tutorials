@@ -330,14 +330,9 @@ scene.world.modifyBlock([1, 1, 1], (state) => state.with("facing", "DOWN"), fals
 
 //将2, 2, 2处的方块的Eye属性改为True(让末地传送门框架放上末影之眼), 产生破坏粒子
 scene.world.modifyBlock([2, 2, 2], (state) => state.with("Eye", "true"), true)
-
-// 你也可以写成
-scene.world.modifyBlock([2, 2, 2], (state) => {
-	return state.with("Eye", "true"), true
-})
-// 但是...没必要不是..
 ```
-# 修改方块nbt
+
+# 修改方块NBT
 ![盛水的流体储罐](../assets/images/盛水的流体储罐.png)
 ![流体储罐的方块状态](../assets/images/流体储罐的方块状态.png)
 如图，这个流体储罐里有1000mB水，但是方块状态里并没有存储相关信息。
@@ -373,6 +368,8 @@ scene.world.modifyTileNBT([3, 3, 2], (nbt) => {
     ]
 })
 ```
+
+复杂的NBT讲解, [**NBT进阶**](/Ponder/advanced/NBT.md)
 
 > 方块nbt的修改实际上涉及到了方块实体, SNBT相关知识.
 > 
