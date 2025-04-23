@@ -555,3 +555,158 @@ let showSection = scene.world.showIndependentSection([1, 1, 1, 1, 1, 1], Directi
 
 scene.world.moveSection(showSection, [0, - 6, 0], 20)
 ```
+
+# 结构淡出
+
+让一个结构显示进入视野很简单, 同样让一个结构淡出视野同样很简单
+
+```js
+scene.world.hideIndependentSection(arg0: Internal.ElementLink_<Internal.WorldSectionElement>, arg1: Internal.Direction_)
+```
+
+根据ProbeJS的提示, 第一个参数和上面的`moveSection`一样, 填入一个结构, 第二个参数就很简单了, 单纯是一个淡出的方向
+
+示例效果~~(我实在是懒得写一个新的...所以就从整合包里面扒拉出来的凑合看吧)~~
+
+![淡出](/assets/images/淡出.gif)
+
+这一段的完整代码
+
+```js
+scene.showBasePlate()
+scene.idle(20)
+scene.scaleSceneView(0.8)
+scene.addKeyframe()
+let move0 = scene.world.showIndependentSection([4, 1, 2], Direction.WEST)
+scene.world.moveSection(move0, [-2, 0, 0], 0)
+scene.idle(20)
+scene.overlay.showOutline("blue", {}, [2, 1, 2], 90)
+// 如果想要使用水泵
+scene.text(40, "If you want to use the water pump", [2, 1.5, 2])
+scene.idle(45)
+// 你需要先搭建一个完整的结构
+scene.text(40, "You need to build a complete structure first", [2, 1.5, 2])
+scene.idle(50)
+scene.world.hideIndependentSection(move0, Direction.UP)
+scene.idle(20)
+```
+
+下图为水泵的结构图片
+![水泵结构](/assets/images/水泵结构.png)
+
+水泵的完整代码(该思索场景不提供结构文件)
+
+<details open>
+<summary>点击展开或收起</summary>
+
+```js
+Ponder.registry((event) => {
+	event.create(["ue_addons:water_pump", "minecraft:water_bucket"])
+		.tag("ue_addons:ponder")
+		.scene("ue_addons:water_pump", "Water Pump", "ue_addons:multiblock/water_pump", (scene) => {
+			scene.showBasePlate()
+			scene.idle(20)
+			scene.scaleSceneView(0.8)
+
+			scene.addKeyframe()
+			let move0 = scene.world.showIndependentSection([4, 1, 2], Direction.WEST)
+			scene.world.moveSection(move0, [-2, 0, 0], 0)
+			scene.idle(20)
+			scene.overlay.showOutline("blue", {}, [2, 1, 2], 90)
+			// 如果想要使用水泵
+			scene.text(40, "If you want to use the water pump", [2, 1.5, 2])
+			scene.idle(45)
+			// 你需要先搭建一个完整的结构
+			scene.text(40, "You need to build a complete structure first", [2, 1.5, 2])
+			scene.idle(50)
+			scene.world.hideIndependentSection(move0, Direction.UP)
+			scene.idle(20)
+
+			scene.addKeyframe()
+			let block1 = [
+				[3, 1, 3], [2, 1, 3], [1, 1, 3],
+				[3, 1, 2], [1, 1, 2],
+				[3, 1, 1], [2, 1, 1], [1, 1, 1]
+			]
+			block1.forEach((pos) => {
+				scene.world.showSection(pos, Direction.DOWN)
+				scene.idle(2)
+			})
+			scene.idle(20)
+
+			scene.addKeyframe()
+			let block2 = [
+				[3, 2, 3], [1, 2, 3],
+				[3, 2, 1], [1, 2, 1],
+
+				[3, 3, 3], [1, 3, 3],
+				[3, 3, 1], [1, 3, 1]
+			]
+			block2.forEach((pos) => {
+				scene.world.showSection(pos, Direction.DOWN)
+				scene.idle(2)
+			})
+			scene.idle(20)
+
+			scene.addKeyframe()
+			let block3 = [
+				[3, 4, 3], [2, 4, 3], [1, 4, 3],
+				[3, 4, 2], [1, 4, 2],
+				[3, 4, 1], [2, 4, 1], [1, 4, 1]
+			]
+			block3.forEach((pos) => {
+				scene.world.showSection(pos, Direction.DOWN)
+				scene.idle(2)
+			})
+			scene.idle(20)
+			// 4个朝内的楼梯
+			scene.text(40, "4 inward facing stairs")
+			let positions = [
+				[2, 4, 1],
+				[3, 4, 2],
+				[2, 4, 3],
+				[1, 4, 2]
+			]
+			positions.forEach((pos) => {
+				scene.overlay.showOutline("blue", {}, pos, 50)
+			})
+			scene.idle(50)
+			// 最后放上机器本体
+			scene.text(40, "Finally, put on the machine body")
+			scene.world.showSection([2, 1, 2], Direction.DOWN)
+			scene.idle(40)
+
+			scene.addKeyframe()
+			// 在结构搭建好后便可以用管道抽水了
+			scene.text(40, "After the structure is built, the pipeline can be used to pump water")
+			scene.idle(45)
+
+			let move1 = [
+				[3, 4, 3], [2, 4, 3], [1, 4, 3],
+				[3, 4, 2], [1, 4, 2],
+				[3, 4, 1], [2, 4, 1], [1, 4, 1]
+			]
+			move1.forEach((pos) => {
+				scene.world.hideSection(pos, Direction.UP)
+			})
+			scene.idle(20)
+
+			let block4 = [
+				[1, 2, 2],
+				[0, 2, 1],
+				[2, 2, 2],
+				[2, 3, 2],
+				[2, 4, 2],
+				[3, 5, 1, 1, 8, 3]
+			]
+			block4.forEach((pos) => {
+				scene.world.showSection(pos, Direction.DOWN)
+				scene.idle(5)
+			})
+			scene.world.showSection([3, 4, 1, 1, 4, 3], Direction.UP)
+			scene.idle(20)
+		})
+})
+```
+
+</details>
