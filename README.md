@@ -43,7 +43,7 @@ Ponder.tags((event) => {})
 ## 所需要的工具
 
 - 七根木棍(梯子)(仅仅只是为了确保 GitHub 稳定性, 教程中包含大量的图, 如果因为连接的不稳定而看不到图将会是**最大的损失**)
-- 实在没有梯子加速器也可以, 这里比较推荐[**Watt Toolkit**](https://steampp.net)
+- 实在没有梯子加速器也可以, 这里比较推荐[**Watt Toolkit**](https://steampp.net)(前世**Steam++**)
 - [Ponder for KubeJS](https://www.mcmod.cn/class/7205.html)(1.18.2 及以上), 以及它们的前置
 - [ProbeJS](https://www.mcmod.cn/class/6486.html)
 - 那么 **一丢丢** 🌌🤏 的 KubeJS 基础
