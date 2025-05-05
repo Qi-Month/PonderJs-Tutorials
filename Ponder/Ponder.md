@@ -6,7 +6,7 @@
 
 > 为什么教程中的图会有紫黑色的方块
 
-因为在本篇教程的同时我也在制作[整合包](https://www.mcmod.cn/modpack/709.html), 图中的紫黑色方块是我使用`KubeJS`注册的一个新方块.由于录制的时间不同, 紫黑色是还未有贴图的时候, Minecraft 自身的规则是没有贴图会自动渲染成紫黑色的方块, 后面有了贴图自然也就不一样了
+因为在本篇教程的同时我也在制作整合包, 图中的紫黑色方块是我使用`KubeJS`注册的一个新方块.由于录制的时间不同, 紫黑色是还未有贴图的时候, Minecraft 自身的规则是没有贴图会自动渲染成紫黑色的方块, 后面有了贴图自然也就不一样了
 
 <details>
 
@@ -27,6 +27,9 @@
 	<li><a href="#操作交互">操作交互</a></li>
 	<li><a href="#掉落物">掉落物</a></li>
 	<li><a href="#实体">创建实体</a></li>
+	<li><a href="#实体更改">实体更改</a></li>
+	<li><a href="#结构移动">结构移动</a></li>
+	<li><a href="#结构淡出">结构淡出</a></li>
   </ol>
 </details>
 
@@ -68,8 +71,14 @@ Ponder.registry((event) => {
 		.scene(
 			"kubejs:submarine", // Ponder ID
 			"潜水艇 ", // 侧边显示的标题
-			(scene, utils) => {
+			(scene) => {
 				// 在 { } 内的即是此场景的内容
+				/**
+				* 写给熟悉的开发者的话, 免得你们喷我(委屈)
+				* 对于1.18.2及以上版本的PonderJS来说不需要传"utils"参数, 只要传入scene参数即可
+				* 需要用到"utils"参数的基本都可以通过[ ]进行实现, 例如坐标的[1, 2, 3]和[1, 2, 3, 4, 5, 6]
+				* 但如果你是低版本请正常传入"utils"参数
+				*/
 			}
 		)
 })
@@ -77,7 +86,7 @@ Ponder.registry((event) => {
 // 下面是无注释的写法↓
 Ponder.registry((event) => {
 	event.create("kubejs:submarine_core")
-		.scene("kubejs:submarine", "潜水艇 ", (scene, utils) => {})
+		.scene("kubejs:submarine", "潜水艇 ", (scene) => {})
 })
 ```
 
@@ -89,16 +98,16 @@ Ponder.registry((event) => {
 // 1 .scene() 后面直接在接一个 .scene()
 Ponder.registry((event) => {
     event.create("kubejs:submarine_core")
-        .scene("kubejs:submarine_1", "潜水艇", (scene, utils) => {
+        .scene("kubejs:submarine_1", "潜水艇", (scene) => {
             // 场景1
         })
-        .scene("kubejs:submarine_2", "潜水艇 ", (scene, utils) => {
+        .scene("kubejs:submarine_2", "潜水艇 ", (scene) => {
         	// 场景2
         })
 
         // 2 另外开一个, 实际上, 即使是在另一个档案中创建也行
     event.create("kubejs:submarine_core")
-        .scene("kubejs:submarine_3", "潜水艇", (scene, utils) => {
+        .scene("kubejs:submarine_3", "潜水艇", (scene) => {
       		// 场景3
     	})
 })
@@ -120,6 +129,13 @@ Ponder.registry((event) => {
 // 其三个参数分别用于配置: X偏移, Z偏移以及地板大小(x < 0 即是东移, z 同理)
 // P.S 内建地板最多5x5, n>5时, 范围会出现, 但只会设置5x5的方块
 scene.configureBasePlate(x, z, n)
+```
+
+(这个其实可有可无, 更建议直接显示地板)
+
+```js
+scene.showBasePlate()
+scene.idle(20)
 ```
 
 ## 2. 自己准备起始结构
@@ -153,8 +169,8 @@ Ponder.registry((event) => {
 		.scene(
 			"kubejs:submarine", 
 			"潜水艇 ", 
-			"kubejs:submarine", // 读取的结构文件名称, 可于 kubejs/assets/kubejs/ponder/自行下载
-			(scene, utils) => {
+			"kubejs:submarine", // 读取的结构文件名称, 可于kubejs/assets/kubejs/ponder/自行下载
+			(scene) => {
 
 			})
 })
@@ -162,7 +178,7 @@ Ponder.registry((event) => {
 // 下面是无注释的写法↓
 Ponder.registry((event) => {
     event.create("kubejs:submarine_core")
-	    .scene("kubejs:submarine", "潜水艇 ", "kubejs:submarine", (scene, utils) => {})
+	    .scene("kubejs:submarine", "潜水艇 ", "kubejs:submarine", (scene) => {})
 })
 ```
 
@@ -230,8 +246,7 @@ scene.idleSeconds(1)
 ```js
 Ponder.registry((event) => {
     event.create("kubejs:submarine_core")
-        .scene("kubejs:submarine", "潜水艇", "kubejs:submarine", (scene, utils) => {
-
+        .scene("kubejs:submarine", "潜水艇", "kubejs:submarine", (scene) => {
         // 显示底盘, 同时等待 20 Tick
         scene.showBasePlate()
         scene.idle(20)
@@ -418,10 +433,10 @@ scene.text(30, "文本").attachKeyFrame()
 ![包边](../assets/images/包边.png)
 
 ```js
-/*
- *red 指的是边框的颜色, 但是Ponder场景自身似乎支持的颜色并不多
- *坐标的选取可以和上面的一样直接选择一个区域, 就如同图里的一样
- */
+/**
+ * red 指的是边框的颜色, 但是Ponder场景自身似乎支持的颜色并不多
+ * 坐标的选取可以和上面的一样直接选择一个区域, 就如同图里的一样
+*/
 scene.overlay.showOutline("red", {}, [7, 1, 3, 3, 5, 7], 30)
 ```
 
