@@ -49,3 +49,8 @@ Ponder.tags((event) => {})
 - 那么 **一丢丢** 🌌🤏 的 KubeJS 基础
 
 直接开始的[**传送门**](Ponder/Ponder.md)
+
+
+> [!NOTE]
+> 本教程针对的是`1.18.2`-`1.20.1`的PonderJS, 并且不包括`Create 6.0`以上的版本, Create 6.0及以上的版本的PonderJS语法经历了一次冲洗, 短时间内不会更新高版本的PonderJS教程, 如果你需要使用高版本的PonderJS, 请自行搜索相关教程。
+> 在更新后我会修改这边, 并贴上新分支的链接, 还请谅解!
